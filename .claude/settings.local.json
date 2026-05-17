@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -i \"s|from '\\\\.\\\\./home/components/|from '../components/|g\" \"c:/Users/ingbe/Documents/Projects/React Projects/DreamSoftWebApp/src/apps/landing/home/pages/HomePage.tsx\")",
+      "Bash(sed -i 's|\"\\\\.\\\\./styles/landing\\\\.css\"|\"../../styles/landing.css\"|g' \"c:/Users/ingbe/Documents/Projects/React Projects/DreamSoftWebApp/src/apps/landing/home/pages/HomePage.tsx\")",
+      "Bash(npx tsc *)",
+      "mcp__stitch__list_projects",
+      "mcp__stitch__list_screens",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\ingbe\\\\Documents\\\\Projects\\\\React Projects\\\\DreamSoftWebApp\" -Force)",
+      "Bash(Select-Object Name, FullName)",
+      "WebFetch(domain:contribution.usercontent.google.com)",
+      "Bash(npm install *)",
+      "Bash(grep -rn \"#[0-9a-fA-F]\\\\{3,6\\\\}\" src/apps/landingapp/dashboard/ src/apps/tenant/pages/DashboardPage.tsx)",
+      "Bash(npm run *)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\ingbe\\\\Documents\\\\Projects\\\\React Projects\\\\DreamSoftWebApp\\\\src\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\ingbe\\\\Documents\\\\Projects\\\\React Projects\\\\DreamSoftWebApp\\\\src\\\\shared\\\\types\" -File)",
+      "Bash(Remove-Item \"c:\\\\Users\\\\ingbe\\\\Documents\\\\Projects\\\\React Projects\\\\DreamSoftWebApp\\\\src\\\\shared\\\\types\\\\app-feature.types.ts\", \"c:\\\\Users\\\\ingbe\\\\Documents\\\\Projects\\\\React Projects\\\\DreamSoftWebApp\\\\src\\\\shared\\\\types\\\\pricing.types.ts\", \"c:\\\\Users\\\\ingbe\\\\Documents\\\\Projects\\\\React Projects\\\\DreamSoftWebApp\\\\src\\\\shared\\\\types\\\\solution.types.ts\")"
+    ]
+  }
+}

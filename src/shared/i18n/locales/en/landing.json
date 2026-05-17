@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "badge": "All-in-one ERP Platform",
+    "headline1": "Run your business",
+    "headline2": "smarter",
+    "headline3": ", not harder",
+    "subtext": "The all-in-one ERP platform for modern teams. Invoicing, customers, inventory, HR — all in one place, from day one.",
+    "ctaPrimary": "Start free trial",
+    "ctaSecondary": "See features →",
+    "socialProof": "Trusted by <strong>{{count}}+</strong> businesses worldwide"
+  },
+  "logos": {
+    "trustedBy": "Trusted by teams at"
+  },
+  "solutions": {
+    "badge": "Solutions",
+    "title": "Built for your industry",
+    "subtitle": "DreamSoft adapts to the way your business works — not the other way around.",
+    "errors": {
+      "loadFailed": "Failed to load solutions."
+    }
+  },
+  "features": {
+    "badge": "Features",
+    "title": "Everything you need to run your business",
+    "subtitle": "Powerful ERP capabilities built for modern teams — no complexity, no bloat.",
+    "errors": {
+      "loadFailed": "Failed to load features."
+    }
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title": "Simple, transparent pricing",
+    "subtitle": "Start with a free trial. No credit card required.",
+    "billingCycles": {
+      "monthly": "Monthly",
+      "quarterly": "Quarterly",
+      "annual": "Annual"
+    },
+    "savings": {
+      "quarterly": "Save 10%",
+      "annual": "Save 20%"
+    },
+    "trialBadge": "{{days}}-day free trial",
+    "mostPopular": "Most Popular",
+    "ctaButton": "Start {{days}}-day trial",
+    "unlimited": "Unlimited",
+    "limits": {
+      "max_invoices_per_month": "Invoices / month",
+      "max_products": "Products",
+      "max_users": "Users",
+      "max_warehouses": "Warehouses"
+    },
+    "errors": {
+      "loadFailed": "Failed to load pricing plans."
+    }
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "What our customers say",
+    "subtitle": "Hundreds of teams trust DreamSoft to run their daily operations."
+  },
+  "cta": {
+    "title": "Ready to transform your business?",
+    "subtitle": "Start your 14-day free trial today. No credit card required. Cancel anytime.",
+    "ctaPrimary": "Get started for free",
+    "ctaSecondary": "View pricing",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign in"
+  },
+  "onboarding": {
+    "title": "Welcome to DreamSoft!",
+    "subtitle": "Let's get your workspace set up.",
+    "goToDashboard": "Go to Dashboard"
+  }
+}

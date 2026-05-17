@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import "./styles/index.css";
+
+/* ========================================
+   TAILWIND v4 — THEME REGISTRATION
+   Maps CSS variables → Tailwind utility classes
+   e.g. bg-primary-500, text-primary-600, etc.
+   ======================================== */
+
+@theme {
+  /* Primary (Teal) */
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+  --color-primary-950: #042f2e;
+
+  /* Secondary (Emerald) */
+  --color-secondary-50: #ecfdf5;
+  --color-secondary-100: #d1fae5;
+  --color-secondary-200: #a7f3d0;
+  --color-secondary-300: #6ee7b7;
+  --color-secondary-400: #34d399;
+  --color-secondary-500: #10b981;
+  --color-secondary-600: #059669;
+  --color-secondary-700: #047857;
+  --color-secondary-800: #065f46;
+  --color-secondary-900: #064e3b;
+  --color-secondary-950: #022c22;
+
+  /* Accent (Cyan) */
+  --color-accent-50: #ecfeff;
+  --color-accent-100: #cffafe;
+  --color-accent-200: #a5f3fc;
+  --color-accent-300: #67e8f9;
+  --color-accent-400: #22d3ee;
+  --color-accent-500: #06b6d4;
+  --color-accent-600: #0891b2;
+  --color-accent-700: #0e7490;
+  --color-accent-800: #155e75;
+  --color-accent-900: #164e63;
+  --color-accent-950: #083344;
+
+  /* Gray */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  /* Font */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ========================================
+   GLOBAL RESET & BASE STYLES
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  /* Subtle brand gradient — fixed so it stays put while sections scroll over it */
+  background: linear-gradient(135deg,
+      #14b8a6 0%,
+      /* teal-tinted white, top-left   */
+      #6ee7b7 35%,
+      /* near-white center              */
+      #f9fafb 65%,
+      /* near-white center              */
+      #67e8f9 100%
+      /* cyan-tinted white, bottom-right */
+    );
+  background-attachment: fixed;
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR STYLING
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
+}
+
+/* ========================================
+   CUSTOM GRADIENT UTILITIES
+   ======================================== */
+
+.bg-gradient-primary {
+  background: linear-gradient(to bottom right, #14b8a6, #0f766e);
+}
+
+.bg-gradient-primary-light {
+  background: linear-gradient(to bottom right, #2dd4bf, #0d9488);
+}
+
+.bg-gradient-primary-dark {
+  background: linear-gradient(to bottom right, #0d9488, #134e4a);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(to bottom right, #10b981, #047857);
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(to bottom right, #06b6d4, #0e7490);
+}
+
+.logo-badge-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+}

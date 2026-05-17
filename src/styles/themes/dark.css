@@ -1,0 +1,56 @@
+/**
+ * Dark Theme
+ *
+ * This file defines the dark theme for DreamSoft WebApp.
+ * Colors are optimized for reduced eye strain and accessibility in dark mode.
+ */
+
+[data-theme='dark'] {
+  /* Text colors for dark theme */
+  --color-text-primary: var(--color-gray-50);
+  --color-text-secondary: var(--color-gray-300);
+  --color-text-tertiary: var(--color-gray-400);
+  --color-text-disabled: var(--color-gray-600);
+  --color-text-inverse: var(--color-gray-900);
+
+  /* Background colors for dark theme */
+  --color-bg-primary: var(--color-gray-900);
+  --color-bg-secondary: var(--color-gray-800);
+  --color-bg-tertiary: var(--color-gray-700);
+  --color-bg-hover: var(--color-gray-800);
+  --color-bg-active: var(--color-gray-700);
+  --color-bg-disabled: var(--color-gray-800);
+
+  /* Border colors for dark theme */
+  --color-border-light: var(--color-gray-700);
+  --color-border-medium: var(--color-gray-600);
+  --color-border-dark: var(--color-gray-500);
+
+  /* Component colors for dark theme */
+  --card-bg: var(--color-gray-800);
+  --card-border: var(--color-gray-700);
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+
+  --navbar-bg: var(--color-gray-900);
+  --navbar-text: var(--color-text-primary);
+  --navbar-border: var(--color-gray-800);
+
+  --sidebar-bg: var(--color-gray-950);
+  --sidebar-text: var(--color-gray-400);
+  --sidebar-text-hover: var(--color-gray-50);
+
+  --input-bg: var(--color-gray-800);
+  --input-border: var(--color-gray-700);
+  --input-text: var(--color-text-primary);
+
+  /* Adjust shadows for dark mode */
+  --color-shadow-sm: rgba(0, 0, 0, 0.3);
+  --color-shadow-md: rgba(0, 0, 0, 0.4);
+  --color-shadow-lg: rgba(0, 0, 0, 0.5);
+  --color-shadow-xl: rgba(0, 0, 0, 0.6);
+}
+
+/* Dark theme root settings */
+[data-theme='dark'] {
+  color-scheme: dark;
+}

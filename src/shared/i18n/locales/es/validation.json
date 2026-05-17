@@ -1,0 +1,17 @@
+{
+  "required": "Este campo es obligatorio.",
+  "email": "Por favor ingresa un correo electrónico válido.",
+  "minLength": "Debe tener al menos {{count}} caracteres.",
+  "maxLength": "No debe tener más de {{count}} caracteres.",
+  "passwordMatch": "Las contraseñas no coinciden.",
+  "passwordStrength": "La contraseña debe contener al menos una mayúscula, un número y un carácter especial.",
+  "phoneInvalid": "Por favor ingresa un número de teléfono válido.",
+  "subdomainInvalid": "El subdominio solo puede contener letras, números y guiones.",
+  "subdomainTaken": "Este subdominio ya está en uso.",
+  "urlInvalid": "Por favor ingresa una URL válida.",
+  "numberPositive": "Debe ser un número positivo.",
+  "numberInteger": "Debe ser un número entero.",
+  "dateInvalid": "Por favor ingresa una fecha válida.",
+  "fileTooLarge": "El tamaño del archivo supera el máximo permitido ({{max}}).",
+  "fileTypeInvalid": "Tipo de archivo no compatible."
+}

@@ -1,0 +1,49 @@
+{
+  "app": {
+    "name": "DreamSoft",
+    "tagline": "The all-in-one ERP platform for modern teams"
+  },
+  "nav": {
+    "solutions": "Solutions",
+    "features": "Features",
+    "pricing": "Pricing",
+    "signIn": "Sign in",
+    "getStarted": "Get started free"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "loading": "Loading...",
+    "retry": "Retry"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "pending": "Pending",
+    "error": "Error"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "notFound": "The requested resource was not found.",
+    "unauthorized": "You are not authorized to perform this action.",
+    "serverError": "Server error. Please try again later."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies"
+  },
+  "language": {
+    "label": "Language",
+    "select": "Select language"
+  }
+}

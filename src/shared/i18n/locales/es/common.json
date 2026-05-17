@@ -1,0 +1,49 @@
+{
+  "app": {
+    "name": "DreamSoft",
+    "tagline": "La plataforma ERP todo en uno para equipos modernos"
+  },
+  "nav": {
+    "solutions": "Soluciones",
+    "features": "Características",
+    "pricing": "Precios",
+    "signIn": "Iniciar sesión",
+    "getStarted": "Comenzar gratis"
+  },
+  "actions": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "submit": "Enviar",
+    "loading": "Cargando...",
+    "retry": "Reintentar"
+  },
+  "status": {
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "pending": "Pendiente",
+    "error": "Error"
+  },
+  "errors": {
+    "generic": "Algo salió mal. Por favor intenta de nuevo.",
+    "network": "Error de red. Por favor verifica tu conexión.",
+    "notFound": "El recurso solicitado no fue encontrado.",
+    "unauthorized": "No tienes autorización para realizar esta acción.",
+    "serverError": "Error del servidor. Por favor intenta más tarde."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "cookies": "Cookies"
+  },
+  "language": {
+    "label": "Idioma",
+    "select": "Seleccionar idioma"
+  }
+}

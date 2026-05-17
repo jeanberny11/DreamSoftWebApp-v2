@@ -1,0 +1,27 @@
+{
+  "title": "Dashboard",
+  "welcome": "Welcome back, {{name}}!",
+  "selectModule": "Select a module",
+  "selectModuleDescription": "Choose a module to get started.",
+  "sidebar": {
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar"
+  },
+  "topbar": {
+    "toggleSidebar": "Toggle sidebar"
+  },
+  "errors": {
+    "loadModulesFailed": "Failed to load modules. Please try again.",
+    "noModulesAvailable": "No modules are available for your account."
+  },
+  "pages": {
+    "notFound": {
+      "title": "Page Not Found",
+      "subtitle": "The page you're looking for doesn't exist or has been moved."
+    },
+    "forbidden": {
+      "title": "Access Denied",
+      "subtitle": "You don't have permission to view this page."
+    }
+  }
+}

@@ -1,0 +1,45 @@
+/**
+ * Light Theme
+ *
+ * This file defines the light theme for DreamSoft WebApp.
+ * Colors are optimized for readability and accessibility in light mode.
+ */
+
+[data-theme='light'] {
+  /* Text colors for light theme */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-text-disabled: var(--color-gray-400);
+  --color-text-inverse: #ffffff;
+
+  /* Background colors for light theme */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: var(--color-gray-50);
+  --color-bg-tertiary: var(--color-gray-100);
+  --color-bg-hover: var(--color-gray-100);
+  --color-bg-active: var(--color-gray-200);
+  --color-bg-disabled: var(--color-gray-100);
+
+  /* Border colors for light theme */
+  --color-border-light: var(--color-gray-200);
+  --color-border-medium: var(--color-gray-300);
+  --color-border-dark: var(--color-gray-400);
+
+  /* Component colors */
+  --card-bg: #ffffff;
+  --card-border: var(--color-border-light);
+
+  --navbar-bg: #ffffff;
+  --navbar-text: var(--color-text-primary);
+  --navbar-border: var(--color-border-light);
+
+  --sidebar-bg: var(--color-gray-900);
+  --sidebar-text: var(--color-gray-300);
+  --sidebar-text-hover: #ffffff;
+}
+
+/* Default theme is light */
+:root {
+  color-scheme: light;
+}

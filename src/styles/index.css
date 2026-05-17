@@ -1,0 +1,24 @@
+/* src/styles/index.css
+ *
+ * Styles bundle — import this single file instead of each style separately.
+ *
+ * Import Order:
+ * 1. CSS Variables (color definitions)
+ * 2. Theme files (light/dark)
+ */
+
+@import "./variables.css";
+@import "./themes/light.css";
+@import "./themes/dark.css";
+
+/* ========================================
+   3. PRIMEREACT THEME OVERRIDES
+   Custom theming for PrimeReact components
+   Must come after variables.css to use CSS variables
+   ======================================== */
+@import "./primereact-theme.css";
+
+/* ========================================
+   5. FEATURE-SPECIFIC STYLES
+   Dashboard and other feature styles
+   ======================================== */

@@ -1,0 +1,180 @@
+/**
+ * DreamSoft WebApp - Color Variables
+ * Modern Teal Color Scheme
+ *
+ * This file defines all color variables used throughout the application.
+ * Colors are organized into:
+ * - Primary (Teal) - Main brand color
+ * - Secondary (Emerald) - Supporting color
+ * - Accent (Cyan) - Highlight color
+ * - Semantic (Success, Warning, Error, Info)
+ * - Neutral (Grays for text and backgrounds)
+ */
+
+:root {
+  /* ===== PRIMARY COLORS (Teal) ===== */
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;  /* Main primary color */
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+  --color-primary-950: #042f2e;
+
+  /* ===== SECONDARY COLORS (Emerald) ===== */
+  --color-secondary-50: #ecfdf5;
+  --color-secondary-100: #d1fae5;
+  --color-secondary-200: #a7f3d0;
+  --color-secondary-300: #6ee7b7;
+  --color-secondary-400: #34d399;
+  --color-secondary-500: #10b981;  /* Main secondary color */
+  --color-secondary-600: #059669;
+  --color-secondary-700: #047857;
+  --color-secondary-800: #065f46;
+  --color-secondary-900: #064e3b;
+  --color-secondary-950: #022c22;
+
+  /* ===== ACCENT COLORS (Cyan) ===== */
+  --color-accent-50: #ecfeff;
+  --color-accent-100: #cffafe;
+  --color-accent-200: #a5f3fc;
+  --color-accent-300: #67e8f9;
+  --color-accent-400: #22d3ee;
+  --color-accent-500: #06b6d4;  /* Main accent color */
+  --color-accent-600: #0891b2;
+  --color-accent-700: #0e7490;
+  --color-accent-800: #155e75;
+  --color-accent-900: #164e63;
+  --color-accent-950: #083344;
+
+  /* ===== SEMANTIC COLORS ===== */
+
+  /* Success (Green) */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;  /* Main success color */
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+
+  /* Warning (Amber) */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;  /* Main warning color */
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+
+  /* Error (Red) */
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;  /* Main error color */
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+
+  /* Info (Blue) */
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-200: #bfdbfe;
+  --color-info-300: #93c5fd;
+  --color-info-400: #60a5fa;
+  --color-info-500: #3b82f6;  /* Main info color */
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+  --color-info-800: #1e40af;
+  --color-info-900: #1e3a8a;
+
+  /* ===== NEUTRAL COLORS (Grays) ===== */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  /* ===== TEXT COLORS ===== */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-text-disabled: var(--color-gray-400);
+  --color-text-inverse: #ffffff;
+
+  /* ===== BACKGROUND COLORS ===== */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: var(--color-gray-50);
+  --color-bg-tertiary: var(--color-gray-100);
+  --color-bg-hover: var(--color-gray-100);
+  --color-bg-active: var(--color-gray-200);
+  --color-bg-disabled: var(--color-gray-100);
+
+  /* ===== BORDER COLORS ===== */
+  --color-border-light: var(--color-gray-200);
+  --color-border-medium: var(--color-gray-300);
+  --color-border-dark: var(--color-gray-400);
+  --color-border-focus: var(--color-primary-500);
+
+  /* ===== SHADOW COLORS ===== */
+  --color-shadow-sm: rgba(0, 0, 0, 0.05);
+  --color-shadow-md: rgba(0, 0, 0, 0.1);
+  --color-shadow-lg: rgba(0, 0, 0, 0.15);
+  --color-shadow-xl: rgba(0, 0, 0, 0.2);
+
+  /* ===== COMPONENT-SPECIFIC COLORS ===== */
+
+  /* Buttons */
+  --btn-primary-bg: var(--color-primary-500);
+  --btn-primary-bg-hover: var(--color-primary-600);
+  --btn-primary-bg-active: var(--color-primary-700);
+  --btn-primary-text: #ffffff;
+
+  --btn-secondary-bg: var(--color-secondary-500);
+  --btn-secondary-bg-hover: var(--color-secondary-600);
+  --btn-secondary-bg-active: var(--color-secondary-700);
+  --btn-secondary-text: #ffffff;
+
+  /* Inputs */
+  --input-bg: #ffffff;
+  --input-border: var(--color-border-medium);
+  --input-border-focus: var(--color-primary-500);
+  --input-text: var(--color-text-primary);
+  --input-placeholder: var(--color-text-tertiary);
+
+  /* Cards */
+  --card-bg: #ffffff;
+  --card-border: var(--color-border-light);
+  --card-shadow: 0 1px 3px var(--color-shadow-sm), 0 1px 2px var(--color-shadow-sm);
+
+  /* Sidebar */
+  --sidebar-bg: var(--color-gray-900);
+  --sidebar-text: var(--color-gray-300);
+  --sidebar-text-hover: #ffffff;
+  --sidebar-active-bg: var(--color-primary-600);
+  --sidebar-active-text: #ffffff;
+
+  /* Navbar */
+  --navbar-bg: #ffffff;
+  --navbar-text: var(--color-text-primary);
+  --navbar-border: var(--color-border-light);
+}

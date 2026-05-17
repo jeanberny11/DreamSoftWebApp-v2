@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "badge": "Plataforma ERP todo en uno",
+    "headline1": "Gestiona tu negocio de forma más",
+    "headline2": "inteligente",
+    "headline3": ", no trabajando mas duro",
+    "subtext": "La plataforma ERP todo en uno para equipos modernos. Facturación, clientes, inventario, RRHH — todo en un solo lugar, desde el primer día.",
+    "ctaPrimary": "Comenzar prueba gratis",
+    "ctaSecondary": "Ver las características →",
+    "socialProof": "Con la confianza de más de <strong>{{count}}+</strong> empresas en todo el mundo"
+  },
+  "logos": {
+    "trustedBy": "Con la confianza de equipos en"
+  },
+  "solutions": {
+    "badge": "Soluciones",
+    "title": "Diseñado para tu industria",
+    "subtitle": "DreamSoft se adapta a la forma en que trabaja tu negocio — no al revés.",
+    "errors": {
+      "loadFailed": "Error al cargar las soluciones."
+    }
+  },
+  "features": {
+    "badge": "Características",
+    "title": "Todo lo que necesitas para gestionar tu negocio",
+    "subtitle": "Potentes capacidades ERP para equipos modernos — sin complejidad, sin excesos.",
+    "errors": {
+      "loadFailed": "Error al cargar las características."
+    }
+  },
+  "pricing": {
+    "badge": "Precios",
+    "title": "Precios simples y transparentes",
+    "subtitle": "Comienza con una prueba gratuita. Sin tarjeta de crédito.",
+    "billingCycles": {
+      "monthly": "Mensual",
+      "quarterly": "Trimestral",
+      "annual": "Anual"
+    },
+    "savings": {
+      "quarterly": "Ahorra 10%",
+      "annual": "Ahorra 20%"
+    },
+    "trialBadge": "Prueba de {{days}} días",
+    "mostPopular": "Más Popular",
+    "ctaButton": "Comenzar prueba de {{days}} días",
+    "unlimited": "Ilimitado",
+    "limits": {
+      "max_invoices_per_month": "Facturas / mes",
+      "max_products": "Productos",
+      "max_users": "Usuarios",
+      "max_warehouses": "Almacenes"
+    },
+    "errors": {
+      "loadFailed": "Error al cargar los planes de precios."
+    }
+  },
+  "testimonials": {
+    "badge": "Testimonios",
+    "title": "Lo que dicen nuestros clientes",
+    "subtitle": "Cientos de equipos confían en DreamSoft para sus operaciones diarias."
+  },
+  "cta": {
+    "title": "¿Listo para transformar tu negocio?",
+    "subtitle": "Comienza tu prueba gratuita de 14 días hoy. Sin tarjeta de crédito. Cancela cuando quieras.",
+    "ctaPrimary": "Comenzar gratis",
+    "ctaSecondary": "Ver precios",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "signIn": "Iniciar sesión"
+  },
+  "onboarding": {
+    "title": "¡Bienvenido a DreamSoft!",
+    "subtitle": "Configuremos tu espacio de trabajo.",
+    "goToDashboard": "Ir al panel"
+  }
+}
