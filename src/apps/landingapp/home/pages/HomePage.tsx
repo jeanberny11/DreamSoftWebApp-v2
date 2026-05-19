@@ -9,7 +9,6 @@ import { PricingSection } from '../components/PricingSection'
 import { TestimonialsSection } from '../components/TestimonialsSection'
 import { CtaSection } from '../components/CtaSection'
 import { Footer } from '../components/Footer'
-import { LanguageSwitcher } from '@/shared/components/LanguageSwitcher'
 import "../styles/home_page.css"
 
 export function HomePage() {
@@ -20,12 +19,8 @@ export function HomePage() {
       </a>
       <Navbar />
 
-      {/* Language switcher — fixed below the navbar at the top-right corner */}
-      <div className="lang-switcher-float">
-        <LanguageSwitcher />
-      </div>
-
-      <main id="main-content" className="page-main">
+      {/* padding-top offsets the fixed navbar (var defined in navbar.css) */}
+      <main id="main-content" className="page-main" style={{ paddingTop: 'var(--nav-topbar-height)' }}>
         <HeroSection />
         <SolutionsSection />
         <FeaturesSection />

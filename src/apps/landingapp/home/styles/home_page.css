@@ -20,18 +20,6 @@
 
 @layer components {
 
-    /* ===================== EXISTING ===================== */
-
-    .header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        border-bottom: 1px solid #e5e7eb;
-        background-color: rgba(255, 255, 255, 0.85);
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
-    }
-
     .hero {
         position: relative;
         overflow: hidden;
@@ -126,96 +114,6 @@
     }
 
     .auth-btn:hover {
-        background-color: var(--color-primary-600);
-    }
-
-    /* ===================== NAVBAR ===================== */
-
-    .nav-container {
-        @apply mx-auto flex h-16 max-w-6xl items-center justify-between px-6;
-    }
-
-    .nav-logo-link {
-        @apply flex items-center gap-2 cursor-pointer;
-    }
-
-    .nav-logo-badge {
-        @apply flex h-8 w-8 items-center justify-center rounded-lg;
-        background-color: var(--color-primary-500);
-    }
-
-    .nav-logo-text {
-        @apply text-lg font-bold text-gray-900;
-    }
-
-    .nav-desktop {
-        @apply hidden items-center gap-8 text-sm font-medium text-gray-600 md:flex;
-    }
-
-    .nav-link {
-        @apply transition-colors cursor-pointer bg-transparent border-none p-0;
-    }
-
-    .nav-link:hover {
-        color: var(--color-primary-600);
-    }
-
-    .nav-actions {
-        @apply hidden items-center gap-3 md:flex;
-    }
-
-    .nav-signin {
-        @apply text-sm font-medium text-gray-600 transition-colors;
-    }
-
-    .nav-signin:hover {
-        color: var(--color-primary-600);
-    }
-
-    .nav-cta {
-        @apply rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors;
-        background-color: var(--color-primary-500);
-    }
-
-    .nav-cta:hover {
-        background-color: var(--color-primary-600);
-    }
-
-    .nav-hamburger {
-        @apply flex flex-col gap-1.5 p-2 md:hidden;
-    }
-
-    .nav-hamburger-bar {
-        @apply block h-0.5 w-5 bg-gray-600 transition-all duration-200;
-    }
-
-    .nav-mobile-menu {
-        @apply border-t border-gray-100 px-6 py-4 md:hidden;
-        background-color: rgba(255, 255, 255, 0.95);
-    }
-
-    .nav-mobile-nav {
-        @apply flex flex-col gap-4 text-sm font-medium text-gray-600;
-    }
-
-    .nav-mobile-link {
-        @apply text-left bg-transparent border-none p-0 cursor-pointer;
-    }
-
-    .nav-mobile-link:hover {
-        color: var(--color-primary-600);
-    }
-
-    .nav-mobile-signin:hover {
-        color: var(--color-primary-600);
-    }
-
-    .nav-mobile-cta {
-        @apply rounded-lg px-4 py-2 text-center text-white;
-        background-color: var(--color-primary-500);
-    }
-
-    .nav-mobile-cta:hover {
         background-color: var(--color-primary-600);
     }
 
@@ -889,13 +787,4 @@
         background-color: var(--color-primary-600);
     }
 
-    /* ===================== LANGUAGE SWITCHER FLOAT ===================== */
-
-    .lang-switcher-float {
-        position: fixed;
-        /* Navbar is h-16 (64px). Vertically center the ~34px dropdown: (64 - 34) / 2 = 15px */
-        top: 15px;
-        right: 1.5rem;
-        z-index: 51; /* above the sticky navbar z-50 so it's never clipped */
-    }
 }

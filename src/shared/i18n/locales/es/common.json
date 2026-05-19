@@ -9,7 +9,10 @@
     "pricing": "Precios",
     "signIn": "Iniciar sesión",
     "getStarted": "Comenzar gratis",
-    "dashboard": "Ir al panel"
+    "dashboard": "Ir al panel",
+    "manageAccount": "Gestionar cuenta",
+    "addAccount": "Añadir otra cuenta",
+    "signOut": "Cerrar sesión"
   },
   "actions": {
     "save": "Guardar",
