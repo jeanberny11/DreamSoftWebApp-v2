@@ -9,7 +9,7 @@ import { AuthGuard } from '@/shared/guards/AuthGuard'
 import { TenantLayout } from './layout/TenantLayout'
 import { DashboardPage } from './pages/DashboardPage'
 import { NotFoundPage } from './pages/NotFoundPage'
-import { useTenantAuth } from './hooks/useTenantAuth'
+import { useTenantAuth } from '@/apps/landingapp/common/hooks/useTenantAuth'
 import { useMenu } from './hooks/useMenu'
 import { LoginPage } from '@/apps/landingapp/login/pages/LoginPage'
 

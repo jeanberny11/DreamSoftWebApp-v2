@@ -1,24 +1,27 @@
 // Navbar — top navigation for the landing app
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useTenantAuthStore } from '@/apps/landingapp/common/tenant_auth.store'
 import "../styles/home_page.css"
 
 export function Navbar() {
   const { t } = useTranslation('common')
   const [menuOpen, setMenuOpen] = useState(false)
+  const isAuthenticated = useTenantAuthStore((s) => s.isAuthenticated)
 
-  const navLinks = [
+  const navLinks = useMemo(() => [
     { label: t('nav.solutions'), href: '#solutions' },
     { label: t('nav.features'),  href: '#features' },
     { label: t('nav.pricing'),   href: '#pricing' },
-  ]
+  ], [t])
 
   const handleScrollLink = (href: string) => {
     setMenuOpen(false)
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (el) el.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' })
   }
 
   return (
@@ -48,8 +51,14 @@ export function Navbar() {
 
         {/* Desktop right: CTAs */}
         <div className="nav-actions">
-          <Link to="/login" className="nav-signin">{t('nav.signIn')}</Link>
-          <Link to="/register" className="nav-cta">{t('nav.getStarted')}</Link>
+          {isAuthenticated ? (
+            <Link to="/dashboard" className="nav-cta">{t('nav.dashboard')}</Link>
+          ) : (
+            <>
+              <Link to="/login" className="nav-signin">{t('nav.signIn')}</Link>
+              <Link to="/register" className="nav-cta">{t('nav.getStarted')}</Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Hamburger */}
@@ -57,6 +66,8 @@ export function Navbar() {
           className="nav-hamburger"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen ? 'true' : 'false'}
+          aria-controls="mobile-nav"
         >
           <span className={`nav-hamburger-bar ${menuOpen ? 'translate-y-2 rotate-45' : ''}`} />
           <span className={`nav-hamburger-bar ${menuOpen ? 'opacity-0' : ''}`} />
@@ -66,7 +77,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="nav-mobile-menu">
+        <div id="mobile-nav" className="nav-mobile-menu">
           <nav className="nav-mobile-nav">
             {navLinks.map((link) => (
               <button
@@ -78,16 +89,24 @@ export function Navbar() {
               </button>
             ))}
             <hr className="border-gray-200" />
-            <Link to="/login" onClick={() => setMenuOpen(false)} className="nav-mobile-signin">
-              {t('nav.signIn')}
-            </Link>
-            <Link
-              to="/register"
-              onClick={() => setMenuOpen(false)}
-              className="nav-mobile-cta"
-            >
-              {t('nav.getStarted')}
-            </Link>
+            {isAuthenticated ? (
+              <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="nav-mobile-cta">
+                {t('nav.dashboard')}
+              </Link>
+            ) : (
+              <>
+                <Link to="/login" onClick={() => setMenuOpen(false)} className="nav-mobile-signin">
+                  {t('nav.signIn')}
+                </Link>
+                <Link
+                  to="/register"
+                  onClick={() => setMenuOpen(false)}
+                  className="nav-mobile-cta"
+                >
+                  {t('nav.getStarted')}
+                </Link>
+              </>
+            )}
           </nav>
         </div>
       )}

@@ -15,6 +15,9 @@ import "../styles/home_page.css"
 export function HomePage() {
   return (
     <div className="page-shell">
+      <a href="#main-content" className="skip-to-main">
+        Skip to main content
+      </a>
       <Navbar />
 
       {/* Language switcher — fixed below the navbar at the top-right corner */}
@@ -22,7 +25,7 @@ export function HomePage() {
         <LanguageSwitcher />
       </div>
 
-      <main className="page-main">
+      <main id="main-content" className="page-main">
         <HeroSection />
         <SolutionsSection />
         <FeaturesSection />

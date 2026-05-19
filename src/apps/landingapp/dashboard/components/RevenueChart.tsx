@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { Chart } from 'primereact/chart'
+import { useUiStore } from '@/shared/store/ui.store'
 import '../styles/charts.css'
 
 interface RevenueChartProps {
@@ -7,6 +8,7 @@ interface RevenueChartProps {
 }
 
 export function RevenueChart({ isLoading = false }: RevenueChartProps) {
+  const theme = useUiStore((s) => s.theme)
   const { data, options } = useMemo(() => {
     const style = getComputedStyle(document.documentElement)
     const primaryColor = style.getPropertyValue('--color-primary-500').trim()
@@ -58,7 +60,8 @@ export function RevenueChart({ isLoading = false }: RevenueChartProps) {
     }
 
     return { data: chartData, options: chartOptions }
-  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [theme])
 
   return (
     <div className="chart-card">

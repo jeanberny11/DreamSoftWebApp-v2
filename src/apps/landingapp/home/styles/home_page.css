@@ -1,5 +1,23 @@
 @import "tailwindcss" reference;
 
+.skip-to-main {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: #14b8a6;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-to-main:focus {
+  top: 0;
+}
+
 @layer components {
 
     /* ===================== EXISTING ===================== */

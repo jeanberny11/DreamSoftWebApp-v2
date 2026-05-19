@@ -8,7 +8,8 @@
     "features": "Features",
     "pricing": "Pricing",
     "signIn": "Sign in",
-    "getStarted": "Get started free"
+    "getStarted": "Get started free",
+    "dashboard": "Go to dashboard"
   },
   "actions": {
     "save": "Save",

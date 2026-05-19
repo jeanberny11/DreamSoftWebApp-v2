@@ -10,7 +10,7 @@ export function Sidebar() {
   const sidebarOpen = useUiStore((s) => s.sidebarOpen)
 
   return (
-    <aside className={`fixed inset-y-0 left-0 z-30 flex flex-col bg-gray-900 text-white transition-all duration-300 ${sidebarOpen ? 'w-64' : 'w-16'}`}>
+    <aside className={`flex flex-col bg-gray-900 text-white transition-all duration-300 ${sidebarOpen ? 'w-64' : 'w-16'}`}>
       {/* Logo */}
       <div className="flex h-16 items-center justify-center border-b border-gray-700 px-4">
         {sidebarOpen ? (
@@ -21,7 +21,7 @@ export function Sidebar() {
       </div>
 
       {/* Nav items */}
-      <nav className="flex-1 overflow-y-auto py-4">
+      <nav aria-label="Main navigation" className="flex-1 overflow-y-auto py-4">
         {items.map((item) => (
           <SidebarItem key={item.id} item={item} sidebarOpen={sidebarOpen} />
         ))}

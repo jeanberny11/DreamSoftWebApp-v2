@@ -8,7 +8,8 @@
     "features": "Características",
     "pricing": "Precios",
     "signIn": "Iniciar sesión",
-    "getStarted": "Comenzar gratis"
+    "getStarted": "Comenzar gratis",
+    "dashboard": "Ir al panel"
   },
   "actions": {
     "save": "Guardar",

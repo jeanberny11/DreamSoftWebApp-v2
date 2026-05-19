@@ -61,7 +61,13 @@ export function createApiClient(config: ApiClientConfig) {
     async (error: AxiosError) => {
       const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean }
 
-      if (error.response?.status === 401 && !originalRequest._retry) {
+      const requestUrl = originalRequest.url ?? ''
+      const isPublicEndpoint =
+        requestUrl.includes('/login') ||
+        requestUrl.includes('/register') ||
+        requestUrl === config.refreshEndpoint
+
+      if (error.response?.status === 401 && !originalRequest._retry && !isPublicEndpoint) {
         if (isRefreshing) {
           return new Promise((resolve, reject) => {
             failedQueue.push({

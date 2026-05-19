@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { invoicesService } from '@/apps/tenant/features/invoices/services/invoices.service'
 import { customersService } from '@/apps/tenant/features/customers/services/customers.service'
 import type { Invoice } from '@/apps/tenant/features/invoices/types/invoice.types'
@@ -33,22 +33,26 @@ export function useDashboardData(): DashboardData {
       .finally(() => setIsLoading(false))
   }, [])
 
-  const stats: DashboardStats = {
+  const stats = useMemo<DashboardStats>(() => ({
     totalRevenue: invoices
       .filter((i) => i.status === 'paid')
       .reduce((sum, i) => sum + i.amount, 0),
     pendingInvoices: invoices.filter((i) => i.status === 'sent' || i.status === 'draft').length,
     overdueInvoices: invoices.filter((i) => i.status === 'overdue').length,
     totalCustomers: customers.length,
-  }
+  }), [invoices, customers])
 
-  const recentInvoices = [...invoices]
-    .sort((a, b) => new Date(b.issuedAt).getTime() - new Date(a.issuedAt).getTime())
-    .slice(0, 5)
+  const recentInvoices = useMemo(() =>
+    [...invoices]
+      .sort((a, b) => new Date(b.issuedAt).getTime() - new Date(a.issuedAt).getTime())
+      .slice(0, 5),
+  [invoices])
 
-  const recentCustomers = [...customers]
-    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-    .slice(0, 5)
+  const recentCustomers = useMemo(() =>
+    [...customers]
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .slice(0, 5),
+  [customers])
 
   return { stats, recentInvoices, recentCustomers, isLoading, error }
 }

@@ -4,7 +4,7 @@
 // On failure: clears the session — user will be redirected to /login by AuthGuard.
 
 import { useEffect, useState } from 'react'
-import { tenantClient } from '@/apps/landingapp/common/tenantClient'
+import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 import { useTenantAuthStore } from '@/apps/landingapp/common/tenant_auth.store'
 import { setToken } from '@/shared/utils/token'
 import type { LoginResponse } from '@/apps/landingapp/login/types/login.types'
@@ -22,7 +22,7 @@ export function useTenantAuth() {
           setToken('tenant', result.data.accessToken)
           setAuth(result.data)
         } else {
-          clearAuth()
+          //clearAuth()
         }
       })
       .catch(() => clearAuth())

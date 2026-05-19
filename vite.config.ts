@@ -13,4 +13,11 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    sourcemap: true,
+  },
+  // Ensure sourcemaps work in dev mode for VS Code debugger
+  server: {
+    sourcemapIgnoreList: false,
+  },
 })

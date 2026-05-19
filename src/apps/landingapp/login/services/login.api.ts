@@ -1,4 +1,4 @@
-// login.api.ts — Tenant login API calls
+﻿// login.api.ts â€” Tenant login API calls
 //
 // Endpoint : POST /api/v1/tenant-auth/login
 // Auth     : none (public)
@@ -6,9 +6,9 @@
 //             server as an HTTP-only, Secure, SameSite=Strict cookie.
 //
 // The tenantClient interceptor normalises every response to ApiResult<T>,
-// so callers never need try/catch — they just check result.success.
+// so callers never need try/catch â€” they just check result.success.
 
-import { tenantClient } from '@/apps/landingapp/common/tenantClient'
+import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 import type { ApiResult } from '@/shared/types/api.types'
 import type { LoginRequest, LoginResponse } from '../types/login.types'
 

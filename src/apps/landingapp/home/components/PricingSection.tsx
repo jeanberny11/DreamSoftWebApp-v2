@@ -1,32 +1,39 @@
 // PricingSection — solution tabs + billing cycle toggle + plan cards, driven by the API
 
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { usePricing } from '../hooks/usePricing'
 import { PricingCard } from './PricingCard'
 import type { BillingCycleCode } from '../types/home.types'
 import "../styles/home_page.css"
 
-const billingCycles: { code: BillingCycleCode; label: string; badge?: string }[] = [
-  { code: 'MONTHLY', label: 'Monthly' },
-  { code: 'QUARTERLY', label: 'Quarterly', badge: 'Save 10%' },
-  { code: 'ANNUAL', label: 'Annual', badge: 'Save 20%' },
-]
-
 export function PricingSection() {
   const { solutions, isLoading, error } = usePricing()
+  const { t } = useTranslation('landing')
   const [activeSolution, setActiveSolution] = useState(0)
   const [billingCycle, setBillingCycle] = useState<BillingCycleCode>('MONTHLY')
 
+  const billingCycles = [
+    { code: 'MONTHLY' as BillingCycleCode, label: t('pricing.billingCycles.monthly') },
+    { code: 'QUARTERLY' as BillingCycleCode, label: t('pricing.billingCycles.quarterly'), badge: t('pricing.savings.quarterly') },
+    { code: 'ANNUAL' as BillingCycleCode, label: t('pricing.billingCycles.annual'), badge: t('pricing.savings.annual') },
+  ]
+
   const sorted = [...solutions].sort((a, b) => a.solutionCode.localeCompare(b.solutionCode))
   const activeSol = sorted[activeSolution]
+  const sortedPlans = activeSol ? [...activeSol.plans].sort((a, b) => a.tierLevel - b.tierLevel) : []
+  const maxTier = sortedPlans.length > 0 ? Math.max(...sortedPlans.map((p) => p.tierLevel)) : 0
+  const midTier = sortedPlans.length > 1
+    ? Math.ceil(maxTier / sortedPlans.length) + 1
+    : sortedPlans[0]?.tierLevel
 
   return (
     <section id="pricing" className="pricing-section">
       <div className="section-container">
         <div className="section-header">
-          <p className="section-eyebrow">Pricing</p>
-          <h2 className="section-title">Simple, transparent pricing</h2>
-          <p className="section-subtitle">Start with a free trial. No credit card required.</p>
+          <p className="section-eyebrow">{t('pricing.badge')}</p>
+          <h2 className="section-title">{t('pricing.title')}</h2>
+          <p className="section-subtitle">{t('pricing.subtitle')}</p>
         </div>
 
         {isLoading && (
@@ -49,11 +56,14 @@ export function PricingSection() {
         {!isLoading && !error && sorted.length > 0 && (
           <div className="space-y-8">
             {sorted.length > 1 && (
-              <div className="pricing-sol-tabs">
+              <div className="pricing-sol-tabs" role="tablist">
                 {sorted.map((sol, index) => (
                   <button
                     key={sol.solutionCode}
                     type="button"
+                    role="tab"
+                    aria-selected={index === activeSolution ? 'true' : 'false'}
+                    id={`solution-tab-${sol.solutionCode}`}
                     onClick={() => setActiveSolution(index)}
                     className={`pricing-sol-tab ${index === activeSolution ? 'pricing-sol-tab--active' : 'pricing-sol-tab--inactive'}`}
                   >
@@ -78,12 +88,15 @@ export function PricingSection() {
               </div>
             </div>
             {activeSol && (
-              <div className="pricing-plans-grid">
-                {[...activeSol.plans].sort((a, b) => a.tierLevel - b.tierLevel).map((plan) => {
-                  const maxTier = Math.max(...activeSol.plans.map((p) => p.tierLevel))
-                  const midTier = activeSol.plans.length > 1 ? Math.ceil(maxTier / activeSol.plans.length) + 1 : plan.tierLevel
-                  return <PricingCard key={plan.code} plan={plan} billingCycle={billingCycle} isHighlighted={plan.tierLevel === midTier} />
-                })}
+              <div
+                className="pricing-plans-grid"
+                role="tabpanel"
+                id="pricing-panel"
+                aria-labelledby={`solution-tab-${activeSol.solutionCode}`}
+              >
+                {sortedPlans.map((plan) => (
+                  <PricingCard key={plan.code} plan={plan} billingCycle={billingCycle} isHighlighted={plan.tierLevel === midTier} />
+                ))}
               </div>
             )}
           </div>

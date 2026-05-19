@@ -1,6 +1,7 @@
 // LandingApp — public and protected routes for the main domain
 
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { useTenantAuth } from './common/hooks/useTenantAuth'
 import { HomePage } from './home/pages/HomePage'
 import { PricingPage } from './pages/PricingPage'
 import { FeaturesPage } from './pages/FeaturesPage'
@@ -13,6 +14,16 @@ import { LandingAuthGuard } from './common/guards/LandingAuthGuard'
 import { DashboardPage } from './dashboard/pages/DashboardPage'
 
 export function LandingApp() {
+  const { isBootstrapping } = useTenantAuth()
+
+  if (isBootstrapping) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary-200 border-t-primary-500" />
+      </div>
+    )
+  }
+
   return (
     <Routes>
       {/* Public routes — accessible to everyone */}

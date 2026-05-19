@@ -38,7 +38,7 @@ export function SolutionsSection() {
 
         {!isLoading && !error && solutions.length > 0 && (
           <div className="solutions-grid">
-            {solutions.sort((a, b) => a.sortOrder - b.sortOrder).map((solution) => (
+            {[...solutions].sort((a, b) => a.sortOrder - b.sortOrder).map((solution) => (
               <div key={solution.id} className="solution-card">
                 <div className="solution-card-icon">{PLACEHOLDER_ICON}</div>
                 <h3 className="solution-card-title">{solution.name}</h3>

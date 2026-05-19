@@ -107,6 +107,7 @@ export function RegisterPage() {
                       <InputText
                         {...field}
                         id="firstName"
+                        autoComplete="given-name"
                         placeholder={t("register.firstNamePlaceholder")}
                         className={
                           touched.firstName && errors.firstName
@@ -130,6 +131,7 @@ export function RegisterPage() {
                       <InputText
                         {...field}
                         id="lastName"
+                        autoComplete="family-name"
                         placeholder={t("register.lastNamePlaceholder")}
                         className={
                           touched.lastName && errors.lastName ? "p-invalid" : ""
@@ -153,6 +155,7 @@ export function RegisterPage() {
                     <InputText
                       {...field}
                       id="companyName"
+                      autoComplete="organization"
                       placeholder={t("register.companyNamePlaceholder")}
                       className={
                         touched.companyName && errors.companyName
@@ -179,6 +182,9 @@ export function RegisterPage() {
                       id="email"
                       type="email"
                       placeholder={t("register.emailPlaceholder")}
+                      spellCheck={false}
+                      autoCorrect="off"
+                      autoCapitalize="off"
                       className={
                         touched.email && errors.email ? "p-invalid" : ""
                       }
@@ -294,25 +300,28 @@ export function RegisterPage() {
               </div>
 
               {/* API error banner — shown for all error kinds */}
-              {error && (
-                <div className="reg-api-error">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="8" x2="12" y2="12" />
-                    <line x1="12" y1="16" x2="12.01" y2="16" />
-                  </svg>
-                  {error}
-                </div>
-              )}
+              <div aria-live="polite" aria-atomic="true">
+                {error && (
+                  <div className="reg-api-error">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="8" x2="12" y2="12" />
+                      <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    {error}
+                  </div>
+                )}
+              </div>
 
               {/* Submit */}
               <button type="submit" disabled={isLoading} className="reg-submit">

@@ -1,4 +1,4 @@
-import { tenantClient } from '@/apps/landingapp/common/tenantClient'
+﻿import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 import type { ApiResult } from '@/shared/types/api.types'
 import type { Solution, AppFeature, PricingSolution } from '../types/home.types'
 

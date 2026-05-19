@@ -7,7 +7,7 @@ import { RecentCustomersList } from '../components/RecentCustomersList'
 import '../styles/dashboard.css'
 
 export function DashboardPage() {
-  const { stats, recentInvoices, recentCustomers, isLoading } = useDashboardData()
+  const { stats, recentInvoices, recentCustomers, isLoading, error } = useDashboardData()
 
   return (
     <div className="dashboard-page">
@@ -17,6 +17,12 @@ export function DashboardPage() {
           <p className="dashboard-subtitle">Welcome back! Here's what's happening with your business.</p>
         </div>
       </div>
+
+      {error && (
+        <div className="dashboard-error-banner" role="alert">
+          {error}
+        </div>
+      )}
 
       <KpiGrid stats={stats} isLoading={isLoading} />
 

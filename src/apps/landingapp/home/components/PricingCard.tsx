@@ -3,6 +3,8 @@
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faStar } from '@fortawesome/free-solid-svg-icons'
+import { useLanguageStore } from '@/shared/store/language.store'
+import { formatCurrency } from '@/shared/utils/formatters'
 import type { PricingPlan, BillingCycleCode } from '../types/home.types'
 import "../styles/home_page.css"
 
@@ -23,13 +25,10 @@ function formatLimitValue(value: number): string {
   return value === 0 ? 'Unlimited' : value.toLocaleString()
 }
 
-function formatPrice(price: number): string {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(price)
-}
-
 const cycleLabel: Record<BillingCycleCode, string> = { MONTHLY: 'mo', QUARTERLY: 'qtr', ANNUAL: 'yr' }
 
 export function PricingCard({ plan, billingCycle, isHighlighted }: PricingCardProps) {
+  const locale = useLanguageStore((s) => s.currentLanguage.code.toLowerCase())
   const priceEntry = plan.prices.find((p) => p.billingCycleCode === billingCycle)
   const price = priceEntry?.price ?? 0
 
@@ -48,7 +47,7 @@ export function PricingCard({ plan, billingCycle, isHighlighted }: PricingCardPr
         <p className="pricing-card-desc">{plan.description}</p>
       </div>
       <div className="pricing-card-price">
-        <span className="pricing-card-price-amount">{formatPrice(price)}</span>
+        <span className="pricing-card-price-amount">{formatCurrency(price, 'USD', locale)}</span>
         <span className="pricing-card-price-cycle">/{cycleLabel[billingCycle]}</span>
       </div>
       <div className="pricing-card-trial">

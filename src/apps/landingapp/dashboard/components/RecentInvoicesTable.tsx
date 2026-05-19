@@ -1,6 +1,8 @@
 import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
 import { Skeleton } from 'primereact/skeleton'
+import { useLanguageStore } from '@/shared/store/language.store'
+import { formatCurrency, formatDate } from '@/shared/utils/formatters'
 import type { Invoice } from '@/apps/tenant/features/invoices/types/invoice.types'
 import '../styles/tables.css'
 
@@ -26,17 +28,11 @@ function StatusBadge({ status }: { status: InvoiceStatus }) {
   )
 }
 
-function formatCurrency(value: number) {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value)
-}
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-}
-
 const skeletonRows = Array.from({ length: 5 })
 
 export function RecentInvoicesTable({ invoices, isLoading = false }: RecentInvoicesTableProps) {
+  const locale = useLanguageStore((s) => s.currentLanguage.code.toLowerCase())
+
   return (
     <div className="table-card">
       <div className="table-card__header">
@@ -62,7 +58,7 @@ export function RecentInvoicesTable({ invoices, isLoading = false }: RecentInvoi
           <Column
             field="amount"
             header="Amount"
-            body={(row: Invoice) => formatCurrency(row.amount)}
+            body={(row: Invoice) => formatCurrency(row.amount, 'USD', locale)}
           />
           <Column
             field="status"
@@ -72,7 +68,7 @@ export function RecentInvoicesTable({ invoices, isLoading = false }: RecentInvoi
           <Column
             field="dueAt"
             header="Due Date"
-            body={(row: Invoice) => formatDate(row.dueAt)}
+            body={(row: Invoice) => formatDate(row.dueAt, locale)}
           />
         </DataTable>
       )}

@@ -1,9 +1,9 @@
-// language.api.ts — API calls for the languages domain.
+﻿// language.api.ts â€” API calls for the languages domain.
 // Fetches the list of active languages from the backend.
 
 import type { Language } from '../types/language.types'
 import type { ApiResult } from '../types/api.types'
-import { tenantClient } from '@/apps/landingapp/common/tenantClient'
+import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 
 const LANGUAGES_ENDPOINT = '/api/v1/admin/Languages/active'
 

@@ -1,7 +1,7 @@
-// landing.api.ts — LandingApp public page API calls
+﻿// landing.api.ts â€” LandingApp public page API calls
 // Note: Registration API has moved to apps/landingapp/register/services/register.api.ts
 
-import { tenantClient } from '@/apps/landingapp/common/tenantClient'
+import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 import type { Solution, AppFeature, PricingSolution } from '@/apps/landingapp/home/types/home.types'
 
 export interface VerifyEmailRequest {

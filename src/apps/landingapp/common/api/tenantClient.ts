@@ -4,8 +4,8 @@
 // Refresh    : POST /api/v1/tenant-auth/refresh
 // On expiry  : clears tenant session, redirects to /login
 
-import { createApiClient } from './createApiClient'
-import { useTenantAuthStore } from '@/apps/landingapp/common/tenant_auth.store'
+import { createApiClient } from '@/shared/api/createApiClient'
+import { useTenantAuthStore } from '../tenant_auth.store'
 
 export const tenantClient = createApiClient({
   context:         'tenant',

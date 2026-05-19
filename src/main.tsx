@@ -1,7 +1,8 @@
-import { StrictMode, useEffect } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { StrictMode }        from 'react'
+import { createRoot }        from 'react-dom/client'
+import { Provider }          from 'react-redux'
 import { PrimeReactProvider } from 'primereact/api'
+import { store }             from '@/shared/store/store'
 
 // Initialize i18n before rendering — must be imported before any component
 // that uses useTranslation()
@@ -17,32 +18,14 @@ import 'primeicons/primeicons.css'
 import './styles/index.css'
 import './index.css'
 
-import { ErrorBoundary } from '@/shared/components/ErrorBoundary'
-import { AppRouter } from './AppRouter'
-import { initializeTheme } from '@/shared/store/ui.store'
-import { useLanguageStore } from '@/shared/store/language.store'
-
-function Root() {
-  const fetchLanguages = useLanguageStore((state) => state.fetchLanguages)
-
-  useEffect(() => {
-    initializeTheme()
-    fetchLanguages()
-  }, [fetchLanguages])
-
-  return (
-    <ErrorBoundary>
-      <BrowserRouter>
-        <AppRouter />
-      </BrowserRouter>
-    </ErrorBoundary>
-  )
-}
+import { Root } from './Root'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <PrimeReactProvider>
-      <Root />
-    </PrimeReactProvider>
+    <Provider store={store}>
+      <PrimeReactProvider>
+        <Root />
+      </PrimeReactProvider>
+    </Provider>
   </StrictMode>
 )

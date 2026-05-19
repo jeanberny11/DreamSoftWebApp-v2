@@ -1,6 +1,6 @@
-// register.api.ts — Registration API calls
+﻿// register.api.ts â€” Registration API calls
 
-import { tenantClient } from '@/apps/landingapp/common/tenantClient'
+import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 import type { ApiResult } from '@/shared/types/api.types'
 import type { RegisterRequest, RegisterResponse } from '../types/register.types'
 
