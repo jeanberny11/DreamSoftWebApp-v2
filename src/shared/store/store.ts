@@ -1,4 +1,4 @@
-// store.ts — Redux root store
+﻿// store.ts — Redux root store
 //
 // Only form-flow slices live here (BLoC equivalent).
 // Display/output features continue to use Zustand (Cubit equivalent).
@@ -8,12 +8,13 @@
 //   2. Import the reducer here and add it to the reducer map
 
 import { configureStore } from '@reduxjs/toolkit'
-import loginReducer        from '@/apps/landingapp/login/store/login.slice'
+import loginReducer        from '@/apps/landingapp/features/login/store/login.slice'
+import registerReducer     from '@/apps/landingapp/features/register/store/register.slice'
 
 export const store = configureStore({
   reducer: {
-    login: loginReducer,
-    // register: registerReducer,      ← plug future form slices in here
+    login:    loginReducer,
+    register: registerReducer,
     // forgotPassword: forgotReducer,
   },
 })

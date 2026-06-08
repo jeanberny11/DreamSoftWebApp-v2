@@ -5,7 +5,7 @@
  * - Static EN and ES locale files bundled with the app
  * - Default language: 'es' (overridden at runtime by language.store on boot)
  * - Fallback language: always 'es'
- * - Namespaces: common, auth, validation, landing, dashboard
+ * - Namespaces: common, auth, validation, landing
  *
  * The actual startup language is set dynamically by language.store
  * after fetching supported languages from the API.
@@ -19,14 +19,12 @@ import enCommon     from './locales/en/common.json'
 import enAuth       from './locales/en/auth.json'
 import enValidation from './locales/en/validation.json'
 import enLanding    from './locales/en/landing.json'
-import enDashboard  from './locales/en/dashboard.json'
 
 // ── Spanish translations ────────────────────────────────────────────────────
 import esCommon     from './locales/es/common.json'
 import esAuth       from './locales/es/auth.json'
 import esValidation from './locales/es/validation.json'
 import esLanding    from './locales/es/landing.json'
-import esDashboard  from './locales/es/dashboard.json'
 
 export const resources = {
   en: {
@@ -34,14 +32,12 @@ export const resources = {
     auth:       enAuth,
     validation: enValidation,
     landing:    enLanding,
-    dashboard:  enDashboard,
   },
   es: {
     common:     esCommon,
     auth:       esAuth,
     validation: esValidation,
     landing:    esLanding,
-    dashboard:  esDashboard,
   },
 } as const
 
@@ -58,7 +54,7 @@ i18n
     fallbackLng: 'es',
 
     defaultNS: 'common',
-    ns: ['common', 'auth', 'validation', 'landing', 'dashboard'],
+    ns: ['common', 'auth', 'validation', 'landing'],
 
     interpolation: {
       escapeValue: false, // React already escapes values

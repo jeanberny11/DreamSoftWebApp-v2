@@ -2,7 +2,7 @@
 // Note: Registration API has moved to apps/landingapp/register/services/register.api.ts
 
 import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
-import type { Solution, AppFeature, PricingSolution } from '@/apps/landingapp/home/types/home.types'
+import type { Solution, AppFeature, PricingSolution } from '@/apps/landingapp/features/home/types/home.types'
 
 export interface VerifyEmailRequest {
   token: string

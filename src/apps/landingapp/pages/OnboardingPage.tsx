@@ -2,7 +2,7 @@
 // TODO: Implement onboarding wizard steps in Phase 2
 
 import { useNavigate } from 'react-router-dom'
-import "../home/styles/home_page.css"
+import "../features/home/styles/home_page.css"
 
 export function OnboardingPage() {
   const navigate = useNavigate()
@@ -14,10 +14,10 @@ export function OnboardingPage() {
         <p className="mt-2 text-gray-500">Let's get your workspace set up.</p>
         <button
           type="button"
-          onClick={() => navigate('/dashboard')}
+          onClick={() => navigate('/account')}
           className="auth-btn"
         >
-          Go to Dashboard
+          Go to Account
         </button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-// useTenantAuth.ts — Bootstraps the tenant auth state on app load by
+﻿// useTenantAuth.ts — Bootstraps the tenant auth state on app load by
 // attempting a silent token refresh via the httpOnly cookie.
 // On success: stores the new access token and populates the session store.
 // On failure: clears the session — user will be redirected to /login by AuthGuard.
@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 import { useTenantAuthStore } from '@/apps/landingapp/common/tenant_auth.store'
 import { setToken } from '@/shared/utils/token'
-import type { LoginResponse } from '@/apps/landingapp/login/types/login.types'
+import type { LoginResponse } from '@/apps/landingapp/features/login/types/login.types'
 import type { ApiResult } from '@/shared/types/api.types'
 
 export function useTenantAuth() {

@@ -10,6 +10,9 @@ import { create } from 'zustand'
 export interface TenantSession {
   tenantId:     number
   email:        string
+  firstName:    string
+  lastName:     string
+  logoUrl:      string
   tenantStatus: string
 }
 
@@ -29,6 +32,9 @@ export const useTenantAuthStore = create<TenantAuthStore>((set) => ({
     session: {
       tenantId:     data.tenantId,
       email:        data.email,
+      firstName:    data.firstName,
+      lastName:     data.lastName,
+      logoUrl:      data.logoUrl,
       tenantStatus: data.tenantStatus,
     },
   }),

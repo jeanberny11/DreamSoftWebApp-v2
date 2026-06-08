@@ -2,16 +2,17 @@
 
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useTenantAuth } from './common/hooks/useTenantAuth'
-import { HomePage } from './home/pages/HomePage'
-import { PricingPage } from './pages/PricingPage'
-import { FeaturesPage } from './pages/FeaturesPage'
-import { RegisterPage } from './register/pages/RegisterPage'
-import { LoginPage } from './login/pages/LoginPage'
-import { AccountPage } from './pages/AccountPage'
+import { HomePage } from './features/home/pages/HomePage'
+import { SolutionPage } from './features/home/pages/SolutionPage'
+import { SolutionDetailPage } from './features/home/pages/SolutionDetailPage'
+import { PricingPage } from './features/home/pages/PricingPage'
+import { FeaturesCatalogPage } from './features/home/pages/FeaturesCatalogPage'
+import { RegisterPage } from './features/register/pages/RegisterPage'
+import { LoginPage } from './features/login/pages/LoginPage'
+import { TenantControlPanelPage } from './features/tenant-control-panel/pages/TenantControlPanelPage'
 import { OnboardingPage } from './pages/OnboardingPage'
 import { LandingGuestGuard } from './common/guards/LandingGuestGuard'
 import { LandingAuthGuard } from './common/guards/LandingAuthGuard'
-import { DashboardPage } from './dashboard/pages/DashboardPage'
 
 export function LandingApp() {
   const { isBootstrapping } = useTenantAuth()
@@ -28,10 +29,12 @@ export function LandingApp() {
     <Routes>
       {/* Public routes — accessible to everyone */}
       <Route path="/" element={<HomePage />} />
+      <Route path="/solutions" element={<SolutionPage />} />
+      <Route path="/solutions/:code" element={<SolutionDetailPage />} />
       <Route path="/pricing" element={<PricingPage />} />
-      <Route path="/features" element={<FeaturesPage />} />
+      <Route path="/features" element={<FeaturesCatalogPage />} />
 
-      {/* Guest-only routes — redirect to /dashboard if already authenticated */}
+      {/* Guest-only routes — redirect to /account if already authenticated */}
       <Route element={<LandingGuestGuard />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -39,9 +42,8 @@ export function LandingApp() {
 
       {/* Protected routes — redirect to /login if not authenticated */}
       <Route element={<LandingAuthGuard />}>
-        <Route path="/account" element={<AccountPage />} />
+        <Route path="/account/*" element={<TenantControlPanelPage />} />
         <Route path="/onboarding" element={<OnboardingPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
       </Route>
 
       {/* Fallback */}

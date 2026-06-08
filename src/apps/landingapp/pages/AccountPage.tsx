@@ -1,9 +1,9 @@
 // AccountPage — subscription management, billing, plan changes
 // TODO: Implement full account management in Phase 2
 
-import { Navbar } from '../home/components/Navbar'
-import { Footer } from '../home/components/Footer'
-import "../home/styles/home_page.css"
+import { Navbar } from '../features/home/components/Navbar'
+import { Footer } from '../features/home/components/Footer'
+import "../features/home/styles/home_page.css"
 
 export function AccountPage() {
   return (

@@ -16,6 +16,7 @@
     "badge": "Solutions",
     "title": "Built for your industry",
     "subtitle": "DreamSoft adapts to the way your business works — not the other way around.",
+    "learnMore": "Learn more",
     "errors": {
       "loadFailed": "Failed to load solutions."
     }
@@ -70,7 +71,184 @@
   },
   "onboarding": {
     "title": "Welcome to DreamSoft!",
-    "subtitle": "Let's get your workspace set up.",
-    "goToDashboard": "Go to Dashboard"
+    "subtitle": "Let's get your workspace set up."
+  },
+  "coreOfferings": {
+    "title": "Powerful Core Offerings",
+    "subtitle": "Discover how our modular ecosystem adapts to your specific organizational requirements.",
+    "learnMore": "Learn More",
+    "errors": {
+      "loadFailed": "Failed to load offerings."
+    }
+  },
+  "solutionDetail": {
+    "loading": "Loading solution details...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't load this solution. Please try again.",
+    "retry": "Retry",
+    "plansTitle": "Plans & Feature Hierarchy",
+    "plansSectionSubtitle": "Select the power level your business needs.",
+    "monthly": "Monthly",
+    "quarterly": "Quarterly",
+    "annual": "Annual",
+    "annualSavings": "-20%",
+    "perMonth": "/mo",
+    "perQuarter": "/qtr",
+    "perYear": "/yr",
+    "customPrice": "Custom",
+    "monthlyLimits": "Monthly Limits",
+    "mostPopular": "Most Popular",
+    "viewFeatures": "View Features",
+    "selected": "Selected",
+    "contactSales": "Contact Sales",
+    "startWith": "Get Started with {{plan}}",
+    "featureDetailsTitle": "Feature Details",
+    "featureDetailsFor": "Showing features for plan",
+    "startTrial": "Start Free Trial",
+    "viewDemo": "View Demo",
+    "socialProof": {
+      "join": "Join {{count}}+ businesses that trust us"
+    },
+    "ctaDark": {
+      "title": "Ready to optimize your sales?",
+      "subtitle": "Join thousands of businesses that already invoice with precision and speed using DreamSoft.",
+      "button": "Get Started Now"
+    }
+  },
+  "featuresCatalog": {
+    "hero": {
+      "badge": "All Features",
+      "titlePart1": "Explore our",
+      "titleGradient": "features",
+      "subtitle": "Discover how DreamSoft powers every area of your business with tools designed for operational precision and sustainable growth.",
+      "ctaPrimary": "Explore features",
+      "ctaSecondary": "Watch demo"
+    },
+    "inventory": {
+      "title": "Inventory & Products",
+      "records": {
+        "label": "Records",
+        "products": { "title": "Products", "desc": "Complete SKU and technical details management." },
+        "categories": { "title": "Categories", "desc": "Organize your catalog by logical families." },
+        "warehouses": { "title": "Warehouses", "desc": "Multi-warehouse control and physical locations." }
+      },
+      "processes": {
+        "label": "Processes",
+        "adjustments": { "title": "Inventory Adjustments", "desc": "Manual corrections and shrinkage." },
+        "transfers": { "title": "Transfers", "desc": "Movements between branches or warehouses." }
+      },
+      "reports": {
+        "label": "Reports",
+        "stock": { "title": "Stock Report", "desc": "Valuation and current stock levels." },
+        "alerts": { "title": "Stock Alerts", "desc": "Low stock notifications." }
+      }
+    },
+    "sales": {
+      "title": "Sales",
+      "records": {
+        "label": "Records",
+        "crm": "CRM Clients",
+        "promotions": "Promotions"
+      },
+      "pos": {
+        "label": "POS Operations",
+        "terminal": { "title": "POS Terminal", "desc": "Quick counter sale with one click." },
+        "orders": { "title": "Orders", "desc": "Quote management and tracking." },
+        "cashClose": { "title": "Cash Close", "desc": "Daily automated cash reconciliation." }
+      },
+      "analytics": {
+        "label": "Analytics",
+        "dailySummary": "Daily Summary",
+        "cashFlow": "Cash Flow"
+      }
+    },
+    "purchases": {
+      "title": "Purchases",
+      "orders": {
+        "title": "Purchase Orders",
+        "desc": "Create and manage procurement requests with your regular suppliers in a centralized way.",
+        "link": "Learn more"
+      },
+      "receiving": {
+        "title": "Goods Receipt",
+        "desc": "Validate received goods against your orders to maintain stock integrity and detect discrepancies.",
+        "link": "Learn more"
+      },
+      "indicators": {
+        "label": "Management Indicators",
+        "supplier": { "label": "Supplier Performance", "status": "Active" },
+        "spending": { "label": "Spending by Category", "status": "Active" },
+        "pricing": { "label": "Price History", "status": "Active" }
+      }
+    },
+    "cta": {
+      "title": "Ready to transform your business?",
+      "subtitle": "Configure these modules in minutes and start operating with the efficiency of large corporations today.",
+      "primary": "Get started now",
+      "secondary": "View live demo"
+    },
+    "errorTitle": "Could not load features",
+    "retry": "Try again"
+  },
+  "pricingComparison": {
+    "title": "Compare Limits",
+    "characteristicColumn": "Feature"
+  },
+  "pricingFaq": {
+    "title": "Frequently Asked Questions",
+    "q1": "Can I change my plan at any time?",
+    "a1": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect at the start of the next billing cycle.",
+    "q2": "How does the annual discount work?",
+    "a2": "When you choose annual billing, you save 20% compared to monthly pricing. The full amount is charged once per year.",
+    "q3": "Do you offer a free trial?",
+    "a3": "All plans include a 14-day free trial with no credit card required. You can cancel at any time."
+  },
+  "solutionsPage": {
+    "hero": {
+      "badge": "Scalable Enterprise Solutions",
+      "headline1": "Solutions for Every Stage of Your",
+      "headline2": "Business Growth",
+      "subtext": "Unify your workflow, empower your team, and scale effortlessly with our suite of enterprise-grade tools designed for modern efficiency.",
+      "ctaExploreSolutions": "Explore Solutions",
+      "ctaWatchDemo": "Watch Demo"
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business?",
+      "subtitle": "Join 15,000+ businesses that are scaling faster with DreamSoft. Start your 14-day free trial today.",
+      "ctaPrimary": "Get Started",
+      "ctaSecondary": "View Pricing"
+    }
+  },
+  "tenantControlPanel": {
+    "title": "Account Management",
+    "subtitle": "Tenant Portal",
+    "nav": {
+      "dashboard": "Dashboard",
+      "managementGroup": "Management",
+      "subscriptions": "My Subscriptions",
+      "invoices": "Invoices",
+      "payments": "Payments History",
+      "personalGroup": "Personal",
+      "profile": "Profile",
+      "settings": "Settings",
+      "logout": "Log Out"
+    },
+    "topBar": {
+      "search": "Search...",
+      "notifications": "Notifications",
+      "help": "Help"
+    },
+    "sections": {
+      "dashboard": "Dashboard",
+      "subscriptions": "My Subscriptions",
+      "invoices": "Invoices",
+      "payments": "Payments History",
+      "profile": "Profile",
+      "settings": "Settings"
+    },
+    "errors": {
+      "generic": "An error occurred. Please try again.",
+      "networkError": "Network error. Check your connection."
+    }
   }
 }

@@ -1,4 +1,4 @@
-// LandingAuthGuard — blocks unauthenticated users from protected landing routes
+﻿// LandingAuthGuard — blocks unauthenticated users from protected landing routes
 // If the user is not logged in, redirect them to the login page.
 
 import { Navigate, Outlet } from 'react-router-dom'

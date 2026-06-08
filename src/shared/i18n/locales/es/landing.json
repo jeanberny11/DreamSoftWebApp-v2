@@ -16,6 +16,7 @@
     "badge": "Soluciones",
     "title": "Diseñado para tu industria",
     "subtitle": "DreamSoft se adapta a la forma en que trabaja tu negocio — no al revés.",
+    "learnMore": "Saber más",
     "errors": {
       "loadFailed": "Error al cargar las soluciones."
     }
@@ -70,7 +71,184 @@
   },
   "onboarding": {
     "title": "¡Bienvenido a DreamSoft!",
-    "subtitle": "Configuremos tu espacio de trabajo.",
-    "goToDashboard": "Ir al panel"
+    "subtitle": "Configuremos tu espacio de trabajo."
+  },
+  "coreOfferings": {
+    "title": "Oferta Central Potente",
+    "subtitle": "Descubre cómo nuestro ecosistema modular se adapta a los requisitos específicos de tu organización.",
+    "learnMore": "Saber más",
+    "errors": {
+      "loadFailed": "Error al cargar las ofertas."
+    }
+  },
+  "solutionDetail": {
+    "loading": "Cargando detalles de la solución...",
+    "errorTitle": "Algo salió mal",
+    "errorMessage": "No pudimos cargar esta solución. Por favor, inténtelo de nuevo.",
+    "retry": "Reintentar",
+    "plansTitle": "Planes y Jerarquía de Funciones",
+    "plansSectionSubtitle": "Seleccione el nivel de potencia que su negocio necesita.",
+    "monthly": "Mensual",
+    "quarterly": "Trimestral",
+    "annual": "Anual",
+    "annualSavings": "-20%",
+    "perMonth": "/mes",
+    "perQuarter": "/trim",
+    "perYear": "/año",
+    "customPrice": "Personalizado",
+    "monthlyLimits": "Límites Mensuales",
+    "mostPopular": "Más Popular",
+    "viewFeatures": "Ver Funciones",
+    "selected": "Seleccionado",
+    "contactSales": "Contactar Ventas",
+    "startWith": "Comenzar con {{plan}}",
+    "featureDetailsTitle": "Detalles de Funciones",
+    "featureDetailsFor": "Mostrando funciones para el plan",
+    "startTrial": "Probar Gratis",
+    "viewDemo": "Ver Demo",
+    "socialProof": {
+      "join": "Únase a más de {{count}} negocios que confían en nosotros."
+    },
+    "ctaDark": {
+      "title": "¿Listo para optimizar sus ventas?",
+      "subtitle": "Únase a miles de negocios que ya facturan con precisión y rapidez usando DreamSoft.",
+      "button": "Empezar Ahora"
+    }
+  },
+  "featuresCatalog": {
+    "hero": {
+      "badge": "Funcionalidades",
+      "titlePart1": "Explora nuestras",
+      "titleGradient": "funcionalidades",
+      "subtitle": "Descubre cómo DreamSoft potencia cada área de tu negocio con herramientas diseñadas para la precisión operativa y el crecimiento sostenible.",
+      "ctaPrimary": "Explorar funcionalidades",
+      "ctaSecondary": "Ver demo"
+    },
+    "inventory": {
+      "title": "Inventario y Productos",
+      "records": {
+        "label": "Registros",
+        "products": { "title": "Productos", "desc": "Gestión completa de SKU y detalles técnicos." },
+        "categories": { "title": "Categorías", "desc": "Organiza tu catálogo por familias lógicas." },
+        "warehouses": { "title": "Almacenes", "desc": "Control multialmacén y ubicaciones físicas." }
+      },
+      "processes": {
+        "label": "Procesos",
+        "adjustments": { "title": "Ajustes de Inventario", "desc": "Correcciones manuales y mermas." },
+        "transfers": { "title": "Transferencias", "desc": "Movimientos entre sucursales o depósitos." }
+      },
+      "reports": {
+        "label": "Reportes",
+        "stock": { "title": "Reporte de Stock", "desc": "Valorización y existencias actuales." },
+        "alerts": { "title": "Alertas de Stock", "desc": "Notificaciones de existencias bajas." }
+      }
+    },
+    "sales": {
+      "title": "Ventas",
+      "records": {
+        "label": "Registros",
+        "crm": "Clientes CRM",
+        "promotions": "Promociones"
+      },
+      "pos": {
+        "label": "Operaciones POS",
+        "terminal": { "title": "Terminal POS", "desc": "Venta rápida en mostrador con un clic." },
+        "orders": { "title": "Pedidos", "desc": "Gestión y seguimiento de cotizaciones." },
+        "cashClose": { "title": "Cierre de Caja", "desc": "Arqueo y conciliación diaria de ingresos automática." }
+      },
+      "analytics": {
+        "label": "Analytics",
+        "dailySummary": "Resumen Diario",
+        "cashFlow": "Flujo de Caja"
+      }
+    },
+    "purchases": {
+      "title": "Compras",
+      "orders": {
+        "title": "Órdenes de Compra",
+        "desc": "Crea y gestiona solicitudes de abastecimiento con tus proveedores habituales de forma centralizada.",
+        "link": "Saber más"
+      },
+      "receiving": {
+        "title": "Recepción de Mercancía",
+        "desc": "Valida lo recibido contra tus órdenes para mantener la integridad del stock y detectar discrepancias.",
+        "link": "Saber más"
+      },
+      "indicators": {
+        "label": "Indicadores de Gestión",
+        "supplier": { "label": "Desempeño Proveedor", "status": "Activo" },
+        "spending": { "label": "Gasto por Categoría", "status": "Activo" },
+        "pricing": { "label": "Histórico de Precios", "status": "Activo" }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para transformar tu negocio?",
+      "subtitle": "Configura estos módulos en minutos y comienza a operar con la eficiencia de las grandes corporaciones hoy mismo.",
+      "primary": "Empezar ahora",
+      "secondary": "Ver Demo en vivo"
+    },
+    "errorTitle": "No se pudieron cargar las funcionalidades",
+    "retry": "Reintentar"
+  },
+  "pricingComparison": {
+    "title": "Comparar Límites",
+    "characteristicColumn": "Característica"
+  },
+  "pricingFaq": {
+    "title": "Preguntas Frecuentes",
+    "q1": "¿Puedo cambiar de plan en cualquier momento?",
+    "a1": "Sí, puedes subir o bajar de plan en cualquier momento. Los cambios se aplican al inicio del siguiente ciclo de facturación.",
+    "q2": "¿Cómo funciona el descuento anual?",
+    "a2": "Al elegir facturación anual, ahorras un 20% en comparación con el precio mensual. El total se cobra una vez al año.",
+    "q3": "¿Ofrecen una prueba gratuita?",
+    "a3": "Todos los planes incluyen 14 días de prueba gratuita sin necesidad de tarjeta de crédito. Puedes cancelar en cualquier momento."
+  },
+  "solutionsPage": {
+    "hero": {
+      "badge": "Soluciones Empresariales Escalables",
+      "headline1": "Soluciones para cada etapa del crecimiento de tu",
+      "headline2": "Negocio",
+      "subtext": "Unifica tu flujo de trabajo, empodera a tu equipo y escala sin esfuerzo con nuestra suite de herramientas empresariales diseñadas para la eficiencia moderna.",
+      "ctaExploreSolutions": "Explorar Soluciones",
+      "ctaWatchDemo": "Ver Demo"
+    },
+    "cta": {
+      "title": "¿Listo para transformar tu negocio?",
+      "subtitle": "Únete a más de 15.000 empresas que escalan más rápido con DreamSoft. Comienza tu prueba gratuita de 14 días hoy.",
+      "ctaPrimary": "Comenzar",
+      "ctaSecondary": "Ver precios"
+    }
+  },
+  "tenantControlPanel": {
+    "title": "Gestión de Cuenta",
+    "subtitle": "Portal del Tenant",
+    "nav": {
+      "dashboard": "Panel",
+      "managementGroup": "Gestión",
+      "subscriptions": "Mis Suscripciones",
+      "invoices": "Facturas",
+      "payments": "Historial de Pagos",
+      "personalGroup": "Personal",
+      "profile": "Perfil",
+      "settings": "Configuración",
+      "logout": "Cerrar Sesión"
+    },
+    "topBar": {
+      "search": "Buscar...",
+      "notifications": "Notificaciones",
+      "help": "Ayuda"
+    },
+    "sections": {
+      "dashboard": "Panel",
+      "subscriptions": "Mis Suscripciones",
+      "invoices": "Facturas",
+      "payments": "Historial de Pagos",
+      "profile": "Perfil",
+      "settings": "Configuración"
+    },
+    "errors": {
+      "generic": "Ocurrió un error. Por favor, inténtalo de nuevo.",
+      "networkError": "Error de red. Verifica tu conexión."
+    }
   }
 }

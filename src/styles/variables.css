@@ -177,4 +177,32 @@
   --navbar-bg: #ffffff;
   --navbar-text: var(--color-text-primary);
   --navbar-border: var(--color-border-light);
+
+  /* Features Catalog */
+  --fc-page-bg: #f4fbf8;
+  --fc-surface-lowest: #ffffff;
+  --fc-surface-low: #eff5f2;
+  --fc-surface: #e9efec;
+  --fc-text: #161d1b;
+  --fc-text-muted: #3c4947;
+  --fc-border: #bbcac6;
+  --fc-border-faint: rgba(187, 202, 198, 0.3);
+  --fc-icon: var(--color-primary-500);
+  --fc-icon-bg: rgba(20, 184, 166, 0.2);
+  --fc-primary-card-bg: var(--color-primary-500);
+  --fc-primary-card-text: #00423b;
+  --fc-cta-bg: #2b3230;
+  --fc-cta-text: #ecf2ef;
+  --fc-cta-orb: rgba(20, 184, 166, 0.1);
+  --fc-cta-btn-sec-bg: rgba(255, 255, 255, 0.05);
+  --fc-cta-btn-sec-hover: rgba(255, 255, 255, 0.1);
+  --fc-cta-btn-sec-border: rgba(255, 255, 255, 0.2);
+  --fc-glass-bg: rgba(255, 255, 255, 0.1);
+  --fc-glass-bg-hover: rgba(255, 255, 255, 0.2);
+  --fc-glass-border: rgba(255, 255, 255, 0.2);
+  --fc-success-badge-bg: rgba(34, 197, 94, 0.1);
+  --fc-primary-badge-bg: rgba(20, 184, 166, 0.1);
+  --fc-error-text-muted: rgba(239, 68, 68, 0.8);
+  --fc-card-hover-shadow: rgba(0, 0, 0, 0.04);
+  --fc-cta-shadow: rgba(0, 0, 0, 0.25);
 }

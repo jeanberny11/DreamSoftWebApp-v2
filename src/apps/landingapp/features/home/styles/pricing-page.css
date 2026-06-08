@@ -1,0 +1,156 @@
+@import "tailwindcss" reference;
+
+@layer components {
+
+  /* ===== COMPARISON TABLE SECTION ===== */
+
+  .pricing-compare-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: var(--color-bg-secondary);
+  }
+
+  .pricing-compare-tabs {
+    margin-bottom: 2rem;
+  }
+
+  .pricing-compare-table-wrap {
+    overflow-x: auto;
+    border-radius: 1rem;
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--card-shadow);
+  }
+
+  .pricing-compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-bg);
+  }
+
+  .pricing-compare-th {
+    padding: 1rem 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border-light);
+    background-color: var(--color-bg-tertiary);
+  }
+
+  .pricing-compare-th--feature {
+    text-align: left;
+    min-width: 180px;
+  }
+
+  .pricing-compare-th--popular {
+    background-color: var(--color-primary-500);
+    color: #ffffff;
+  }
+
+  .pricing-compare-popular-badge {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    opacity: 0.85;
+    letter-spacing: 0.02em;
+  }
+
+  .pricing-compare-row:nth-child(even) td {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .pricing-compare-row:nth-child(even) .pricing-compare-td--popular {
+    background-color: var(--color-primary-50);
+  }
+
+  .pricing-compare-td {
+    padding: 0.875rem 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .pricing-compare-row:last-child td {
+    border-bottom: none;
+  }
+
+  .pricing-compare-td--feature {
+    text-align: left;
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  .pricing-compare-td--popular {
+    color: var(--color-primary-700);
+    font-weight: 600;
+  }
+
+  /* ===== FAQ SECTION ===== */
+
+  .pricing-faq-section {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-bg-primary);
+  }
+
+  .pricing-faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pricing-faq-item {
+    border: 1px solid var(--color-border-light);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: var(--card-bg);
+    transition: border-color 0.2s ease;
+  }
+
+  .pricing-faq-item--open {
+    border-color: var(--color-primary-300);
+  }
+
+  .pricing-faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .pricing-faq-question:hover {
+    color: var(--color-primary-600);
+  }
+
+  .pricing-faq-chevron {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    transition: transform 0.2s ease;
+  }
+
+  .pricing-faq-chevron--open {
+    transform: rotate(180deg);
+    color: var(--color-primary-500);
+  }
+
+  .pricing-faq-answer {
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+}
