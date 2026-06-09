@@ -4,7 +4,7 @@
 // Refresh    : POST /api/v1/tenant-auth/refresh
 // On expiry  : clears tenant session, redirects to /login
 
-import { createApiClient } from '@/shared/api/createApiClient'
+import { createApiClient, createTenantRefreshClient } from '@/shared/api/createApiClient'
 import { useTenantAuthStore } from '../tenant_auth.store'
 
 export const tenantClient = createApiClient({
@@ -13,3 +13,6 @@ export const tenantClient = createApiClient({
   loginPath:       '/login',
   clearAuth:       () => useTenantAuthStore.getState().clearAuth(),
 })
+
+
+export const tenantRefreshClient = createTenantRefreshClient()

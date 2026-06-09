@@ -2,6 +2,13 @@
 <!-- Newest session at the top -->
 
 ---
+## [2026-06-08] — TcpSidebar & TcpTopBar restyled
+- Sidebar background changed to light gradient (`--color-primary-100` → `--color-gray-50` → `--color-accent-50`); all colors moved to `variables.css` under `/* Tenant Control Panel */` section — no hardcoded values remain.
+- Clarified and saved rule: `variables.css` is the single source of truth for ALL colors; "no hardcoded colors" applies to every CSS file project-wide.
+- TcpTopBar now uses the same frosted-glass background as the home Navbar (`--nav-surface-bg` + `backdrop-filter`); has a "back to home" icon link before the title.
+- `NavLangButton` and `NavUserButton` extracted from `Navbar.tsx` into `landingapp/common/components/` — shared by both `Navbar` and `TcpTopBar`.
+- i18n updates: `title` → "Manage Account" / "Administrar cuenta"; `subtitle` → "Administrator Panel" / "Panel de Administrador"; `backToHome` added to both locales.
+---
 ## [2026-06-02] — TenantControlPanel base shell built
 - Built shell layout: `TenantControlPanelPage` now hosts `TcpSidebar` + `TcpTopBar` + `<Outlet />` (mirrors `TenantLayout` pattern).
 - Created `TcpSidebar` (Material Symbols icons, NavLink active state, logout via `clearAuth()`) and `TcpTopBar` (page title + user initials avatar).

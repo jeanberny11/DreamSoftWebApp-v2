@@ -12,6 +12,8 @@
 [2026-05-26] All landing pages use `page-shell` as outer wrapper and `page-main` (with `style={{ paddingTop: 'var(--nav-topbar-height)' }}`) as the main element — both defined in `home_page.css`.
 [2026-06-02] `TenantControlPanelPage` is a self-contained shell layout (sidebar + topbar + `<Outlet />`) in the landingapp — same structural pattern as `TenantLayout` in the tenant app. CSS prefix: `tcp-`. Route: `/account/*` (wildcard keeps the shell alive while sub-routes are added incrementally).
 [2026-06-02] Section stubs for `tenant-control-panel` live directly in `pages/` (no subfolder). Sub-routes are wired into `routes.tsx` one at a time as each section is built — not all at once upfront.
+[2026-06-08] `TcpSidebar` uses a light gradient background (`--color-primary-100` → `--color-gray-50` → `--color-accent-50`); all sidebar color tokens are in `variables.css` under `/* Tenant Control Panel */`. Text, hover, active, border tokens all use CSS variables — no hardcoded values.
+[2026-06-08] `TcpTopBar` uses the same frosted-glass background as the home Navbar (`--nav-surface-bg` + `backdrop-filter: blur(12px)`). Shared nav components `NavLangButton` and `NavUserButton` live in `landingapp/common/components/` and are imported by both `Navbar.tsx` and `TcpTopBar.tsx`. `TcpTopBar.tsx` imports `navbar.css` directly so `--nav-*` tokens are available in the TCP shell.
 
 ## Conventions
 <!-- Naming rules, file patterns, coding styles specific to this project -->
@@ -46,6 +48,7 @@
 [2025-05-25] Never use relative imports that cross app boundaries — always use `@/`.
 [2025-05-25] Never put CSS inside TSX files — always a separate `.css` file imported at the top.
 [2025-05-25] Never hardcode hex, rgba, or named color values in CSS — always use CSS variables.
+[2026-06-08] `src/styles/variables.css` is the single source of truth for ALL colors. "No hardcoded colors" means every color value in every CSS file must reference a variable from `variables.css`. If a new color is needed, add a new variable there first, then reference it. This applies to Stitch replications, new features, and any component work — no exceptions.
 [2025-05-25] Never hardcode user-visible strings in TSX — always use `t()` from i18next.
 [2025-05-25] Never create a new feature folder at `landingapp/<feature>/` — always `landingapp/features/<feature>/`.
 [2025-05-25] Never replicate a Stitch design without user confirmation of the exact design name first.

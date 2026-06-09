@@ -205,4 +205,10 @@
   --fc-error-text-muted: rgba(239, 68, 68, 0.8);
   --fc-card-hover-shadow: rgba(0, 0, 0, 0.04);
   --fc-cta-shadow: rgba(0, 0, 0, 0.25);
+
+  /* Tenant Control Panel */
+  --tcp-active-bg: rgba(255, 255, 255, 0.75);
+  --tcp-border-color: rgba(20, 184, 166, 0.15);
+  --tcp-hover-color: rgba(20, 184, 166, 0.08);
+  --tcp-logout-hover-bg: rgba(239, 68, 68, 0.1);
 }

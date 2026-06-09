@@ -1,33 +1,33 @@
-﻿// useTenantAuth.ts — Bootstraps the tenant auth state on app load by
+// useTenantAuth.ts — Bootstraps the tenant auth state on app load by
 // attempting a silent token refresh via the httpOnly cookie.
 // On success: stores the new access token and populates the session store.
 // On failure: clears the session — user will be redirected to /login by AuthGuard.
 
-import { useEffect, useState } from 'react'
-import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
-import { useTenantAuthStore } from '@/apps/landingapp/common/tenant_auth.store'
-import { setToken } from '@/shared/utils/token'
-import type { LoginResponse } from '@/apps/landingapp/features/login/types/login.types'
-import type { ApiResult } from '@/shared/types/api.types'
+import { useEffect, useState } from "react";
+import { tenantRefreshClient } from "@/apps/landingapp/common/api/tenantClient";
+import { useTenantAuthStore } from "@/apps/landingapp/common/tenant_auth.store";
+import { setToken, clearToken } from "@/shared/utils/token";
+import type { LoginResponse } from "@/apps/landingapp/features/login/types/login.types";
 
 export function useTenantAuth() {
-  const { setAuth, clearAuth } = useTenantAuthStore()
-  const [isBootstrapping, setIsBootstrapping] = useState(true)
+  const [isBootstrapping, setIsBootstrapping] = useState(true);
 
   useEffect(() => {
-    tenantClient
-      .post<ApiResult<LoginResponse>>('/api/v1/tenant-auth/refresh')
-      .then(({ data: result }) => {
-        if (result.success) {
-          setToken('tenant', result.data.accessToken)
-          setAuth(result.data)
-        } else {
-          //clearAuth()
-        }
+    tenantRefreshClient
+      .post<LoginResponse>("/api/v1/tenant-auth/refresh")
+      .then(({ data }) => {
+        setToken("tenant", data.accessToken);
+        useTenantAuthStore.getState().setAuth(data);
       })
-      .catch(() => clearAuth())
-      .finally(() => setIsBootstrapping(false))
-  }, [setAuth, clearAuth])
+      .catch((error) => {
+        console.error("Tenant auth refresh failed:", error);
+        clearToken("tenant");
+        useTenantAuthStore.getState().clearAuth();
+      })
+      .finally(() => {
+        setIsBootstrapping(false);
+      });
+  }, []);
 
-  return { isBootstrapping }
+  return { isBootstrapping };
 }

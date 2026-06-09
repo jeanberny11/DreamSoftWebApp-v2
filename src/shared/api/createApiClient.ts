@@ -21,6 +21,15 @@ export interface ApiClientConfig {
   clearAuth:       () => void    // store action to call on session expiry
 }
 
+export function createTenantRefreshClient(){
+  return axios.create({
+    baseURL:         import.meta.env.VITE_API_BASE_URL as string,
+    withCredentials: true,
+    headers:         { 'Content-Type': 'application/json' },
+  })
+}
+
+
 export function createApiClient(config: ApiClientConfig) {
   const BASE_URL = import.meta.env.VITE_API_BASE_URL as string
 
@@ -29,6 +38,8 @@ export function createApiClient(config: ApiClientConfig) {
     withCredentials: true,
     headers:         { 'Content-Type': 'application/json' },
   })
+
+  const refreshClient = createTenantRefreshClient()
 
   // ── Request interceptor ──────────────────────────────────────────────────
   client.interceptors.request.use((req: InternalAxiosRequestConfig) => {
@@ -64,8 +75,7 @@ export function createApiClient(config: ApiClientConfig) {
       const requestUrl = originalRequest.url ?? ''
       const isPublicEndpoint =
         requestUrl.includes('/login') ||
-        requestUrl.includes('/register') ||
-        requestUrl === config.refreshEndpoint
+        requestUrl.includes('/register')
 
       if (error.response?.status === 401 && !originalRequest._retry && !isPublicEndpoint) {
         if (isRefreshing) {
@@ -84,8 +94,8 @@ export function createApiClient(config: ApiClientConfig) {
         isRefreshing = true
 
         try {
-          const { data } = await client.post<{ accessToken: string }>(config.refreshEndpoint)
-          const newToken = (data as unknown as { data: { accessToken: string } }).data.accessToken
+          const { data } = await refreshClient.post<{ accessToken: string }>(config.refreshEndpoint)
+          const newToken = data.accessToken
           setToken(config.context, newToken)
           processQueue(null, newToken)
           originalRequest.headers.Authorization = `Bearer ${newToken}`
