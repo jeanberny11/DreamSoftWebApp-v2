@@ -1,13 +1,9 @@
-﻿// landing.api.ts â€” LandingApp public page API calls
+// landing.api.ts — LandingApp public page API calls
 // Note: Registration API has moved to apps/landingapp/register/services/register.api.ts
+// Note: Verify email API lives in apps/landingapp/features/verify-email/services/verify-email.api.ts
 
 import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 import type { Solution, AppFeature, PricingSolution } from '@/apps/landingapp/features/home/types/home.types'
-
-export interface VerifyEmailRequest {
-  token: string
-  email: string
-}
 
 export interface OnboardingRequest {
   [key: string]: unknown
@@ -22,9 +18,6 @@ export const landingApi = {
 
   getSolutions: (language: string) =>
     tenantClient.get<Solution[]>('/api/v1/admin/Solutions/active', { params: { language } }),
-
-  verifyEmail: (body: VerifyEmailRequest) =>
-    tenantClient.post('/api/v1/registration/verify-email', body),
 
   completeOnboarding: (body: OnboardingRequest) =>
     tenantClient.post('/api/v1/onboarding/complete', body),

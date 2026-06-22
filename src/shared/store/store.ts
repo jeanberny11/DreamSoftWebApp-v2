@@ -10,11 +10,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import loginReducer        from '@/apps/landingapp/features/login/store/login.slice'
 import registerReducer     from '@/apps/landingapp/features/register/store/register.slice'
+import verifyEmailReducer  from '@/apps/landingapp/features/verify-email/store/verify-email.slice'
+import profileEditReducer  from '@/apps/landingapp/features/tenant-control-panel/stores/profile-edit.slice'
 
 export const store = configureStore({
   reducer: {
-    login:    loginReducer,
-    register: registerReducer,
+    login:       loginReducer,
+    register:    registerReducer,
+    verifyEmail: verifyEmailReducer,
+    profileEdit: profileEditReducer,
     // forgotPassword: forgotReducer,
   },
 })

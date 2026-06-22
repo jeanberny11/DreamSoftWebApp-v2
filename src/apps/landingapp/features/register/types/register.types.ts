@@ -16,14 +16,16 @@ export interface RegisterRequest {
 }
 
 export interface RegisterResponse {
-  accessToken:  string
-  expiresAt:    string
-  tenantId:     number
-  email:        string
-  firstName:    string
-  lastName:     string
-  logoUrl:      string
-  tenantStatus: string
+  accessToken:         string
+  expiresAt:           string
+  tenantId:            number
+  email:               string
+  firstName:           string
+  lastName:            string
+  logoUrl:             string
+  tenantStatusCode:    string
+  emailVerified:       boolean
+  onboardingCompleted: boolean
 }
 
 // ── Form types (inferred from Yup schema) ────────────────────────────────────

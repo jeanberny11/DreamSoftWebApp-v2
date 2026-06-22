@@ -12,7 +12,9 @@ import axios, {
 import i18n from '@/shared/i18n/config'
 import { getToken, setToken, clearToken, type TokenContext } from '@/shared/utils/token'
 import { parseAxiosError } from '@/shared/utils/api.utils'
+import { useTenantAuthStore } from '@/apps/landingapp/common/tenant_auth.store'
 import type { ApiResult } from '@/shared/types/api.types'
+import type { RefreshResponse } from '@/apps/landingapp/features/login/types/login.types'
 
 export interface ApiClientConfig {
   context:         TokenContext  // which in-memory token slot to use
@@ -94,9 +96,26 @@ export function createApiClient(config: ApiClientConfig) {
         isRefreshing = true
 
         try {
-          const { data } = await refreshClient.post<{ accessToken: string }>(config.refreshEndpoint)
+          const { data } = await refreshClient.post<RefreshResponse>(config.refreshEndpoint)
           const newToken = data.accessToken
           setToken(config.context, newToken)
+
+          // Restore the full session from the refresh response so guards
+          // always have up-to-date emailVerified + onboardingCompleted after
+          // a page reload or token rotation.
+          if (config.context === 'tenant') {
+            useTenantAuthStore.getState().setAuth({
+              tenantId:            data.tenantId,
+              email:               data.email,
+              firstName:           data.firstName,
+              lastName:            data.lastName,
+              logoUrl:             data.logoUrl,
+              tenantStatusCode:    data.tenantStatusCode,
+              emailVerified:       data.emailVerified,
+              onboardingCompleted: data.onboardingCompleted,
+            })
+          }
+
           processQueue(null, newToken)
           originalRequest.headers.Authorization = `Bearer ${newToken}`
           return client(originalRequest)

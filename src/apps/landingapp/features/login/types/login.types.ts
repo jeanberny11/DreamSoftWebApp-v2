@@ -21,16 +21,35 @@ export interface LoginRequest {
  * as an HTTP-only, Secure, SameSite=Strict cookie automatically.
  */
 export interface LoginResponse {
-  accessToken: string;
-  expiresAt: string; // ISO 8601 date string (DateTime serializes to string in JSON)
-  tenantId: number;
-  email: string;
-  firstName: string;
-  lastName: string;
-  logoUrl: string;
+  accessToken:         string;
+  expiresAt:           string; // ISO 8601 date string (DateTime serializes to string in JSON)
+  tenantId:            number;
+  email:               string;
+  firstName:           string;
+  lastName:            string;
+  logoUrl:             string;
   onboardingCompleted: boolean;
-  emailVerified: boolean;
-  tenantStatus: string;
+  emailVerified:       boolean;
+  tenantStatusCode:    string;
+}
+
+/**
+ * JSON body returned by the refresh endpoint on success.
+ * Mirrors RefreshTenantTokenClientResponse in TenantAuthController.cs.
+ * Contains the full tenant session data so the store can be fully
+ * restored on page refresh without a separate profile fetch.
+ */
+export interface RefreshResponse {
+  accessToken:         string
+  expiresAt:           string
+  tenantId:            number
+  email:               string
+  firstName:           string
+  lastName:            string
+  logoUrl:             string
+  tenantStatusCode:    string
+  emailVerified:       boolean
+  onboardingCompleted: boolean
 }
 
 // ── Form ─────────────────────────────────────────────────────────────────────

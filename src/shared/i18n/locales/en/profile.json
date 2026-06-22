@@ -1,0 +1,107 @@
+{
+  "view": {
+    "title": "My Profile",
+    "editButton": "Edit Profile",
+    "memberSince": "Member Since",
+    "lastUpdate": "Last Profile Update",
+    "onboardingComplete": "Onboarding Complete",
+    "sections": {
+      "business": "Business",
+      "location": "Location"
+    },
+    "fields": {
+      "company": "Company",
+      "phone": "Phone",
+      "website": "Website"
+    },
+    "empty": "Not provided",
+    "loading": "Loading your profile...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't load your profile. Please try again.",
+    "retry": "Retry"
+  },
+  "edit": {
+    "backToProfile": "Back to Profile",
+    "title": "Edit Profile",
+    "cancel": "Cancel",
+    "save": "Save Changes",
+    "saving": "Updating...",
+
+    "sections": {
+      "personal": "Personal Information",
+      "company": "Company Information",
+      "address": "Address",
+      "preferences": "Preferences"
+    },
+
+    "fields": {
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter last name",
+
+      "companyName": "Company Name",
+      "companyNamePlaceholder": "Enter company name",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "website": "Website",
+      "websitePlaceholder": "https://yourcompany.com",
+
+      "addressLine1": "Address Line 1",
+      "addressLine1Placeholder": "Street address",
+      "addressLine2": "Address Line 2",
+      "addressLine2Placeholder": "Apartment, suite, unit, etc.",
+      "country": "Country",
+      "countryPlaceholder": "Select a country",
+      "province": "Province",
+      "provincePlaceholder": "Select a province",
+      "provinceLockedHint": "Select a country first",
+      "municipality": "Municipality",
+      "municipalityPlaceholder": "Select a municipality",
+      "municipalityLockedHint": "Select a province first",
+      "postalCode": "Postal Code",
+      "postalCodePlaceholder": "Zip/Postal code",
+
+      "language": "Language",
+      "languagePlaceholder": "Select a language"
+    },
+
+    "errors": {
+      "profileLoadFailed": "Failed to load your profile. Please try again.",
+      "countryLoadFailed": "Failed to load countries. Please try again.",
+      "provinceLoadFailed": "Failed to load provinces. Please try again.",
+      "municipalityLoadFailed": "Failed to load municipalities. Please try again.",
+      "generic": "An error occurred. Please try again.",
+      "networkError": "Network error. Check your connection.",
+
+      "firstNameRequired": "First name is required.",
+      "firstNameLength": "First name must be between 2 and 100 characters.",
+      "firstNameInvalid": "First name contains invalid characters.",
+
+      "lastNameRequired": "Last name is required.",
+      "lastNameLength": "Last name must be between 2 and 100 characters.",
+      "lastNameInvalid": "Last name contains invalid characters.",
+
+      "companyNameRequired": "Company name is required.",
+      "companyNameLength": "Company name must be between 2 and 255 characters.",
+      "companyNameInvalid": "Company name contains invalid characters.",
+
+      "phoneRequired": "Phone number is required.",
+      "phoneInvalid": "Please enter a valid phone number.",
+
+      "websiteLength": "Website must be 255 characters or fewer.",
+
+      "addressLine1Required": "Address is required.",
+      "addressLine1Length": "Address must be 255 characters or fewer.",
+      "addressLine2Length": "Address line 2 must be 255 characters or fewer.",
+
+      "countryRequired": "Please select a country.",
+      "provinceRequired": "Please select a province.",
+      "municipalityRequired": "Please select a municipality.",
+
+      "postalCodeLength": "Postal code must be 20 characters or fewer.",
+
+      "languageRequired": "Please select a language."
+    }
+  }
+}

@@ -26,7 +26,7 @@ export function useRegister() {
   // Navigate on success — equivalent to BlocListener reacting to RegisterSuccess
   useEffect(() => {
     if (registerState.status === 'success') {
-      navigate('/onboarding')
+      navigate('/account')
     }
   }, [registerState.status, navigate])
 

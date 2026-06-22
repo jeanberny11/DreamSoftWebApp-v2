@@ -52,12 +52,14 @@ export const registerThunk = createAsyncThunk<
     if (result.success) {
       setToken('tenant', result.data.accessToken)
       useTenantAuthStore.getState().setAuth({
-        tenantId:     result.data.tenantId,
-        email:        result.data.email,
-        firstName:    result.data.firstName,
-        lastName:     result.data.lastName,
-        logoUrl:      result.data.logoUrl,
-        tenantStatus: result.data.tenantStatus,
+        tenantId:            result.data.tenantId,
+        email:               result.data.email,
+        firstName:           result.data.firstName,
+        lastName:            result.data.lastName,
+        logoUrl:             result.data.logoUrl,
+        tenantStatusCode:    result.data.tenantStatusCode,
+        emailVerified:       result.data.emailVerified,
+        onboardingCompleted: result.data.onboardingCompleted,
       })
       return
     }

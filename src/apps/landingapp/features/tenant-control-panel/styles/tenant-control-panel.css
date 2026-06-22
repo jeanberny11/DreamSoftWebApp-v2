@@ -254,3 +254,38 @@
   font-size: 1.125rem;
   font-weight: 500;
 }
+
+/* ===== DASHBOARD PAGE ===== */
+
+.tcp-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tcp-welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .tcp-welcome {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.tcp-welcome__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  color: var(--color-text-primary);
+}
+
+.tcp-welcome__subtitle {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--color-text-secondary);
+}

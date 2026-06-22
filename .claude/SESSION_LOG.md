@@ -2,6 +2,26 @@
 <!-- Newest session at the top -->
 
 ---
+## [2026-06-16] — Email verification full-stack plan + Pre-Phase fixes applied
+- Defined 5-phase plan: Phase 1 backend fixes, Phase 2 session foundation, Phase 3 verify-email feature, Phase 4 guards & routing, Phase 5 entry point (ProfileSection button).
+- Applied Pre-Phase fixes: `register.types.ts` (renamed `tenantStatus` → `tenantStatusCode`, added `emailVerified` + `onboardingCompleted`), `register.slice.ts` (mapped all new fields in `setAuth`), `landing.api.ts` (removed stale `verifyEmail` method).
+- All `setAuth` call sites now consistent: `login.slice.ts`, `register.slice.ts`, `useTenantAuth.ts`, `createApiClient.ts`.
+- Session ended before Phase 3 — next step is building the verify-email feature (types → api → state → slice → hook → styles → page).
+---
+
+---
+## [2026-06-12] — OnboardingChecklist fully rebuilt from raw Stitch HTML
+- Rebuilt `OnboardingChecklist.tsx` from raw HTML (both states) — 3-column grid layout, featured profile card, pending-state action buttons, state-aware descriptions, status badge.
+- Added 19 new `--oc-*` CSS variables to `variables.css`; `onboarding-checklist.css` fully rewritten.
+- Updated both `en/` and `es/` `dashboard.json`: new keys `stepsRemaining`, `allCompleted`, `verifyAction`, `setupAction`, `choosePlanAction`, `statusNoPlan`, `descriptionDone` per step.
+- Subscription pending badge is now error (red) to match design; profile card is always featured regardless of state.
+---
+## [2026-06-11] — stitch-to-code skill improved for design fidelity
+- Diagnosed root cause of design/component mismatch: `WebFetch` summarizes Stitch HTML through a small AI model, losing visual detail (spacing, colors, element hierarchy).
+- Compared "Onboarding Checklist Component" and "Onboarding Checklist - Completed State" Stitch screens against current `OnboardingChecklist.tsx` — found 4 gaps: missing progress counter, no pending-state action buttons, single static description per step, and single-card vs. per-card layout.
+- Updated `stitch-to-code` SKILL.md: added dual input path (design name OR raw HTML paste), replaced `WebFetch` with `Invoke-WebRequest` + `Read` for lossless raw HTML access.
+- OnboardingChecklist component gaps noted but NOT fixed this session — user chose to save and stop.
+---
 ## [2026-06-08] — TcpSidebar & TcpTopBar restyled
 - Sidebar background changed to light gradient (`--color-primary-100` → `--color-gray-50` → `--color-accent-50`); all colors moved to `variables.css` under `/* Tenant Control Panel */` section — no hardcoded values remain.
 - Clarified and saved rule: `variables.css` is the single source of truth for ALL colors; "no hardcoded colors" applies to every CSS file project-wide.

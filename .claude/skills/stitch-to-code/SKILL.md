@@ -4,9 +4,9 @@ description: >
   Fetches a design from Google Stitch via MCP and replicates it faithfully into the DreamSoft WebApp
   React project. Use this skill whenever the user mentions fetching, importing, or replicating a Stitch
   design, or says anything like "get the design from Stitch", "replicate this Stitch screen",
-  "build the X design from Stitch", or "implement the Stitch design for X". Always use this skill
-  before writing any code related to a Stitch design — never attempt to replicate a Stitch design
-  without following this workflow.
+  "build the X design from Stitch", "implement the Stitch design for X", or "I have the HTML from
+  Stitch, replicate it". Always use this skill before writing any code related to a Stitch design —
+  never attempt to replicate a Stitch design without following this workflow.
 ---
 
 # Stitch → Code Skill
@@ -18,10 +18,17 @@ Workflow for fetching a Google Stitch design and replicating it correctly into t
 
 ---
 
-## Step 1 — Confirm the Design Name
+## Step 1 — Choose Input Method
 
-**The design name is required.** If the user did not provide it, ask:
-> "What is the exact name of the Stitch design you want to replicate?"
+**Ask the user which input method they want to use:**
+> "Do you want to provide the Stitch design name, or paste the raw HTML directly?"
+
+- **Option A — Design name** → continue to Step 1a
+- **Option B — Raw HTML** → user pastes the HTML code → skip directly to Step 3
+
+---
+
+## Step 1a — Confirm the Design Name (Option A only)
 
 Once you have a name:
 1. Use the Stitch MCP server to search for the design by that name
@@ -34,12 +41,18 @@ Once you have a name:
 
 ---
 
-## Step 2 — Fetch the Design HTML
+## Step 2 — Fetch the Raw Design HTML (Option A only)
 
-Once the design is confirmed:
-1. Use the Stitch MCP server to fetch the full HTML output of the confirmed design
-2. Do not modify or interpret the HTML yet — just hold it
-3. Confirm to the user: "Design fetched successfully. Now I need a few details before building."
+Once the design is confirmed, download the raw HTML using PowerShell — do **not** use `WebFetch` (it summarizes the content through an AI model, losing visual fidelity):
+
+1. Call `mcp__stitch__get_screen` to get the screen metadata and `htmlCode.downloadUrl`
+2. Download the raw HTML to a temp file:
+   ```powershell
+   Invoke-WebRequest -Uri "<htmlCode.downloadUrl>" -OutFile "$env:TEMP\stitch-design.html"
+   ```
+3. Read the file directly with the `Read` tool at `$env:TEMP\stitch-design.html`
+4. Hold the full raw HTML — do not modify or interpret it yet
+5. Confirm to the user: "Design fetched successfully. Now I need a few details before building."
 
 ---
 

@@ -19,7 +19,7 @@
 <!-- Naming rules, file patterns, coding styles specific to this project -->
 [2025-05-25] Page file names: `<Feature>Page.tsx` (PascalCase + Page suffix). Component file names: `<Name>.tsx` (PascalCase). CSS file names: `<name>.css` (kebab-case).
 [2025-05-25] Feature file names follow the pattern `<feature>.<role>.ts` — e.g. `login.slice.ts`, `login.state.ts`, `login.types.ts`, `login.api.ts`.
-[2025-05-25] `store/` folder is used in `landingapp`; `stores/` folder is used in `tenant`. Never mix them.
+[2026-06-19] `stores/` folder is used in both `landingapp` and `tenant`. `store/` (singular) is no longer used — all slices and Zustand stores live in `stores/` within their feature folder.
 [2025-05-25] Redux slice export for reset action: `reset<Feature>` — e.g. `resetLogin`, `resetRegister`.
 [2025-05-25] Redux thunks receive `t()` as an argument in the ThunkArg interface so slices stay i18n-aware.
 [2025-05-25] State pattern mirrors flutter_bloc: discriminated union with `status: 'initial' | 'loading' | 'success' | 'error'`.
@@ -37,7 +37,7 @@
 
 ## Skills
 <!-- Skills available in .claude/skills/ and what they do -->
-[2025-05-25] `stitch-to-code` — Fetches a Google Stitch design by name, confirms it with the user, and replicates it into the correct app/feature folder with separated CSS, CSS variables, and i18n keys.
+[2026-06-11] `stitch-to-code` — Updated: now supports two input paths (design name via Stitch MCP, or raw HTML paste). When using design name, downloads raw HTML via `Invoke-WebRequest` + `Read` instead of `WebFetch` to avoid AI summarization loss.
 [2025-05-25] `new-feature` — Scaffolds a complete feature folder structure for landingapp or tenant, with boilerplate files for slice, state, types, service, hook, page, and schema. Registers Redux slice in store.ts if needed.
 [2025-05-25] `mem` — Loads project context at session start, auto-saves decisions and conventions to PROJECT_KNOWLEDGE.md, and appends a compact summary to SESSION_LOG.md at session end.
 [2025-05-25] `react-state-pattern` — Existing skill (pre-dates this session). Purpose: enforces the flutter_bloc-inspired Redux state pattern used across the project.
@@ -46,7 +46,7 @@
 <!-- Hard rules — things that must never happen in this project -->
 [2025-05-25] Never store access tokens in localStorage — in-memory only (see `src/shared/utils/token.ts`).
 [2025-05-25] Never use relative imports that cross app boundaries — always use `@/`.
-[2025-05-25] Never put CSS inside TSX files — always a separate `.css` file imported at the top.
+[2025-05-25] Never put CSS inside TSX files — always a separate `.css` file imported at the top. This includes Tailwind utility classes — do not use className="flex gap-4 text-gray-900 …" in pages or components. Always define a named CSS class in the feature's CSS file and apply it via className.
 [2025-05-25] Never hardcode hex, rgba, or named color values in CSS — always use CSS variables.
 [2026-06-08] `src/styles/variables.css` is the single source of truth for ALL colors. "No hardcoded colors" means every color value in every CSS file must reference a variable from `variables.css`. If a new color is needed, add a new variable there first, then reference it. This applies to Stitch replications, new features, and any component work — no exceptions.
 [2025-05-25] Never hardcode user-visible strings in TSX — always use `t()` from i18next.

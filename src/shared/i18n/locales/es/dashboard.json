@@ -1,0 +1,51 @@
+{
+  "dashboard": {
+    "welcome": {
+      "title": "¡Bienvenido a DreamSoft, {{name}}!",
+      "subtitle": "Comencemos a impulsar tu negocio. Completa tu configuración para desbloquear todas las funciones."
+    }
+  },
+  "onboardingChecklist": {
+    "title": "Completa la configuración de tu cuenta",
+    "subtitle": "¿Listo para escalar? Completa estos últimos pasos para desbloquear todo el potencial.",
+    "stepsRemaining": "{{count}} Pasos Pendientes",
+    "allCompleted": "Todos los pasos completados",
+    "error": {
+      "retry": "Reintentar"
+    },
+    "steps": {
+      "email": {
+        "title": "Verifica tu dirección de correo",
+        "description": "Verifica tu correo para confirmar tu identidad y recibir tus facturas y recibos.",
+        "descriptionDone": "Tu correo ha sido verificado correctamente.",
+        "statusPending": "Pendiente",
+        "statusDone": "Verificado",
+        "verifyAction": "Verificar Correo"
+      },
+      "profile": {
+        "title": "Completa el onboarding",
+        "description": "¡Ya casi terminas! Agrega los datos de tu negocio y logo para completar tu perfil.",
+        "descriptionDone": "Tu perfil de negocio está completamente configurado.",
+        "descriptionLocked": "Verifica tu correo electrónico primero para desbloquear este paso.",
+        "statusPending": "Incompleto",
+        "statusDone": "Completado",
+        "statusLocked": "Bloqueado",
+        "setupAction": "Configurar Perfil",
+        "editAction": "Editar Perfil",
+        "lockedAction": "Bloqueado"
+      },
+      "subscription": {
+        "title": "Activar suscripción",
+        "description": "Elige una solución y activa tu suscripción para desbloquear todo el potencial de la plataforma.",
+        "descriptionDone": "Tienes suscripciones activas.",
+        "descriptionLocked": "Completa tu perfil de negocio primero para activar una suscripción.",
+        "statusNoPlan": "Sin plan activo",
+        "statusDone": "{{count}} Planes Activos",
+        "statusLocked": "Bloqueado",
+        "choosePlanAction": "Elegir un plan",
+        "manageAction": "Gestionar Planes",
+        "lockedAction": "Bloqueado"
+      }
+    }
+  }
+}

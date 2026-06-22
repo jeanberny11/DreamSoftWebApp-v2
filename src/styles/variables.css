@@ -211,4 +211,51 @@
   --tcp-border-color: rgba(20, 184, 166, 0.15);
   --tcp-hover-color: rgba(20, 184, 166, 0.08);
   --tcp-logout-hover-bg: rgba(239, 68, 68, 0.1);
+
+  /* Tenant Control Panel — Profile View */
+  --tcp-profile-hero-gradient: linear-gradient(
+    to right,
+    rgba(20, 184, 166, 0.2),
+    rgba(20, 184, 166, 0.05),
+    rgba(20, 184, 166, 0.2)
+  );
+  --tcp-profile-avatar-size: 120px;
+  --tcp-profile-avatar-bg: var(--color-primary-500);
+  --tcp-profile-status-badge-bg: rgba(20, 184, 166, 0.1);
+  --tcp-profile-status-badge-text: var(--color-primary-700);
+  --tcp-profile-status-badge-border: rgba(20, 184, 166, 0.2);
+  --tcp-profile-status-inactive-bg: var(--color-gray-100);
+  --tcp-profile-status-inactive-text: var(--color-gray-500);
+  --tcp-profile-status-inactive-border: var(--color-gray-200);
+  --tcp-profile-success-badge-bg: rgba(34, 197, 94, 0.1);
+  --tcp-profile-success-badge-text: var(--color-success-600);
+  --tcp-profile-success-badge-border: rgba(34, 197, 94, 0.2);
+  --tcp-profile-card-header-bg: rgba(249, 250, 251, 0.5);
+  --tcp-profile-icon-bg: rgba(20, 184, 166, 0.1);
+  --tcp-profile-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --tcp-profile-shadow-info-card: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  /* Onboarding Checklist */
+  --oc-surface: #f4fbf8;
+  --oc-surface-low: #eff5f2;
+  --oc-surface-high: #e3eae7;
+  --oc-border: #bbcac6;
+  --oc-text-primary: #161d1b;
+  --oc-text-muted: #3c4947;
+  --oc-status-badge-bg: var(--color-primary-500);
+  --oc-status-badge-text: #00423b;
+  --oc-header-icon-bg: rgba(20, 184, 166, 0.1);
+  --oc-btn-primary-bg: #006b5f;
+  --oc-btn-primary-hover: #005048;
+  --oc-btn-secondary-bg: #006c49;
+  --oc-btn-secondary-hover: #00714d;
+  --oc-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.02);
+  --oc-step-hover-shadow: 0 10px 15px -3px rgba(0, 107, 95, 0.05);
+  --oc-featured-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --oc-badge-warning-bg: rgba(245, 158, 11, 0.1);
+  --oc-badge-error-bg: rgba(239, 68, 68, 0.1);
+  --oc-badge-success-bg: rgba(34, 197, 94, 0.1);
+  --oc-badge-locked-bg: rgba(107, 114, 128, 0.12);
+  --oc-badge-locked-text: var(--color-gray-500);
+  --oc-item-done-bg: rgba(20, 184, 166, 0.05);
 }

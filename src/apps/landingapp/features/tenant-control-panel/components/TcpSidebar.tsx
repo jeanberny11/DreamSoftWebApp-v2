@@ -32,7 +32,7 @@ export function TcpSidebar() {
 
       {/* Nav */}
       <nav className="tcp-sidebar__nav">
-        <NavLink to="/account/dashboard" className={navItemClass}>
+        <NavLink to="/account/" className={navItemClass}>
           <span className="material-symbols-outlined">dashboard</span>
           <span>{t('tenantControlPanel.nav.dashboard')}</span>
         </NavLink>

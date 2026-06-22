@@ -10,7 +10,10 @@ import { FeaturesCatalogPage } from './features/home/pages/FeaturesCatalogPage'
 import { RegisterPage } from './features/register/pages/RegisterPage'
 import { LoginPage } from './features/login/pages/LoginPage'
 import { TenantControlPanelPage } from './features/tenant-control-panel/pages/TenantControlPanelPage'
-import { OnboardingPage } from './pages/OnboardingPage'
+import { DashboardPage } from './features/tenant-control-panel/pages/DashboardPage'
+import { ProfileSection } from './features/tenant-control-panel/pages/ProfileSection'
+import { ProfileEditPage } from './features/tenant-control-panel/pages/ProfileEditPage'
+import { VerifyEmailPage } from './features/verify-email/pages/VerifyEmailPage'
 import { LandingGuestGuard } from './common/guards/LandingGuestGuard'
 import { LandingAuthGuard } from './common/guards/LandingAuthGuard'
 
@@ -42,8 +45,12 @@ export function LandingApp() {
 
       {/* Protected routes — redirect to /login if not authenticated */}
       <Route element={<LandingAuthGuard />}>
-        <Route path="/account/*" element={<TenantControlPanelPage />} />
-        <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="/account" element={<TenantControlPanelPage />}>
+          <Route index element={<DashboardPage />} />
+          <Route path="profile" element={<ProfileSection />} />
+          <Route path="profile/edit" element={<ProfileEditPage />} />
+        </Route>
+        <Route path="/verify-email" element={<VerifyEmailPage />} />
       </Route>
 
       {/* Fallback */}

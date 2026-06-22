@@ -1,0 +1,51 @@
+{
+  "dashboard": {
+    "welcome": {
+      "title": "Welcome to DreamSoft, {{name}}!",
+      "subtitle": "Let's get your business started. Complete your setup to unlock full features."
+    }
+  },
+  "onboardingChecklist": {
+    "title": "Complete your account setup",
+    "subtitle": "Ready to scale? Finish these final steps to unlock full potential.",
+    "stepsRemaining": "{{count}} Steps Remaining",
+    "allCompleted": "All Steps Completed",
+    "error": {
+      "retry": "Try again"
+    },
+    "steps": {
+      "email": {
+        "title": "Verify your email address",
+        "description": "Verify your email to confirm your identity and receive your invoices and receipts.",
+        "descriptionDone": "Your email has been successfully verified.",
+        "statusPending": "Pending",
+        "statusDone": "Verified",
+        "verifyAction": "Verify Email"
+      },
+      "profile": {
+        "title": "Complete onboarding",
+        "description": "You're almost there! Add your business details and logo to complete your profile.",
+        "descriptionDone": "Your business profile is fully set up.",
+        "descriptionLocked": "Verify your email address first to unlock this step.",
+        "statusPending": "Incomplete",
+        "statusDone": "Completed",
+        "statusLocked": "Locked",
+        "setupAction": "Setup Profile",
+        "editAction": "Edit Profile",
+        "lockedAction": "Locked"
+      },
+      "subscription": {
+        "title": "Activate subscription",
+        "description": "Choose a solution and activate your subscription to unlock the full power of the platform.",
+        "descriptionDone": "You have active subscriptions.",
+        "descriptionLocked": "Complete your business profile first to activate a subscription.",
+        "statusNoPlan": "No active plan",
+        "statusDone": "{{count}} Active Plans",
+        "statusLocked": "Locked",
+        "choosePlanAction": "Choose a plan",
+        "manageAction": "Manage Plans",
+        "lockedAction": "Locked"
+      }
+    }
+  }
+}
