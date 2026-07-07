@@ -7,14 +7,14 @@ import { useEffect, useState } from "react";
 import { tenantRefreshClient } from "@/apps/landingapp/common/api/tenantClient";
 import { useTenantAuthStore } from "@/apps/landingapp/common/tenant_auth.store";
 import { setToken, clearToken } from "@/shared/utils/token";
-import type { RefreshResponse } from "@/apps/landingapp/features/login/types/login.types";
+import type { TenantAuthResponse } from "@/apps/landingapp/common/types/tenant-auth.types";
 
 export function useTenantAuth() {
   const [isBootstrapping, setIsBootstrapping] = useState(true);
 
   useEffect(() => {
     tenantRefreshClient
-      .post<RefreshResponse>("/api/v1/tenant-auth/refresh")
+      .post<TenantAuthResponse>("/api/v1/landing/tenant-auth/refresh")
       .then(({ data }) => {
         setToken("tenant", data.accessToken);
         useTenantAuthStore.getState().setAuth({

@@ -41,12 +41,12 @@ export function SolutionsSection() {
         {state.status === "success" && (
           <div className="solutions-grid">
             {state.data.map((solution) => (
-              <div key={solution.code} className="solution-card">
+              <div key={solution.solutionId} className="solution-card">
                 <div
                   className="solution-card-icon"
                 >
                   <FontAwesomeIcon
-                    icon={getFeatureIcon(solution.iconUrl)}
+                    icon={getFeatureIcon(solution.icon)}
                     className="text-xl"
                     aria-hidden="true"
                   />

@@ -1,6 +1,7 @@
-// ── App Feature types — matches GET /api/v1/admin/AppFeatures ──
+// ── App Feature types — matches GET /api/v1/landing/Features/get-main-features ──
 
-export interface AppFeatureOption {
+export interface MenuOptionDto{
+  menuOptionId: number
   code: string
   name: string
   description: string
@@ -8,13 +9,68 @@ export interface AppFeatureOption {
   sortOrder: number
 }
 
-export interface AppFeature {
+export interface MenuGroupDto{
+  menuGroupId: number
   code: string
   name: string
   description: string
   icon: string
   sortOrder: number
-  options: AppFeatureOption[]
+  options: MenuOptionDto[]
+}
+
+export interface ModuleDto{
+  moduleId: number
+  code: string
+  name: string
+  description: string
+  icon: string
+  sortOrder: number
+  groups: MenuGroupDto[]
+}
+
+// ── Pricing types — matches GET /api/v1/landing/Pricing ──
+
+export interface BillingCycleDto {
+  billingCycleId: number
+  code: string
+  name: string
+  description: string
+  months: number
+}
+
+export interface PlanPriceDto {
+  planPriceId: number
+  price: number
+  billingCycle: BillingCycleDto
+}
+
+export interface PlanLimitDto {
+  planLimitId: number
+  limitKey: string
+  limitValue: number   // 0 = unlimited
+  description: string
+}
+
+export interface SubscriptionPlanDto {
+  planId: number
+  code: string
+  name: string
+  description: string
+  limits: PlanLimitDto[]
+  prices: PlanPriceDto[]
+  features: ModuleDto[]
+  trialDays: number
+  tierLevel: number    // highest tierLevel = most popular (highlighted)
+}
+
+export interface SolutionDto {
+  solutionId: number
+  code: string
+  name: string
+  description: string
+  icon: string
+  plans: SubscriptionPlanDto[]
 }
 
 export interface BillingCycle {
@@ -24,114 +80,10 @@ export interface BillingCycle {
   months: number
 }
 
-export interface PlanPrice {
-  billingCycle: BillingCycle
-  price: number
-}
-
-export interface SolutionDetailPlanPrice{
-  billingCycleCode: string
-  billingCycleName: string
-  price: number
-}
-
-export interface PlanLimit {
-  limitKey: string
-  limitValue: number   // 0 = unlimited
-  description: string
-}
-
-export interface PricingPlan {
-  code: string
-  name: string
-  description: string
-  trialDays: number
-  tierLevel: number    // highest tierLevel = most popular (highlighted)
-  prices: PlanPrice[]
-  limits: PlanLimit[]
-}
-
-export interface PricingSolution {
-  solutionCode: string
-  solutionName: string
-  solutionDescription: string
-  plans: PricingPlan[]
-}
-
-// ── Solution types — matches GET /api/v1/admin/Solutions/active ──
-
-export interface SolutionFeature {
-  code: string
-  name: string
-  description: string
-  iconUrl: string
-}
-
-export interface Solution {
-  code: string
-  name: string
-  description: string
-  iconUrl: string
-  features: SolutionFeature[]
-}
-
-// ── Solution Detail types — matches GET /api/v1/landing/Solutions-Features/{code} ──
-
-export interface SolutionDetailOption {
-  code: string
-  name: string
-  description: string
-  iconUrl: string
-  sortOrder: number
-  moduleCode: string
-  moduleName: string
-  groupCode: string
-  groupName: string
-}
-
-export interface SolutionDetailPlan {
-  code: string
-  name: string
-  description: string
-  trialDays: number
-  tierLevel: number
-  prices: SolutionDetailPlanPrice[]
-  limits: PlanLimit[]
-  options: SolutionDetailOption[]
-}
-
-export interface SolutionDetail {
-  code: string
-  name: string
-  description: string
-  iconUrl: string
-  plans: SolutionDetailPlan[]
-}
-
-// ── Features Catalog types — matches GET /api/v1/landing/Features/GetAllFeatures ──
-
-export interface FeatureCatalogOption {
+export interface SolutionResponse {
+  solutionId:number
   code: string
   name: string
   description: string
   icon: string
-  sortOrder: number
-}
-
-export interface FeatureCatalogGroup {
-  code: string
-  name: string
-  description: string
-  icon: string
-  sortOrder: number
-  options: FeatureCatalogOption[]
-}
-
-export interface FeatureCatalogItem {
-  code: string
-  name: string
-  description: string
-  icon: string
-  sortOrder: number
-  groups: FeatureCatalogGroup[]
 }

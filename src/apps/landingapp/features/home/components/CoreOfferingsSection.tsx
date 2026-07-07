@@ -42,29 +42,38 @@ export function CoreOfferingsSection() {
 
         {state.status === 'success' && (
           <div className="offerings-grid">
-            {state.data.map((solution) => (
-              <div key={solution.code} className="offering-card">
-                <div className="offering-card-icon">
-                  <FontAwesomeIcon icon={getFeatureIcon(solution.iconUrl)} aria-hidden="true" />
+            {state.data.map((solution) => {
+              const previewFeatures =
+                solution.plans.length === 0
+                  ? []
+                  : solution.plans.reduce((best, p) =>
+                      p.tierLevel > best.tierLevel ? p : best,
+                    ).features
+
+              return (
+                <div key={solution.solutionId} className="offering-card">
+                  <div className="offering-card-icon">
+                    <FontAwesomeIcon icon={getFeatureIcon(solution.icon)} aria-hidden="true" />
+                  </div>
+                  <h3 className="offering-card-title">{solution.name}</h3>
+                  <p className="offering-card-desc">{solution.description}</p>
+                  <ul className="offering-card-features">
+                    {previewFeatures.slice(0, 3).map((feat) => (
+                      <li key={feat.moduleId} className="offering-card-feature">
+                        <span className="material-symbols-outlined offering-card-feature-icon" aria-hidden="true">
+                          check_circle
+                        </span>
+                        {feat.name}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to={`/solutions/${solution.code}`} className="offering-card-link">
+                    {t('coreOfferings.learnMore')}
+                    <span className="material-symbols-outlined offering-card-link-icon" aria-hidden="true">chevron_right</span>
+                  </Link>
                 </div>
-                <h3 className="offering-card-title">{solution.name}</h3>
-                <p className="offering-card-desc">{solution.description}</p>
-                <ul className="offering-card-features">
-                  {solution.features.slice(0, 3).map((feat) => (
-                    <li key={feat.code} className="offering-card-feature">
-                      <span className="material-symbols-outlined offering-card-feature-icon" aria-hidden="true">
-                        check_circle
-                      </span>
-                      {feat.name}
-                    </li>
-                  ))}
-                </ul>
-                <Link to={`/solutions/${solution.code}`} className="offering-card-link">
-                  {t('coreOfferings.learnMore')}
-                  <span className="material-symbols-outlined offering-card-link-icon" aria-hidden="true">chevron_right</span>
-                </Link>
-              </div>
-            ))}
+              )
+            })}
           </div>
         )}
       </div>

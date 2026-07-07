@@ -2,12 +2,13 @@
 //
 // Aligned with the backend contracts:
 //   Command  : LoginTenantCommand.cs
-//   Response : LoginTenantClientResponse (TenantAuthController.cs)
+//   Response : TenantAuthClientResponse (TenantAuthController.cs) — see
+//              common/types/tenant-auth.types.ts for the shared response type
 //   Errors   : ForbiddenErrorCodes.cs  +  ErrorResponse.cs
 
 // ── API ──────────────────────────────────────────────────────────────────────
 
-/** Payload sent to POST /api/v1/tenant-auth/login */
+/** Payload sent to POST /api/v1/landing/tenant-auth/login */
 export interface LoginRequest {
   email: string;
   password: string;
@@ -15,42 +16,10 @@ export interface LoginRequest {
   deviceInfo?: string; // optional — backend uses it for multi-device session tracking
 }
 
-/**
- * JSON body returned by the login endpoint on success.
- * NOTE: the refresh token is NOT included here — the backend sets it
- * as an HTTP-only, Secure, SameSite=Strict cookie automatically.
- */
-export interface LoginResponse {
-  accessToken:         string;
-  expiresAt:           string; // ISO 8601 date string (DateTime serializes to string in JSON)
-  tenantId:            number;
-  email:               string;
-  firstName:           string;
-  lastName:            string;
-  logoUrl:             string;
-  onboardingCompleted: boolean;
-  emailVerified:       boolean;
-  tenantStatusCode:    string;
-}
-
-/**
- * JSON body returned by the refresh endpoint on success.
- * Mirrors RefreshTenantTokenClientResponse in TenantAuthController.cs.
- * Contains the full tenant session data so the store can be fully
- * restored on page refresh without a separate profile fetch.
- */
-export interface RefreshResponse {
-  accessToken:         string
-  expiresAt:           string
-  tenantId:            number
-  email:               string
-  firstName:           string
-  lastName:            string
-  logoUrl:             string
-  tenantStatusCode:    string
-  emailVerified:       boolean
-  onboardingCompleted: boolean
-}
+// NOTE: LoginResponse and RefreshResponse used to be defined here.
+// Both have been consolidated into the shared TenantAuthResponse type
+// in common/types/tenant-auth.types.ts, since Login, Refresh, and
+// Register all return the exact same backend DTO (TenantAuthClientResponse).
 
 // ── Form ─────────────────────────────────────────────────────────────────────
 

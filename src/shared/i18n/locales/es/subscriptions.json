@@ -1,0 +1,34 @@
+{
+  "view": {
+    "title": "Mis Suscripciones",
+    "subtitle": "Administra tus soluciones de software activas, licencias y niveles de facturación en todo el ecosistema DreamSoft.",
+    "addButton": "Agregar Nueva Suscripción",
+
+    "activeSolutionsHeading": "Soluciones Activas",
+
+    "empty": {
+      "title": "No se encontraron suscripciones activas",
+      "description": "Aún no has activado ninguna solución. Explora nuestro catálogo para encontrar las herramientas adecuadas para tu negocio.",
+      "exploreButton": "Explorar Soluciones",
+      "pricingButton": "Ver Precios"
+    },
+
+    "card": {
+      "planLabel": "Nombre del Plan",
+      "costLabel": "Costo",
+      "statusLabel": "Estado",
+      "subdomainLabel": "Subdominio",
+      "perCycleSuffix": "/ {{cycle}}",
+      "startedLabel": "Iniciado el {{date}}",
+      "endsLabel": "Finaliza el {{date}}",
+      "trialEndsLabel": "La prueba finaliza el {{date}}",
+      "viewInvoices": "Ver Facturas",
+      "managePlan": "Administrar Plan"
+    },
+
+    "loading": "Cargando tus suscripciones...",
+    "errorTitle": "Algo salió mal",
+    "errorMessage": "No pudimos cargar tus suscripciones. Por favor, intenta de nuevo.",
+    "retry": "Reintentar"
+  }
+}

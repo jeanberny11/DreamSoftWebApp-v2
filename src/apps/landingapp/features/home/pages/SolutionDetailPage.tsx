@@ -8,8 +8,9 @@ import { Footer } from "../components/Footer";
 import { useSolutionDetail } from "../hooks/useSolutionDetail";
 import { getFeatureIcon } from "../utils/featureIconMap";
 import type {
-  SolutionDetailPlan,
-  SolutionDetailOption,
+  SubscriptionPlanDto,
+  MenuOptionDto,
+  ModuleDto,
   BillingCycle,
 } from "../types/home.types";
 import "../styles/home_page.css";
@@ -19,38 +20,55 @@ import { useBillingCycles } from "../hooks/useBillingCycles";
 interface FeatureColumn {
   moduleCode: string;
   moduleName: string;
-  options: Array<{ option: SolutionDetailOption; isAvailable: boolean }>;
+  moduleSortOrder: number;
+  options: Array<{ option: MenuOptionDto; isAvailable: boolean }>;
+}
+
+function collectPlanOptions(
+  plan: SubscriptionPlanDto,
+): Array<{ module: ModuleDto; option: MenuOptionDto }> {
+  const pairs: Array<{ module: ModuleDto; option: MenuOptionDto }> = [];
+  for (const module of plan.features) {
+    for (const group of module.groups) {
+      for (const option of group.options) {
+        pairs.push({ module, option });
+      }
+    }
+  }
+  return pairs;
 }
 
 function buildFeatureColumns(
-  sortedPlans: SolutionDetailPlan[],
-  selectedPlan: SolutionDetailPlan | null,
+  sortedPlans: SubscriptionPlanDto[],
+  selectedPlan: SubscriptionPlanDto | null,
 ): FeatureColumn[] {
   const selectedOptionCodes = new Set(
-    selectedPlan?.options.map((o) => o.code) ?? [],
+    selectedPlan
+      ? collectPlanOptions(selectedPlan).map((p) => p.option.code)
+      : [],
   );
+
   const moduleMap = new Map<
     string,
     {
       moduleName: string;
-      options: Map<
-        string,
-        { option: SolutionDetailOption; isAvailable: boolean }
-      >;
+      moduleSortOrder: number;
+      options: Map<string, { option: MenuOptionDto; isAvailable: boolean }>;
     }
   >();
 
   for (const plan of sortedPlans) {
-    for (const option of plan.options) {
-      if (!moduleMap.has(option.moduleCode)) {
-        moduleMap.set(option.moduleCode, {
-          moduleName: option.moduleName,
+    for (const { module, option } of collectPlanOptions(plan)) {
+      if (!moduleMap.has(module.code)) {
+        moduleMap.set(module.code, {
+          moduleName: module.name,
+          moduleSortOrder: module.sortOrder,
           options: new Map(),
         });
       }
-      const module = moduleMap.get(option.moduleCode)!;
-      if (!module.options.has(option.code)) {
-        module.options.set(option.code, {
+      const entry = moduleMap.get(module.code)!;
+      if (!entry.options.has(option.code)) {
+        entry.options.set(option.code, {
           option,
           isAvailable: selectedOptionCodes.has(option.code),
         });
@@ -58,15 +76,16 @@ function buildFeatureColumns(
     }
   }
 
-  return Array.from(moduleMap.entries()).map(
-    ([moduleCode, { moduleName, options }]) => ({
+  return Array.from(moduleMap.entries())
+    .map(([moduleCode, { moduleName, moduleSortOrder, options }]) => ({
       moduleCode,
       moduleName,
+      moduleSortOrder,
       options: Array.from(options.values()).sort(
         (a, b) => a.option.sortOrder - b.option.sortOrder,
       ),
-    }),
-  );
+    }))
+    .sort((a, b) => a.moduleSortOrder - b.moduleSortOrder);
 }
 
 function formatLimitValue(value: number): string {
@@ -184,7 +203,7 @@ export function SolutionDetailPage() {
                   <div className="hero-badge">
                     <div className="sd-badge-icon">
                       <FontAwesomeIcon
-                        icon={getFeatureIcon(data.iconUrl)}
+                        icon={getFeatureIcon(data.icon)}
                         className="sd-badge-icon"
                         aria-hidden="true"
                       />
@@ -236,7 +255,7 @@ export function SolutionDetailPage() {
                 {/* Plan cards */}
                 <div className="sd-plan-cards-grid">
                   {sortedPlans.map((plan) => {
-                    const priceEntry =plan.prices.find((p) => p.billingCycleCode === selectedCycle?.code) || plan.prices[0]
+                    const priceEntry =plan.prices.find((p) => p.billingCycle.code === selectedCycle?.code) || plan.prices[0]
                     const isCustom = !priceEntry || priceEntry.price === 0;
                     const isSelected = plan.code === selectedPlan?.code;
 
@@ -247,7 +266,7 @@ export function SolutionDetailPage() {
                         className={`sd-plan-card${isSelected ? " sd-plan-card--active" : ""}`}
                         onClick={() => setSelectedPlanCode(plan.code)}
                       >
-                        {popularPlan && (
+                        {plan.tierLevel === popularPlan && (
                           <div className="sd-popular-badge">
                             <span className="sd-popular-badge-label">
                               <FontAwesomeIcon
@@ -371,7 +390,7 @@ export function SolutionDetailPage() {
                                     />
                                   )}
                                   <FontAwesomeIcon
-                                    icon={getFeatureIcon(option.iconUrl)}
+                                    icon={getFeatureIcon(option.icon)}
                                     className="sd-feature-col-option-icon"
                                     aria-hidden="true"
                                   />

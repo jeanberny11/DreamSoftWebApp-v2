@@ -1,4 +1,9 @@
 // register.types.ts — All types for the registration feature
+//
+// Aligned with the backend contract:
+//   Command  : RegisterTenantCommand.cs
+//   Response : TenantAuthClientResponse (TenantAuthController.cs) — see
+//              common/types/tenant-auth.types.ts for the shared response type
 
 import type { InferType } from 'yup'
 import type { buildRegisterSchema } from '../utils/register.schema'
@@ -15,18 +20,10 @@ export interface RegisterRequest {
   acceptTerms:  boolean | undefined
 }
 
-export interface RegisterResponse {
-  accessToken:         string
-  expiresAt:           string
-  tenantId:            number
-  email:               string
-  firstName:           string
-  lastName:            string
-  logoUrl:             string
-  tenantStatusCode:    string
-  emailVerified:       boolean
-  onboardingCompleted: boolean
-}
+// NOTE: RegisterResponse used to be defined here. It has been consolidated
+// into the shared TenantAuthResponse type in common/types/tenant-auth.types.ts,
+// since Login, Refresh, and Register all return the exact same backend DTO
+// (TenantAuthClientResponse).
 
 // ── Form types (inferred from Yup schema) ────────────────────────────────────
 

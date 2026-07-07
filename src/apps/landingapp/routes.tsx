@@ -13,6 +13,7 @@ import { TenantControlPanelPage } from './features/tenant-control-panel/pages/Te
 import { DashboardPage } from './features/tenant-control-panel/pages/DashboardPage'
 import { ProfileSection } from './features/tenant-control-panel/pages/ProfileSection'
 import { ProfileEditPage } from './features/tenant-control-panel/pages/ProfileEditPage'
+import { SubscriptionsSection } from './features/tenant-control-panel/pages/SubscriptionsSection'
 import { VerifyEmailPage } from './features/verify-email/pages/VerifyEmailPage'
 import { LandingGuestGuard } from './common/guards/LandingGuestGuard'
 import { LandingAuthGuard } from './common/guards/LandingAuthGuard'
@@ -49,6 +50,7 @@ export function LandingApp() {
           <Route index element={<DashboardPage />} />
           <Route path="profile" element={<ProfileSection />} />
           <Route path="profile/edit" element={<ProfileEditPage />} />
+          <Route path="subscriptions" element={<SubscriptionsSection />} />
         </Route>
         <Route path="/verify-email" element={<VerifyEmailPage />} />
       </Route>

@@ -5,7 +5,7 @@ import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { useFeaturesCatalog } from '../hooks/useFeaturesCatalog'
 import { getFeatureIcon } from '../utils/featureIconMap'
-import type { FeatureCatalogGroup, FeatureCatalogOption } from '../types/home.types'
+import type { MenuGroupDto, MenuOptionDto } from '../types/home.types'
 import '../styles/features-catalog.css'
 import '../styles/home_page.css'
 
@@ -106,7 +106,7 @@ export function FeaturesCatalogPage() {
                 <span className="material-symbols-outlined fc-error-icon">error_outline</span>
                 <h2 className="fc-error-title">{t('featuresCatalog.errorTitle')}</h2>
                 <p className="fc-error-message">{errorMessage}</p>
-                <button type="button" className="fc-retry-btn" onClick={() => store.fetch()}>
+                <button type="button" className="fc-retry-btn" onClick={store.retry}>
                   {t('featuresCatalog.retry')}
                 </button>
               </div>
@@ -120,7 +120,7 @@ export function FeaturesCatalogPage() {
             <div className="section-container">
               <div className="fc-modules">
                 {features.map((feature) => (
-                  <section key={feature.code} className="fc-module fc-reveal" id={feature.code}>
+                  <section key={feature.moduleId} className="fc-module fc-reveal" id={feature.code}>
                     <div className="fc-module__header">
                       <div className="fc-module__icon-wrap">
                         <FontAwesomeIcon icon={getFeatureIcon(feature.icon)} className="fc-module__icon" aria-hidden="true" />
@@ -134,15 +134,15 @@ export function FeaturesCatalogPage() {
                     </div>
 
                     <div className="fc-grid-auto">
-                      {sortBy(feature.groups).map((group: FeatureCatalogGroup) => (
-                        <div key={group.code} className="fc-group">
+                      {sortBy(feature.groups).map((group: MenuGroupDto) => (
+                        <div key={group.menuGroupId} className="fc-group">
                           <h4 className="fc-group__label">
                             <FontAwesomeIcon icon={getFeatureIcon(group.icon)} className="fc-group__label-icon" aria-hidden="true" />
                             {group.name}
                           </h4>
                           <div className="fc-group__card">
-                            {sortBy(group.options).map((option: FeatureCatalogOption) => (
-                              <div key={option.code} className="fc-item">
+                            {sortBy(group.options).map((option: MenuOptionDto) => (
+                              <div key={option.menuOptionId} className="fc-item">
                                 <FontAwesomeIcon icon={getFeatureIcon(option.icon)} className="fc-item__icon" aria-hidden="true" />
                                 <div>
                                   <p className="fc-item__title">{option.name}</p>

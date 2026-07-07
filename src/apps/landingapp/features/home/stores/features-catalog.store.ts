@@ -1,25 +1,25 @@
 import { create } from 'zustand'
 import { homeApi } from '../services/home.api'
 import { getErrorMessage } from '@/shared/utils/api.utils'
-import type { FeatureCatalogItem } from '../types/home.types'
+import type { ModuleDto } from '../types/home.types'
 
 type FeaturesCatalogState =
   | { status: 'idle' }
   | { status: 'loading' }
-  | { status: 'success'; data: FeatureCatalogItem[] }
+  | { status: 'success'; data: ModuleDto[] }
   | { status: 'error'; message: string }
 
 type FeaturesCatalogStore = FeaturesCatalogState & {
-  fetch: () => Promise<void>
+  fetch: (language: string) => Promise<void>
   reset: () => void
 }
 
 export const useFeaturesCatalogStore = create<FeaturesCatalogStore>((set) => ({
   status: 'idle',
 
-  fetch: async () => {
+  fetch: async (language: string) => {
     set({ status: 'loading' })
-    const res = await homeApi.getFeaturesCatalog()
+    const res = await homeApi.getFeaturesCatalog(language)
     const result = res.data
     if (result.success) {
       set({ status: 'success', data: result.data })

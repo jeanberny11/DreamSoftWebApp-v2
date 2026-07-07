@@ -21,6 +21,7 @@ import enValidation from './locales/en/validation.json'
 import enLanding    from './locales/en/landing.json'
 import enDashboard  from './locales/en/dashboard.json'
 import enProfile    from './locales/en/profile.json'
+import enSubscriptions from './locales/en/subscriptions.json'
 
 // ── Spanish translations ────────────────────────────────────────────────────
 import esCommon     from './locales/es/common.json'
@@ -29,6 +30,7 @@ import esValidation from './locales/es/validation.json'
 import esLanding    from './locales/es/landing.json'
 import esDashboard  from './locales/es/dashboard.json'
 import esProfile    from './locales/es/profile.json'
+import esSubscriptions from './locales/es/subscriptions.json'
 
 export const resources = {
   en: {
@@ -38,6 +40,7 @@ export const resources = {
     landing:    enLanding,
     dashboard:  enDashboard,
     profile:    enProfile,
+    subscriptions: enSubscriptions,
   },
   es: {
     common:     esCommon,
@@ -46,6 +49,7 @@ export const resources = {
     landing:    esLanding,
     dashboard:  esDashboard,
     profile:    esProfile,
+    subscriptions: esSubscriptions,
   },
 } as const
 
@@ -62,7 +66,7 @@ i18n
     fallbackLng: 'es',
 
     defaultNS: 'common',
-    ns: ['common', 'auth', 'validation', 'landing', 'dashboard', 'profile'],
+    ns: ['common', 'auth', 'validation', 'landing', 'dashboard', 'profile', 'subscriptions'],
 
     interpolation: {
       escapeValue: false, // React already escapes values

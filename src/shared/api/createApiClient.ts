@@ -14,7 +14,7 @@ import { getToken, setToken, clearToken, type TokenContext } from '@/shared/util
 import { parseAxiosError } from '@/shared/utils/api.utils'
 import { useTenantAuthStore } from '@/apps/landingapp/common/tenant_auth.store'
 import type { ApiResult } from '@/shared/types/api.types'
-import type { RefreshResponse } from '@/apps/landingapp/features/login/types/login.types'
+import type { TenantAuthResponse } from '@/apps/landingapp/common/types/tenant-auth.types'
 
 export interface ApiClientConfig {
   context:         TokenContext  // which in-memory token slot to use
@@ -96,7 +96,7 @@ export function createApiClient(config: ApiClientConfig) {
         isRefreshing = true
 
         try {
-          const { data } = await refreshClient.post<RefreshResponse>(config.refreshEndpoint)
+          const { data } = await refreshClient.post<TenantAuthResponse>(config.refreshEndpoint)
           const newToken = data.accessToken
           setToken(config.context, newToken)
 

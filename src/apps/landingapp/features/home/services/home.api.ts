@@ -1,22 +1,25 @@
 ﻿import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 import type { ApiResult } from '@/shared/types/api.types'
-import type { Solution, AppFeature, PricingSolution, SolutionDetail, FeatureCatalogItem, BillingCycle } from '../types/home.types'
+import type { SolutionResponse, ModuleDto, SolutionDto, BillingCycle } from '../types/home.types'
 
 export const homeApi = {
-  getAppFeatures: (language: string) =>
-    tenantClient.get<ApiResult<AppFeature[]>>('/api/v1/landing/Features/GetAllAppFeatures', { params: { language } }),
+  getMainFeatures: (language: string) =>
+    tenantClient.get<ApiResult<ModuleDto[]>>('/api/v1/landing/Features/get-main-features', { params: { language } }),
 
   getPricing: (language: string) =>
-    tenantClient.get<ApiResult<PricingSolution[]>>('/api/v1/landing/Pricing', { params: { language } }),
+    tenantClient.get<ApiResult<SolutionDto[]>>('/api/v1/landing/Pricing', { params: { language } }),
 
-  getSolutions: (language: string) =>
-    tenantClient.get<ApiResult<Solution[]>>('/api/v1/landing/Solutions-Features', { params: { language } }),
+  getAllActiveSolutions: (language: string) =>
+    tenantClient.get<ApiResult<SolutionResponse[]>>('/api/v1/landing/Solutions/all-active', { params: { language } }),
+
+    getAllActiveSolutionsWithFeatures: (language: string) =>
+    tenantClient.get<ApiResult<SolutionDto[]>>('/api/v1/landing/Solutions/with-features', { params: { language } }),
 
   getSolutionDetail: (code: string) =>
-    tenantClient.get<ApiResult<SolutionDetail>>(`/api/v1/landing/Solutions-Features/${code}`),
+    tenantClient.get<ApiResult<SolutionDto>>(`/api/v1/landing/Solutions/solution-by-code/${code}`),
 
-  getFeaturesCatalog: () =>
-    tenantClient.get<ApiResult<FeatureCatalogItem[]>>('/api/v1/landing/Features/GetAllFeatures'),
+  getFeaturesCatalog: (language: string) =>
+    tenantClient.get<ApiResult<ModuleDto[]>>('/api/v1/landing/Features/GetAllFeatures', { params: { language } }),
 
   getByllingCycles:(language: string) =>
     tenantClient.get<ApiResult<BillingCycle[]>>('/api/v1/admin/billing-cycles/active', { params: { language } }),

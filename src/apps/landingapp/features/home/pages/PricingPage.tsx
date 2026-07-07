@@ -21,7 +21,7 @@ export function PricingPage() {
 
   const data = state.status === "success" ? state.data : [];
   const solutions = [...data].sort((a, b) =>
-    a.solutionCode.localeCompare(b.solutionCode),
+    a.code.localeCompare(b.code),
   );
   const activeSol = solutions[activeSolution];
   const plans = activeSol
@@ -123,17 +123,17 @@ export function PricingPage() {
                 <div className="pricing-sol-tabs" role="tablist">
                   {solutions.map((sol, index) => (
                     <button
-                      key={sol.solutionCode}
+                      key={sol.code}
                       type="button"
                       role="tab"
                       aria-selected={
                         index === activeSolution ? "true" : "false"
                       }
-                      id={`solution-tab-${sol.solutionCode}`}
+                      id={`solution-tab-${sol.code}`}
                       onClick={() => setActiveSolution(index)}
                       className={`pricing-sol-tab ${index === activeSolution ? "pricing-sol-tab--active" : "pricing-sol-tab--inactive"}`}
                     >
-                      {sol.solutionName}
+                      {sol.name}
                     </button>
                   ))}
                 </div>
@@ -156,7 +156,7 @@ export function PricingPage() {
                     className="pricing-plans-grid"
                     role="tabpanel"
                     id="pricing-panel"
-                    aria-labelledby={`solution-tab-${activeSol.solutionCode}`}
+                    aria-labelledby={`solution-tab-${activeSol.code}`}
                   >
                     {plans.map((plan) => (
                       <PricingCard

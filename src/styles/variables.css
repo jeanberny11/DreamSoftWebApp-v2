@@ -235,6 +235,31 @@
   --tcp-profile-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.03);
   --tcp-profile-shadow-info-card: 0 1px 3px rgba(0, 0, 0, 0.05);
 
+  /* Tenant Control Panel — Subscriptions */
+  --tcp-subs-icon-bg: rgba(20, 184, 166, 0.1);
+  --tcp-subs-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --tcp-subs-card-shadow-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --tcp-subs-divider: var(--color-gray-100);
+  --tcp-subs-code-badge-bg: var(--color-gray-100);
+  --tcp-subs-code-badge-text: var(--color-text-secondary);
+  --tcp-subs-notes-bg: var(--color-bg-secondary);
+  --tcp-subs-notes-border: rgba(0, 0, 0, 0.04);
+
+  --tcp-subs-badge-success-bg: rgba(34, 197, 94, 0.1);
+  --tcp-subs-badge-success-text: var(--color-success-600);
+  --tcp-subs-badge-info-bg: rgba(59, 130, 246, 0.1);
+  --tcp-subs-badge-info-text: var(--color-info-600);
+  --tcp-subs-badge-warning-bg: rgba(245, 158, 11, 0.1);
+  --tcp-subs-badge-warning-text: var(--color-warning-700);
+  --tcp-subs-badge-error-bg: rgba(239, 68, 68, 0.1);
+  --tcp-subs-badge-error-text: var(--color-error-600);
+  --tcp-subs-badge-neutral-bg: var(--color-gray-100);
+  --tcp-subs-badge-neutral-text: var(--color-gray-500);
+
+  --tcp-subs-danger-hover-bg: rgba(239, 68, 68, 0.05);
+
+  --tcp-subs-empty-icon-bg: var(--color-bg-tertiary);
+
   /* Onboarding Checklist */
   --oc-surface: #f4fbf8;
   --oc-surface-low: #eff5f2;

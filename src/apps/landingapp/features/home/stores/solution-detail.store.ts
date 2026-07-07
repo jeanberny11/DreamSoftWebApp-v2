@@ -1,12 +1,12 @@
 import { create } from 'zustand'
 import { homeApi } from '../services/home.api'
 import { getErrorMessage } from '@/shared/utils/api.utils'
-import type { SolutionDetail } from '../types/home.types'
+import type { SolutionDto } from '../types/home.types'
 
 type SolutionDetailState =
   | { status: 'idle' }
   | { status: 'loading' }
-  | { status: 'success'; data: SolutionDetail }
+  | { status: 'success'; data: SolutionDto }
   | { status: 'error';   message: string }
 
 type SolutionDetailStore = SolutionDetailState & {

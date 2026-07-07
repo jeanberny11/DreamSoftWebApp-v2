@@ -1,12 +1,12 @@
 import { create } from 'zustand'
 import { homeApi } from '../services/home.api'
 import { getErrorMessage } from '@/shared/utils/api.utils'
-import type { Solution } from '../types/home.types'
+import type { SolutionDto } from '../types/home.types'
 
 type SolutionsState =
   | { status: 'idle' }
   | { status: 'loading' }
-  | { status: 'success'; data: Solution[] }
+  | { status: 'success'; data: SolutionDto[] }
   | { status: 'error';   message: string }
 
 type SolutionsStore = SolutionsState & {
@@ -19,7 +19,7 @@ export const useSolutionsStore = create<SolutionsStore>((set) => ({
 
   fetch: async (language: string) => {
     set({ status: 'loading' })
-    const res = await homeApi.getSolutions(language)
+    const res = await homeApi.getAllActiveSolutionsWithFeatures(language)
     const result = res.data
     if (result.success) {
       set({ status: 'success', data: result.data })

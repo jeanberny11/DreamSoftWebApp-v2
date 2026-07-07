@@ -1,0 +1,34 @@
+{
+  "view": {
+    "title": "My Subscriptions",
+    "subtitle": "Manage your active software solutions, licenses, and billing tiers across the DreamSoft ecosystem.",
+    "addButton": "Add New Subscription",
+
+    "activeSolutionsHeading": "Active Solutions",
+
+    "empty": {
+      "title": "No active subscriptions found",
+      "description": "You haven't activated any solutions yet. Explore our catalog to find the right tools for your business.",
+      "exploreButton": "Explore Solutions",
+      "pricingButton": "View Pricing"
+    },
+
+    "card": {
+      "planLabel": "Plan Name",
+      "costLabel": "Cost",
+      "statusLabel": "Status",
+      "subdomainLabel": "Subdomain",
+      "perCycleSuffix": "/ {{cycle}}",
+      "startedLabel": "Started {{date}}",
+      "endsLabel": "Ends {{date}}",
+      "trialEndsLabel": "Trial ends {{date}}",
+      "viewInvoices": "View Invoices",
+      "managePlan": "Manage Plan"
+    },
+
+    "loading": "Loading your subscriptions...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't load your subscriptions. Please try again.",
+    "retry": "Retry"
+  }
+}
