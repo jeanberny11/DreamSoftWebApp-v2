@@ -102,6 +102,7 @@ export function PricingSection() {
                 {sortedPlans.map((plan) => (
                   <PricingCard
                     key={plan.code}
+                    planId={plan.planId}
                     code={plan.code}
                     name={plan.name}
                     description={plan.description}

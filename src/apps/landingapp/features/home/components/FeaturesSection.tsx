@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useMainFeatures } from '../hooks/useMainFeatures'
 import { FeatureCard } from './FeatureCard'
 import { getFeatureIcon, getGroupColor } from '../utils/featureIconMap'
-import type { ModuleDto } from '../types/home.types'
+import type { ModuleDto } from '@/apps/landingapp/common/types/catalog.types'
 import "../styles/home_page.css"
 
 interface FeaturePanelProps {

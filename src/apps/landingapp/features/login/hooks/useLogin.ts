@@ -9,7 +9,8 @@
 import { useEffect }            from 'react'
 import { useDispatch,
          useSelector }          from 'react-redux'
-import { useNavigate }          from 'react-router-dom'
+import { useLocation,
+         useNavigate }          from 'react-router-dom'
 import { useTranslation }       from 'react-i18next'
 import type { RootState,
               AppDispatch }     from '@/shared/store/store'
@@ -20,16 +21,22 @@ import type { LoginFormValues } from '../types/login.types'
 export function useLogin() {
   const dispatch   = useDispatch<AppDispatch>()
   const navigate   = useNavigate()
+  const location   = useLocation()
   const { t }      = useTranslation('auth')
 
   const loginState = useSelector((state: RootState) => state.login)
 
-  // Navigate on success — equivalent to BlocListener reacting to LoginSuccess
+  const from = (location.state as { from?: string } | null)?.from
+
+  // Navigate on success — equivalent to BlocListener reacting to LoginSuccess.
+  // Returns the user to the page they were originally heading to (state.from,
+  // set by LandingAuthGuard — e.g. the checkout deep-link) or /account by
+  // default. replace:true so Back doesn't return to the login form.
   useEffect(() => {
     if (loginState.status === 'success') {
-      navigate('/account')
+      navigate(from ?? '/account', { replace: true })
     }
-  }, [loginState.status, navigate])
+  }, [loginState.status, navigate, from])
 
   // Reset slice on unmount so stale state never leaks back
   useEffect(() => {

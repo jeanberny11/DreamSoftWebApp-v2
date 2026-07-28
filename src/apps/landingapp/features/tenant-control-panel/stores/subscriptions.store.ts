@@ -15,20 +15,31 @@ type SubscriptionsStoreState =
   | { status: 'error';   message: string }
 
 type SubscriptionsStore = SubscriptionsStoreState & {
-  fetchSubscriptions: () => Promise<void>
+  fetchSubscriptions: (language: string) => Promise<void>
+  refetchSilently:    (language: string) => Promise<void>
   reset:              () => void
 }
 
 export const useSubscriptionsStore = create<SubscriptionsStore>((set) => ({
   status: 'idle',
 
-  fetchSubscriptions: async () => {
+  fetchSubscriptions: async (language: string) => {
     set({ status: 'loading' })
-    const { data: result } = await subscriptionsService.getSubscriptions()
+    const { data: result } = await subscriptionsService.getSubscriptions(language)
     if (result.success) {
       set({ status: 'success', data: result.data })
     } else {
       set({ status: 'error', message: getErrorMessage(result.error) })
+    }
+  },
+
+  // Background refresh used while waiting for webhook-driven activation
+  // after returning from Stripe. Never enters 'loading' (no UI flash) and
+  // silently keeps the last good data on transient errors.
+  refetchSilently: async (language: string) => {
+    const { data: result } = await subscriptionsService.getSubscriptions(language)
+    if (result.success) {
+      set({ status: 'success', data: result.data })
     }
   },
 

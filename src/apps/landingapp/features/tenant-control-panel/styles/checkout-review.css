@@ -1,0 +1,472 @@
+/* checkout-review.css — Styles for the Checkout Review page
+   Source: Stitch design "Review & Checkout | DreamSoft"
+   Colors mapped to existing app CSS variables — same mapping approach as
+   new-subscription.css. Decorative ambient-blur background from the Stitch
+   reference intentionally omitted — not consistent with the rest of the
+   TCP shell's utilitarian style. */
+
+.tcp-checkout-page {
+  max-width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tcp-checkout-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem 1rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.tcp-checkout-error-icon {
+  font-size: 40px;
+  color: var(--color-error-500);
+}
+
+/* ── Step indicator ─────────────────────────────────────────────── */
+
+.tcp-checkout-steps {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.tcp-checkout-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tcp-checkout-step--completed {
+  color: var(--color-primary-600);
+}
+
+.tcp-checkout-step--completed .material-symbols-outlined {
+  font-size: 18px;
+  font-variation-settings: 'FILL' 1;
+}
+
+.tcp-checkout-step--active {
+  color: var(--color-primary-600);
+  font-weight: 600;
+}
+
+.tcp-checkout-step__dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  border: 2px solid var(--color-primary-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.tcp-checkout-step__line {
+  width: 2rem;
+  height: 1px;
+  background-color: var(--color-border-light);
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+
+.tcp-checkout-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tcp-checkout-header__title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.tcp-checkout-header__subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.tcp-checkout-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: fit-content;
+  margin-top: 0.25rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary-600);
+  cursor: pointer;
+}
+
+.tcp-checkout-back-link:hover {
+  text-decoration: underline;
+}
+
+.tcp-checkout-back-link .material-symbols-outlined {
+  font-size: 16px;
+}
+
+/* ── Main card ─────────────────────────────────────────────────── */
+
+.tcp-checkout-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: 0.75rem;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.tcp-checkout-card__header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-border-light);
+  background-color: var(--color-bg-secondary);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tcp-checkout-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background-color: var(--tcp-subs-icon-bg);
+  color: var(--color-primary-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tcp-checkout-card__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tcp-checkout-card__solution-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tcp-checkout-card__plan-badge {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  background-color: var(--color-secondary-100);
+  color: var(--color-secondary-700);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tcp-checkout-card__items {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tcp-checkout-card__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tcp-checkout-card__item-label {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.tcp-checkout-card__item-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.tcp-checkout-card__trial-box {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--tcp-profile-status-badge-bg);
+  border: 1px solid var(--tcp-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tcp-checkout-card__trial-box-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary-600);
+}
+
+.tcp-checkout-card__trial-box-left .material-symbols-outlined {
+  font-size: 20px;
+  font-variation-settings: 'FILL' 1;
+}
+
+.tcp-checkout-card__trial-box-right {
+  font-size: 12px;
+  color: var(--color-primary-700);
+  text-align: right;
+}
+
+.tcp-checkout-card__total {
+  margin: 0 1.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tcp-checkout-card__total-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tcp-checkout-card__total-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary-600);
+}
+
+/* ── What's included accordion ────────────────────────────────── */
+
+.tcp-checkout-accordion summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  list-style: none;
+}
+
+.tcp-checkout-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.tcp-checkout-accordion summary:hover {
+  color: var(--color-primary-600);
+}
+
+.tcp-checkout-accordion__chevron {
+  color: var(--color-text-tertiary);
+  transition: transform 0.2s ease;
+}
+
+.tcp-checkout-accordion[open] .tcp-checkout-accordion__chevron {
+  transform: rotate(180deg);
+}
+
+.tcp-checkout-accordion__list {
+  padding-top: 0.5rem;
+  padding-left: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tcp-checkout-accordion__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.tcp-checkout-accordion__item .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--color-success-500);
+}
+
+/* ── CTA & footer ─────────────────────────────────────────────── */
+
+.tcp-checkout-submit-error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--tcp-subs-badge-error-bg);
+  color: var(--tcp-subs-badge-error-text);
+  font-size: 13px;
+}
+
+.tcp-checkout-submit-error .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.tcp-checkout-cta-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tcp-checkout-cta-section__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tcp-checkout-cta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.tcp-checkout-cta:hover:not(:disabled) {
+  background-color: var(--btn-primary-bg-hover);
+}
+
+.tcp-checkout-cta:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.tcp-checkout-cta:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.tcp-checkout-cta__spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  animation: tcp-checkout-spin 0.6s linear infinite;
+}
+
+@keyframes tcp-checkout-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tcp-checkout-cancel-link {
+  width: 100%;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.tcp-checkout-cancel-link:hover {
+  color: var(--color-error-500);
+}
+
+.tcp-checkout-trust-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+}
+
+.tcp-checkout-trust-row__item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.tcp-checkout-trust-row__item .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.tcp-checkout-trust-row__stripe {
+  opacity: 0.75;
+}
+
+.tcp-checkout-trust-row__stripe strong {
+  font-weight: 700;
+}
+
+.tcp-checkout-footnote {
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-text-tertiary);
+  padding: 0 2rem;
+}
+
+/* ── Returned-from-Stripe cancelled notice ─────────────────────────── */
+
+.tcp-checkout-cancelled-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.125rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-warning-200, #fde68a);
+  background: var(--color-warning-50, #fffbeb);
+  margin-bottom: 1.5rem;
+}
+
+.tcp-checkout-cancelled-notice > .material-symbols-outlined {
+  font-size: 22px;
+  color: var(--color-warning-500, #f59e0b);
+  flex-shrink: 0;
+}
+
+.tcp-checkout-cancelled-notice > p {
+  flex: 1;
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-neutral-700, #374151);
+}
+
+.tcp-checkout-cancelled-notice__dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--color-neutral-500, #6b7280);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.tcp-checkout-cancelled-notice__dismiss:hover {
+  color: var(--color-neutral-700, #374151);
+  background: rgba(0, 0, 0, 0.05);
+}

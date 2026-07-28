@@ -10,7 +10,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSubscriptionsStore } from "../stores/subscriptions.store";
+import { getFeatureIcon } from "@/apps/landingapp/features/home/utils/featureIconMap";
 import { formatCurrency, formatDate } from "@/shared/utils/formatters";
 import {
   getSubscriptionStatusVariant,
@@ -18,22 +20,21 @@ import {
   type SubscriptionResponse,
 } from "../types/subscriptions.types";
 import "../styles/subscriptions.css";
+import { useSubscriptions } from "../hooks/useSubscriptions";
+import { useCheckoutReturn } from "../hooks/useCheckoutReturn";
+import { useRetryPayment } from "../hooks/useRetryPayment";
+import { useLanguageStore } from "@/shared/store/language.store";
 
 export function SubscriptionsSection() {
   const { t } = useTranslation("subscriptions");
   const navigate = useNavigate();
-
-  const subscriptionsState = useSubscriptionsStore((s) => s);
-
-  useEffect(() => {
-    if (subscriptionsState.status === "idle") {
-      subscriptionsState.fetchSubscriptions();
-    }
-  }, [subscriptionsState]);
+  const state = useSubscriptions();
+  const langCode = useLanguageStore((s) => s.currentLanguage.code)
+  const { banner, dismiss } = useCheckoutReturn();
 
   if (
-    subscriptionsState.status === "idle" ||
-    subscriptionsState.status === "loading"
+    state.status === "idle" ||
+    state.status === "loading"
   ) {
     return (
       <div className="tcp-subs-loading">
@@ -47,7 +48,7 @@ export function SubscriptionsSection() {
     );
   }
 
-  if (subscriptionsState.status === "error") {
+  if (state.status === "error") {
     return (
       <div className="tcp-subs-error">
         <span
@@ -57,11 +58,11 @@ export function SubscriptionsSection() {
           error
         </span>
         <p className="tcp-subs-error__title">{t("view.errorTitle")}</p>
-        <p>{subscriptionsState.message || t("view.errorMessage")}</p>
+        <p>{state.message || t("view.errorMessage")}</p>
         <button
           type="button"
           className="tcp-subs-error__retry"
-          onClick={() => subscriptionsState.fetchSubscriptions()}
+          onClick={() => state.fetchSubscriptions(langCode.toUpperCase())}
         >
           {t("view.retry")}
         </button>
@@ -69,17 +70,57 @@ export function SubscriptionsSection() {
     );
   }
 
-  const subscriptions = subscriptionsState.data;
+  const subscriptions = state.data;
 
   return (
     <div className="tcp-subs-page">
+      {/* Post-Stripe-checkout status banner */}
+      {banner && (
+        <div
+          className={`tcp-subs-checkout-banner tcp-subs-checkout-banner--${banner}`}
+          role="status"
+        >
+          <span className="material-symbols-outlined tcp-subs-checkout-banner__icon">
+            {banner === "success"
+              ? "check_circle"
+              : banner === "delayed"
+                ? "schedule"
+                : "hourglass_top"}
+          </span>
+          <div className="tcp-subs-checkout-banner__text">
+            <p className="tcp-subs-checkout-banner__title">
+              {t(`view.checkoutReturn.${banner}Title`)}
+            </p>
+            <p className="tcp-subs-checkout-banner__message">
+              {t(`view.checkoutReturn.${banner}Message`)}
+            </p>
+          </div>
+          {banner === "activating" ? (
+            <span className="tcp-subs-spinner tcp-subs-checkout-banner__spinner" />
+          ) : (
+            <button
+              type="button"
+              className="tcp-subs-checkout-banner__dismiss"
+              onClick={dismiss}
+              aria-label={t("view.checkoutReturn.dismiss")}
+            >
+              <span className="material-symbols-outlined">close</span>
+            </button>
+          )}
+        </div>
+      )}
+
       {/* Page Header */}
       <div className="tcp-subs-header">
         <div>
           <h1 className="tcp-subs-header__title">{t("view.title")}</h1>
           <p className="tcp-subs-header__subtitle">{t("view.subtitle")}</p>
         </div>
-        <button type="button" className="tcp-subs-add-btn">
+        <button
+          type="button"
+          className="tcp-subs-add-btn"
+          onClick={() => navigate("/account/subscriptions/new")}
+        >
           <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
             add
           </span>
@@ -90,8 +131,8 @@ export function SubscriptionsSection() {
       {subscriptions.length === 0 ? (
         <EmptyState
           t={t}
-          onExplore={() => navigate("/solutions")}
-          onViewPricing={() => navigate("/pricing")}
+          onExplore={() => navigate("/account/subscriptions/new")}
+          onViewPricing={() => navigate("/account/subscriptions/new")}
         />
       ) : (
         <>
@@ -162,8 +203,13 @@ interface SubscriptionCardProps {
 }
 
 function SubscriptionCard({ subscription, t }: SubscriptionCardProps) {
+  const navigate = useNavigate();
+  const { state: retryState, retry } = useRetryPayment();
   const variant = getSubscriptionStatusVariant(subscription.statusCode);
   const isTrial = subscription.statusCode === SUBSCRIPTION_STATUS.TRIAL;
+  const needsPayment =
+    subscription.statusCode === SUBSCRIPTION_STATUS.PAYMENT_FAILED ||
+    subscription.statusCode === SUBSCRIPTION_STATUS.PROCESSING_PAYMENT;
 
   const statusIcon =
     variant === "success"
@@ -189,9 +235,7 @@ function SubscriptionCard({ subscription, t }: SubscriptionCardProps) {
       <div className="tcp-subs-card__body">
         {/* Icon */}
         <div className="tcp-subs-card__icon">
-          <span className="material-symbols-outlined">
-            {subscription.solutionIcon}
-          </span>
+          <FontAwesomeIcon icon={getFeatureIcon(subscription.solutionIcon)} />
         </div>
 
         <div className="tcp-subs-card__content">
@@ -272,20 +316,54 @@ function SubscriptionCard({ subscription, t }: SubscriptionCardProps) {
               </div>
             </div>
             <div className="tcp-subs-card__actions">
-              <button type="button" className="tcp-subs-card__action-btn">
-                {t("view.card.viewInvoices")}
-              </button>
               <button
                 type="button"
-                className="tcp-subs-card__action-btn tcp-subs-card__action-btn--primary"
+                className="tcp-subs-card__action-btn"
+                onClick={() => navigate(`/account/invoices?solutionId=${subscription.solutionId}`)}
               >
-                {t("view.card.managePlan")}
+                {t("view.card.viewInvoices")}
               </button>
-              <button type="button" className="tcp-subs-card__more-btn">
+              {needsPayment ? (
+                <button
+                  type="button"
+                  className="tcp-subs-card__action-btn tcp-subs-card__action-btn--primary"
+                  disabled={retryState.status === "submitting"}
+                  onClick={() => retry(subscription.id)}
+                >
+                  {retryState.status === "submitting"
+                    ? t("view.card.retryRedirecting")
+                    : subscription.statusCode === SUBSCRIPTION_STATUS.PAYMENT_FAILED
+                      ? t("view.card.retryPayment")
+                      : t("view.card.completePayment")}
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="tcp-subs-card__action-btn tcp-subs-card__action-btn--primary"
+                  onClick={() =>
+                    navigate(`/account/subscriptions/${subscription.id}/manage`)
+                  }
+                >
+                  {t("view.card.managePlan")}
+                </button>
+              )}
+              <button
+                type="button"
+                className="tcp-subs-card__more-btn"
+                onClick={() =>
+                  navigate(`/account/subscriptions/${subscription.id}/manage`)
+                }
+              >
                 <span className="material-symbols-outlined">more_vert</span>
               </button>
             </div>
           </div>
+
+          {retryState.status === "error" && (
+            <p className="tcp-subs-card__retry-error">
+              {retryState.message || t("view.card.retryError")}
+            </p>
+          )}
         </div>
       </div>
     </div>

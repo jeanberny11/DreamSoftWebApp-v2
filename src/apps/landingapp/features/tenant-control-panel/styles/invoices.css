@@ -1,0 +1,553 @@
+/* invoices.css — Styles for the Invoices page (InvoicesSection)
+ * Reuses the shared --tcp-subs-badge-* / --tcp-subs-* tokens from
+ * variables.css (they're generic TCP status/card tokens, not
+ * subscription-specific) to stay visually consistent with My Subscriptions.
+ */
+
+.tcp-inv-page {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+
+.tcp-inv-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: var(--stack-spacing, 1.5rem);
+}
+
+@media (min-width: 768px) {
+  .tcp-inv-header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.tcp-inv-header__title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.tcp-inv-header__subtitle {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-text-secondary);
+  max-width: 42rem;
+}
+
+.tcp-inv-solution-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--input-border);
+  border-radius: 0.5rem;
+  background: var(--input-bg);
+  color: var(--color-text-primary);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tcp-inv-solution-select:focus-visible {
+  outline: none;
+  border-color: var(--input-border-focus);
+}
+
+/* ── Stats strip ─────────────────────────────────────────────────────────── */
+
+.tcp-inv-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .tcp-inv-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tcp-inv-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.tcp-inv-stat__label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+}
+
+.tcp-inv-stat__value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-top: 0.25rem;
+}
+
+.tcp-inv-stat__value--error { color: var(--color-error-500); }
+
+.tcp-inv-stat__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tcp-inv-stat__icon--primary { background: var(--tcp-subs-icon-bg); color: var(--color-primary-500); }
+.tcp-inv-stat__icon--success { background: var(--tcp-subs-badge-success-bg); color: var(--tcp-subs-badge-success-text); }
+.tcp-inv-stat__icon--error   { background: var(--tcp-subs-badge-error-bg); color: var(--tcp-subs-badge-error-text); }
+
+/* ── Filter bar ──────────────────────────────────────────────────────────── */
+
+.tcp-inv-filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tcp-inv-status-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--color-bg-secondary);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.tcp-inv-status-pill {
+  padding: 0.375rem 0.875rem;
+  border-radius: 0.375rem;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tcp-inv-status-pill--active {
+  background: var(--card-bg);
+  color: var(--color-primary-600);
+  font-weight: 700;
+  box-shadow: var(--card-shadow);
+}
+
+.tcp-inv-date-range {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.tcp-inv-date-input {
+  padding: 0.375rem 0.625rem;
+  border: 1px solid var(--input-border);
+  border-radius: 0.5rem;
+  background: var(--input-bg);
+  color: var(--color-text-primary);
+  font-size: 13px;
+}
+
+.tcp-inv-search {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--input-border);
+  border-radius: 0.5rem;
+  background: var(--input-bg);
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+
+.tcp-inv-search::placeholder {
+  color: var(--input-placeholder);
+}
+
+/* ── Table (desktop) ─────────────────────────────────────────────────────── */
+
+.tcp-inv-table-wrap {
+  display: none;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+  box-shadow: var(--tcp-subs-card-shadow);
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .tcp-inv-table-wrap { display: block; overflow-x: auto; }
+}
+
+.tcp-inv-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tcp-inv-table thead {
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--tcp-subs-divider);
+}
+
+.tcp-inv-table th {
+  padding: 0.875rem 1.25rem;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+}
+
+.tcp-inv-table td {
+  padding: 1rem 1.25rem;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  border-top: 1px solid var(--tcp-subs-divider);
+  vertical-align: middle;
+}
+
+.tcp-inv-row--failed {
+  border-left: 3px solid var(--color-error-500);
+}
+
+.tcp-inv-row-plan {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tcp-inv-row-solution {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.25rem;
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+}
+
+.tcp-inv-row-solution svg {
+  width: 12px;
+  height: 12px;
+  color: var(--color-primary-500);
+}
+
+.tcp-inv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tcp-inv-badge--success { background: var(--tcp-subs-badge-success-bg); color: var(--tcp-subs-badge-success-text); }
+.tcp-inv-badge--warning { background: var(--tcp-subs-badge-warning-bg); color: var(--tcp-subs-badge-warning-text); }
+.tcp-inv-badge--error   { background: var(--tcp-subs-badge-error-bg); color: var(--tcp-subs-badge-error-text); }
+.tcp-inv-badge--neutral { background: var(--tcp-subs-badge-neutral-bg); color: var(--tcp-subs-badge-neutral-text); }
+
+.tcp-inv-badge .material-symbols-outlined { font-size: 14px; }
+
+.tcp-inv-attempts-chip {
+  display: inline-flex;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  background: var(--tcp-subs-badge-neutral-bg);
+  color: var(--tcp-subs-badge-neutral-text);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.tcp-inv-row-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.tcp-inv-icon-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: 0.5rem;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tcp-inv-icon-btn:hover:not(:disabled) {
+  background: var(--tcp-subs-icon-bg);
+  color: var(--color-primary-500);
+}
+
+.tcp-inv-icon-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.tcp-inv-icon-btn--active {
+  background: var(--tcp-subs-icon-bg);
+  color: var(--color-primary-500);
+}
+
+/* ── Expanded attempt history ────────────────────────────────────────────── */
+
+.tcp-inv-expand-row td {
+  padding: 0;
+  background: var(--color-bg-secondary);
+}
+
+.tcp-inv-expand-inner {
+  margin: 1rem 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.tcp-inv-expand-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: var(--color-bg-tertiary);
+  border-bottom: 1px solid var(--tcp-subs-divider);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+}
+
+.tcp-inv-attempt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.tcp-inv-attempt-table th {
+  text-align: left;
+  padding: 0.5rem 1rem;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+}
+
+.tcp-inv-attempt-table td {
+  padding: 0.625rem 1rem;
+  border-top: 1px solid var(--tcp-subs-divider);
+}
+
+.tcp-inv-attempt-failure {
+  color: var(--color-error-500);
+  font-style: italic;
+}
+
+/* ── Mobile cards ────────────────────────────────────────────────────────── */
+
+.tcp-inv-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .tcp-inv-cards { display: none; }
+}
+
+.tcp-inv-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+  box-shadow: var(--tcp-subs-card-shadow);
+  padding: 1rem;
+}
+
+.tcp-inv-card--failed {
+  border-left: 3px solid var(--color-error-500);
+}
+
+.tcp-inv-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.tcp-inv-card__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--tcp-subs-divider);
+}
+
+.tcp-inv-card__meta {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+.tcp-inv-card__amount {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.tcp-inv-card__actions {
+  display: flex;
+  gap: 0.375rem;
+}
+
+/* ── Empty / loading / error states ─────────────────────────────────────── */
+
+.tcp-inv-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 0.75rem;
+}
+
+.tcp-inv-empty__icon-wrap {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  background: var(--tcp-subs-empty-icon-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.tcp-inv-empty__icon-wrap .material-symbols-outlined {
+  font-size: 36px;
+  color: var(--color-text-tertiary);
+}
+
+.tcp-inv-empty__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.375rem;
+}
+
+.tcp-inv-empty__description {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  max-width: 26rem;
+}
+
+.tcp-inv-empty__clear {
+  margin-top: 1.25rem;
+  background: none;
+  border: none;
+  color: var(--color-primary-500);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tcp-inv-empty__clear:hover {
+  text-decoration: underline;
+}
+
+.tcp-inv-loading,
+.tcp-inv-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem 1rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.tcp-inv-error__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.tcp-inv-error__retry {
+  padding: 0.5rem 1.25rem;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tcp-inv-error__retry:hover {
+  background-color: var(--btn-primary-bg-hover);
+}
+
+.tcp-inv-spinner {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 3px solid var(--color-primary-200);
+  border-top-color: var(--color-primary-500);
+  animation: tcp-inv-spin 0.8s linear infinite;
+}
+
+@keyframes tcp-inv-spin {
+  to { transform: rotate(360deg); }
+}
+
+.tcp-inv-skeleton-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--tcp-subs-divider);
+}
+
+.tcp-inv-skeleton-block {
+  background: var(--color-bg-tertiary);
+  border-radius: 0.375rem;
+  animation: tcp-inv-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes tcp-inv-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

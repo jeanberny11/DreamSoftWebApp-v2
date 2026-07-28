@@ -409,30 +409,25 @@
     }
 
     .pricing-sol-tabs {
-        @apply flex flex-wrap justify-center;
-        border-bottom: 1px solid var(--color-border-light);
+        @apply flex flex-wrap justify-center gap-2;
+    }
+
+    .pricing-sol-label {
+        @apply mb-3 text-center text-sm font-semibold uppercase tracking-widest;
+        color: var(--color-text-tertiary);
     }
 
     .pricing-sol-tab {
-        @apply px-5 py-2.5 text-sm font-semibold transition-all;
-        background: transparent;
-        border-bottom: 2px solid transparent;
-        margin-bottom: -1px;
-        color: var(--color-text-secondary);
-    }
-
-    .pricing-sol-tab:hover {
-        color: var(--color-primary-500);
+        @apply flex items-center gap-2 rounded-lg px-6 py-3 text-base font-semibold transition-all;
     }
 
     .pricing-sol-tab--inactive {
-        /* inherits base */
+        @apply bg-white border border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50;
     }
 
     .pricing-sol-tab--active {
-        color: var(--color-primary-500);
-        border-bottom-color: var(--color-primary-500);
-        font-weight: 700;
+        @apply text-white;
+        background-color: var(--color-primary-500);
     }
 
     .billing-toggle-wrap {

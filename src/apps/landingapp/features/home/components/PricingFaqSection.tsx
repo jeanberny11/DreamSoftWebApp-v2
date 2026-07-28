@@ -13,7 +13,7 @@ export function PricingFaqSection() {
   const toggle = (key: string) => setOpenKey((prev) => (prev === key ? null : key))
 
   return (
-    <section className="pricing-faq-section">
+    <section className="sp-section pricing-faq-section">
       <div className="section-container">
         <div className="section-header">
           <h2 className="section-title">{t('pricingFaq.title')}</h2>

@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { homeApi } from '../services/home.api'
 import { getErrorMessage } from '@/shared/utils/api.utils'
-import type { ModuleDto } from '../types/home.types'
+import type { ModuleDto } from '@/apps/landingapp/common/types/catalog.types'
 
 type MainFeaturesState =
   | { status: 'idle' }

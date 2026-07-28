@@ -1,6 +1,7 @@
 ﻿import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 import type { ApiResult } from '@/shared/types/api.types'
-import type { SolutionResponse, ModuleDto, SolutionDto, BillingCycle } from '../types/home.types'
+import type { SolutionResponse, BillingCycle } from '../types/home.types'
+import type { ModuleDto, SolutionDto } from '@/apps/landingapp/common/types/catalog.types'
 
 export const homeApi = {
   getMainFeatures: (language: string) =>

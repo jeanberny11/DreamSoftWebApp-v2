@@ -44,6 +44,7 @@
     },
     "trialBadge": "{{days}}-day free trial",
     "mostPopular": "Most Popular",
+    "solutionsLabel": "Solutions",
     "ctaButton": "Start {{days}}-day trial",
     "unlimited": "Unlimited",
     "limits": {

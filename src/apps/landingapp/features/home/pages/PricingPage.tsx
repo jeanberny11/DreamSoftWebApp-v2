@@ -7,7 +7,9 @@ import { useTranslation } from "react-i18next";
 import { usePricing } from "../hooks/usePricing";
 import { useBillingCycles } from "../hooks/useBillingCycles";
 import { PricingCard } from "../components/PricingCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getFeatureIcon } from "../utils/featureIconMap";
 
 export function PricingPage() {
   const { t } = useTranslation("landing");
@@ -15,6 +17,20 @@ export function PricingPage() {
   const billingCyclesState = useBillingCycles();
   const [activeSolution, setActiveSolution] = useState(0);
   const [billingCycle, setBillingCycle] = useState<string>("");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll<HTMLElement>(".sp-section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("sp-section--visible");
+        });
+      },
+      { threshold: 0.1 }
+    );
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   const billingCycles =
     billingCyclesState.status === "success" ? billingCyclesState.data : [];
@@ -27,7 +43,6 @@ export function PricingPage() {
   const plans = activeSol
     ? [...activeSol.plans].sort((a, b) => a.tierLevel - b.tierLevel)
     : [];
-  console.log("Plans:", plans);
   const isPopular =
     plans.length > 0 ? Math.max(...plans.map((p) => p.tierLevel)) : 0;
 
@@ -53,7 +68,7 @@ export function PricingPage() {
         style={{ paddingTop: "var(--nav-topbar-height)" }}
       >
         {/* ── Hero ── */}
-        <section className="hero">
+        <section className="sp-section hero">
           <div className="hero-inner">
             <div className="hero-content">
               <div className="hero-badge">
@@ -94,7 +109,7 @@ export function PricingPage() {
         </section>
 
         {/* ── Pricing Section ── */}
-        <section id="pricing" className="pricing-section">
+        <section id="pricing" className="sp-section pricing-section">
           <div className="section-container">
             {/* Loading State */}
             {(state.status === "idle" || state.status === "loading") && (
@@ -120,6 +135,7 @@ export function PricingPage() {
             {/* Success State */}
             {state.status === "success" && solutions.length > 0 && (
               <div className="space-y-8">
+                <div className="pricing-sol-label">{t("pricing.solutionsLabel")}</div>
                 <div className="pricing-sol-tabs" role="tablist">
                   {solutions.map((sol, index) => (
                     <button
@@ -133,6 +149,7 @@ export function PricingPage() {
                       onClick={() => setActiveSolution(index)}
                       className={`pricing-sol-tab ${index === activeSolution ? "pricing-sol-tab--active" : "pricing-sol-tab--inactive"}`}
                     >
+                      <FontAwesomeIcon icon={getFeatureIcon(sol.icon)} className="text-sm" />
                       {sol.name}
                     </button>
                   ))}
@@ -161,6 +178,7 @@ export function PricingPage() {
                     {plans.map((plan) => (
                       <PricingCard
                         key={plan.code}
+                        planId={plan.planId}
                         code={plan.code}
                         name={plan.name}
                         description={plan.description}
@@ -181,7 +199,7 @@ export function PricingPage() {
             )}
           </div>
         </section>
-        <section className="pricing-compare-section">
+        <section className="sp-section pricing-compare-section">
           <div className="section-container">
             <div className="section-header">
               <h2 className="section-title">{t("pricingComparison.title")}</h2>

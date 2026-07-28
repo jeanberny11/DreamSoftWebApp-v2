@@ -75,6 +75,8 @@ export function DashboardPage() {
           onVerifyEmail={handleVerifyEmail}
           onSetupProfile={() => navigate('/account/profile/edit')}
           onEditProfile={() => navigate('/account/profile/edit')}
+          onChoosePlan={() => navigate('/account/subscriptions/new')}
+          onManagePlans={() => navigate('/account/subscriptions')}
         />
       )}
     </div>

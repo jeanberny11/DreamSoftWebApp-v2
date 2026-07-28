@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { homeApi } from '../services/home.api'
 import { getErrorMessage } from '@/shared/utils/api.utils'
-import type { SolutionDto } from '../types/home.types'
+import type { SolutionDto } from '@/apps/landingapp/common/types/catalog.types'
 
 type SolutionsState =
   | { status: 'idle' }

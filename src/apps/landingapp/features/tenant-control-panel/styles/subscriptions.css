@@ -165,10 +165,10 @@
   flex-shrink: 0;
 }
 
-.tcp-subs-card__icon .material-symbols-outlined {
-  font-size: 36px;
+.tcp-subs-card__icon svg {
+  width: 36px;
+  height: 36px;
   color: var(--color-primary-500);
-  font-variation-settings: "FILL" 1;
 }
 
 .tcp-subs-card__content {
@@ -500,4 +500,85 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ── Post-Stripe-checkout status banner ─────────────────────────────── */
+
+.tcp-subs-checkout-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-primary-200, #bfdbfe);
+  background: var(--color-primary-50, #eff6ff);
+  margin-bottom: 1.5rem;
+}
+
+.tcp-subs-checkout-banner--success {
+  border-color: var(--color-success-200, #bbf7d0);
+  background: var(--color-success-50, #f0fdf4);
+}
+
+.tcp-subs-checkout-banner__icon {
+  font-size: 28px;
+  color: var(--color-primary-500, #3b82f6);
+  flex-shrink: 0;
+}
+
+.tcp-subs-checkout-banner--success .tcp-subs-checkout-banner__icon {
+  color: var(--color-success-500, #22c55e);
+}
+
+.tcp-subs-checkout-banner--delayed .tcp-subs-checkout-banner__icon {
+  color: var(--color-warning-500, #f59e0b);
+}
+
+.tcp-subs-checkout-banner__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.tcp-subs-checkout-banner__title {
+  font-weight: 600;
+  color: var(--color-neutral-900, #111827);
+  margin: 0 0 0.125rem;
+}
+
+.tcp-subs-checkout-banner__message {
+  font-size: 0.875rem;
+  color: var(--color-neutral-600, #4b5563);
+  margin: 0;
+}
+
+.tcp-subs-checkout-banner__spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.tcp-subs-checkout-banner__dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--color-neutral-500, #6b7280);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.tcp-subs-checkout-banner__dismiss:hover {
+  color: var(--color-neutral-700, #374151);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ── Retry-payment inline error (subscription card) ────────────────────── */
+
+.tcp-subs-card__retry-error {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  color: var(--color-error-500, #ef4444);
 }

@@ -7,12 +7,12 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { useSolutionDetail } from "../hooks/useSolutionDetail";
 import { getFeatureIcon } from "../utils/featureIconMap";
+import type { BillingCycle } from "../types/home.types";
 import type {
   SubscriptionPlanDto,
   MenuOptionDto,
   ModuleDto,
-  BillingCycle,
-} from "../types/home.types";
+} from "@/apps/landingapp/common/types/catalog.types";
 import "../styles/home_page.css";
 import "../styles/solution-detail.css";
 import { useBillingCycles } from "../hooks/useBillingCycles";
@@ -120,6 +120,14 @@ export function SolutionDetailPage() {
   const isCustomPlan = selectedPlan
     ? !selectedPlan.prices.some((p) => p.price > 0)
     : false;
+  // Resolve the price entry the same way the plan cards display it — the
+  // selected billing cycle, falling back to the plan's first price — so the
+  // checkout deep-link always carries the exact price the user is seeing.
+  const selectedPriceEntry = selectedPlan
+    ? selectedPlan.prices.find(
+        (p) => p.billingCycle.code === selectedCycle?.code,
+      ) || selectedPlan.prices[0]
+    : null;
   const featureColumns = data
     ? buildFeatureColumns(sortedPlans, selectedPlan)
     : [];
@@ -429,7 +437,10 @@ export function SolutionDetailPage() {
                             {t("solutionDetail.contactSales")}
                           </button>
                         ) : (
-                          <Link to="/register" className="sd-detail-cta-btn">
+                          <Link
+                            to={`/account/subscriptions/new/checkout?planId=${selectedPlan.planId}&planPriceId=${selectedPriceEntry!.planPriceId}`}
+                            className="sd-detail-cta-btn"
+                          >
                             {t("solutionDetail.startWith", {
                               plan: selectedPlan.name,
                             })}

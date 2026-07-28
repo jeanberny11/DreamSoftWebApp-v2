@@ -1,29 +1,32 @@
 // PricingCard — displays a single pricing plan with limits, trial, and billing price
 
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faStar } from "@fortawesome/free-solid-svg-icons";
 import { useLanguageStore } from "@/shared/store/language.store";
 import { formatCurrency } from "@/shared/utils/formatters";
-import type { PlanLimit, PlanPrice } from "../types/home.types";
 import "../styles/home_page.css";
+import type { PlanLimitDto, PlanPriceDto } from "@/apps/landingapp/common/types/catalog.types";
 
 interface PricingCardProps {
+  planId: number;
   code: string;
   name: string;
   description: string;
   trialDays: number;
   tierLevel: number;
-  price: PlanPrice;
-  limits: PlanLimit[];
+  price: PlanPriceDto;
+  limits: PlanLimitDto[];
   isHighlighted: boolean;
 }
 
-function formatLimitValue(value: number): string {
-  return value === 0 ? "Unlimited" : value.toLocaleString();
+function formatLimitValue(value: number, unlimitedLabel: string): string {
+  return value === 0 ? unlimitedLabel : value.toLocaleString();
 }
 
 export function PricingCard({
+  planId,
   name,
   description,
   trialDays,
@@ -31,6 +34,7 @@ export function PricingCard({
   limits,
   isHighlighted,
 }: PricingCardProps) {
+  const { t } = useTranslation("landing");
   const locale = useLanguageStore((s) => s.currentLanguage.code.toLowerCase());
   return (
     <div
@@ -40,7 +44,7 @@ export function PricingCard({
         <div className="pricing-card-popular-badge">
           <span className="pricing-card-popular-label">
             <FontAwesomeIcon icon={faStar} className="text-xs" />
-            Most Popular
+            {t("pricing.mostPopular")}
           </span>
         </div>
       )}
@@ -58,7 +62,7 @@ export function PricingCard({
       </div>
       <div className="pricing-card-trial">
         <span className="pricing-card-trial-badge">
-          {trialDays}-day free trial
+          {t("pricing.trialBadge", { days: trialDays })}
         </span>
       </div>
       <div className="pricing-card-divider" />
@@ -77,13 +81,16 @@ export function PricingCard({
             <span
               className={`pricing-card-feature-value ${limit.limitValue === 0 ? "pricing-card-feature-value--unlimited" : ""}`}
             >
-              {formatLimitValue(limit.limitValue)}
+              {formatLimitValue(limit.limitValue, t("pricing.unlimited"))}
             </span>
           </li>
         ))}
       </ul>
-      <Link to="/register" className="pricing-card-cta">
-        Start {trialDays}-day trial
+      <Link
+        to={`/account/subscriptions/new/checkout?planId=${planId}&planPriceId=${price.planPriceId}`}
+        className="pricing-card-cta"
+      >
+        {t("pricing.ctaButton", { days: trialDays })}
       </Link>
     </div>
   );

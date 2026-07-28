@@ -1,0 +1,254 @@
+/* change-plan-review.css — Confirm Plan Change page
+   Translated from Stitch design "Confirm Plan Change | TenantPortal"
+   into the tcp- design system. Reuses checkout-review.css classes for
+   shared chrome (steps, header, CTA, trust row). */
+
+.tcp-changeplan-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 42rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tcp-changeplan-error-icon {
+  font-size: 40px;
+  color: var(--color-error-500, #ef4444);
+}
+
+.tcp-changeplan-inline-icon {
+  font-size: 18px;
+}
+
+/* ── Plan comparison ──────────────────────────────────────────────── */
+
+.tcp-changeplan-comparison {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-neutral-200, #e5e7eb);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.tcp-changeplan-comparison__side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-width: 0;
+}
+
+.tcp-changeplan-comparison__side--new {
+  text-align: right;
+}
+
+.tcp-changeplan-comparison__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-neutral-500, #6b7280);
+}
+
+.tcp-changeplan-comparison__label--new {
+  color: var(--color-primary-500, #3b82f6);
+}
+
+.tcp-changeplan-comparison__plan-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-neutral-900, #111827);
+}
+
+.tcp-changeplan-comparison__plan-name--new {
+  color: var(--color-primary-600, #2563eb);
+}
+
+.tcp-changeplan-comparison__price {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-neutral-600, #4b5563);
+}
+
+.tcp-changeplan-comparison__price--new {
+  font-weight: 600;
+  color: var(--color-primary-600, #2563eb);
+}
+
+.tcp-changeplan-comparison__arrow {
+  font-size: 28px;
+  color: var(--color-neutral-400, #9ca3af);
+  flex-shrink: 0;
+}
+
+/* ── Timing toggle ────────────────────────────────────────────────── */
+
+.tcp-changeplan-timing__heading {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-neutral-900, #111827);
+}
+
+.tcp-changeplan-timing__options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 560px) {
+  .tcp-changeplan-timing__options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tcp-changeplan-timing-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 2px solid var(--color-neutral-200, #e5e7eb);
+  border-radius: 0.75rem;
+  background: var(--color-surface, #ffffff);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.tcp-changeplan-timing-option:hover:not(:disabled) {
+  border-color: var(--color-primary-300, #93c5fd);
+}
+
+.tcp-changeplan-timing-option--selected {
+  border-color: var(--color-primary-500, #3b82f6);
+  background: var(--color-primary-50, #eff6ff);
+}
+
+.tcp-changeplan-timing-option > .material-symbols-outlined {
+  color: var(--color-primary-500, #3b82f6);
+  flex-shrink: 0;
+}
+
+.tcp-changeplan-timing-option__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.tcp-changeplan-timing-option__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-neutral-900, #111827);
+}
+
+.tcp-changeplan-timing-option__description {
+  font-size: 0.8125rem;
+  color: var(--color-neutral-600, #4b5563);
+}
+
+.tcp-changeplan-timing-option:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Proration breakdown ──────────────────────────────────────────── */
+
+.tcp-changeplan-breakdown {
+  padding: 1.5rem;
+  background: var(--color-neutral-50, #f9fafb);
+  border: 1px solid var(--color-neutral-200, #e5e7eb);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tcp-changeplan-breakdown__line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--color-neutral-700, #374151);
+}
+
+.tcp-changeplan-breakdown__amount {
+  font-weight: 500;
+  color: var(--color-neutral-900, #111827);
+}
+
+.tcp-changeplan-breakdown__amount--credit {
+  color: var(--color-success-600, #16a34a);
+}
+
+.tcp-changeplan-breakdown__divider {
+  border: none;
+  border-top: 1px solid var(--color-neutral-200, #e5e7eb);
+  margin: 0;
+}
+
+.tcp-changeplan-breakdown__total {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tcp-changeplan-breakdown__total-label {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-neutral-900, #111827);
+}
+
+.tcp-changeplan-breakdown__total-note {
+  margin: 0.125rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--color-neutral-600, #4b5563);
+}
+
+.tcp-changeplan-breakdown__total-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary-600, #2563eb);
+  flex-shrink: 0;
+}
+
+/* ── Trial-preservation info box ──────────────────────────────────── */
+
+.tcp-changeplan-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-primary-200, #bfdbfe);
+  background: var(--color-primary-50, #eff6ff);
+}
+
+.tcp-changeplan-info-box > .material-symbols-outlined {
+  color: var(--color-primary-500, #3b82f6);
+  flex-shrink: 0;
+}
+
+.tcp-changeplan-info-box p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-neutral-800, #1f2937);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────── */
+
+.tcp-changeplan-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-neutral-200, #e5e7eb);
+}

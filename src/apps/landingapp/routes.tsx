@@ -14,9 +14,17 @@ import { DashboardPage } from './features/tenant-control-panel/pages/DashboardPa
 import { ProfileSection } from './features/tenant-control-panel/pages/ProfileSection'
 import { ProfileEditPage } from './features/tenant-control-panel/pages/ProfileEditPage'
 import { SubscriptionsSection } from './features/tenant-control-panel/pages/SubscriptionsSection'
+import { InvoicesSection } from './features/tenant-control-panel/pages/InvoicesSection'
+import { PaymentsSection } from './features/tenant-control-panel/pages/PaymentsSection'
+import { ManageSubscriptionPage } from './features/tenant-control-panel/pages/ManageSubscriptionPage'
+import { NewSubscriptionPage } from './features/tenant-control-panel/pages/NewSubscriptionPage'
+import { SubscriptionCheckoutReviewPage } from './features/tenant-control-panel/pages/SubscriptionCheckoutReviewPage'
+import { ChangePlanReviewPage } from './features/tenant-control-panel/pages/ChangePlanReviewPage'
 import { VerifyEmailPage } from './features/verify-email/pages/VerifyEmailPage'
 import { LandingGuestGuard } from './common/guards/LandingGuestGuard'
 import { LandingAuthGuard } from './common/guards/LandingAuthGuard'
+import { EmailVerifiedGuard } from './common/guards/EmailVerifiedGuard'
+import { ProfileCompleteGuard } from './common/guards/ProfileCompleteGuard'
 
 export function LandingApp() {
   const { isBootstrapping } = useTenantAuth()
@@ -51,6 +59,18 @@ export function LandingApp() {
           <Route path="profile" element={<ProfileSection />} />
           <Route path="profile/edit" element={<ProfileEditPage />} />
           <Route path="subscriptions" element={<SubscriptionsSection />} />
+          <Route path="subscriptions/:subscriptionId/manage" element={<ManageSubscriptionPage />} />
+          <Route path="invoices" element={<InvoicesSection />} />
+          <Route path="payments" element={<PaymentsSection />} />
+
+          {/* Gated: requires verified email AND completed profile setup */}
+          <Route element={<EmailVerifiedGuard />}>
+            <Route element={<ProfileCompleteGuard />}>
+              <Route path="subscriptions/new" element={<NewSubscriptionPage />} />
+              <Route path="subscriptions/new/checkout" element={<SubscriptionCheckoutReviewPage />} />
+              <Route path="subscriptions/change-plan/review" element={<ChangePlanReviewPage />} />
+            </Route>
+          </Route>
         </Route>
         <Route path="/verify-email" element={<VerifyEmailPage />} />
       </Route>

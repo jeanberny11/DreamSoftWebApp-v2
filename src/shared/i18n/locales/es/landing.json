@@ -44,6 +44,7 @@
     },
     "trialBadge": "Prueba de {{days}} días",
     "mostPopular": "Más Popular",
+    "solutionsLabel": "Soluciones",
     "ctaButton": "Comenzar prueba de {{days}} días",
     "unlimited": "Ilimitado",
     "limits": {

@@ -5,7 +5,7 @@ import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { useFeaturesCatalog } from '../hooks/useFeaturesCatalog'
 import { getFeatureIcon } from '../utils/featureIconMap'
-import type { MenuGroupDto, MenuOptionDto } from '../types/home.types'
+import type { MenuGroupDto, MenuOptionDto } from '@/apps/landingapp/common/types/catalog.types'
 import '../styles/features-catalog.css'
 import '../styles/home_page.css'
 
