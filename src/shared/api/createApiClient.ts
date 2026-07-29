@@ -12,7 +12,9 @@ import axios, {
 import i18n from '@/shared/i18n/config'
 import { getToken, setToken, clearToken, type TokenContext } from '@/shared/utils/token'
 import { parseAxiosError } from '@/shared/utils/api.utils'
+import { useTenantAuthStore } from '@/apps/landingapp/common/tenant_auth.store'
 import type { ApiResult } from '@/shared/types/api.types'
+import type { TenantAuthResponse } from '@/apps/landingapp/common/types/tenant-auth.types'
 
 export interface ApiClientConfig {
   context:         TokenContext  // which in-memory token slot to use
@@ -20,6 +22,15 @@ export interface ApiClientConfig {
   loginPath:       string        // redirect target when refresh fails
   clearAuth:       () => void    // store action to call on session expiry
 }
+
+export function createTenantRefreshClient(){
+  return axios.create({
+    baseURL:         import.meta.env.VITE_API_BASE_URL as string,
+    withCredentials: true,
+    headers:         { 'Content-Type': 'application/json' },
+  })
+}
+
 
 export function createApiClient(config: ApiClientConfig) {
   const BASE_URL = import.meta.env.VITE_API_BASE_URL as string
@@ -29,6 +40,8 @@ export function createApiClient(config: ApiClientConfig) {
     withCredentials: true,
     headers:         { 'Content-Type': 'application/json' },
   })
+
+  const refreshClient = createTenantRefreshClient()
 
   // ── Request interceptor ──────────────────────────────────────────────────
   client.interceptors.request.use((req: InternalAxiosRequestConfig) => {
@@ -61,7 +74,12 @@ export function createApiClient(config: ApiClientConfig) {
     async (error: AxiosError) => {
       const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean }
 
-      if (error.response?.status === 401 && !originalRequest._retry) {
+      const requestUrl = originalRequest.url ?? ''
+      const isPublicEndpoint =
+        requestUrl.includes('/login') ||
+        requestUrl.includes('/register')
+
+      if (error.response?.status === 401 && !originalRequest._retry && !isPublicEndpoint) {
         if (isRefreshing) {
           return new Promise((resolve, reject) => {
             failedQueue.push({
@@ -78,9 +96,26 @@ export function createApiClient(config: ApiClientConfig) {
         isRefreshing = true
 
         try {
-          const { data } = await client.post<{ accessToken: string }>(config.refreshEndpoint)
-          const newToken = (data as unknown as { data: { accessToken: string } }).data.accessToken
+          const { data } = await refreshClient.post<TenantAuthResponse>(config.refreshEndpoint)
+          const newToken = data.accessToken
           setToken(config.context, newToken)
+
+          // Restore the full session from the refresh response so guards
+          // always have up-to-date emailVerified + onboardingCompleted after
+          // a page reload or token rotation.
+          if (config.context === 'tenant') {
+            useTenantAuthStore.getState().setAuth({
+              tenantId:            data.tenantId,
+              email:               data.email,
+              firstName:           data.firstName,
+              lastName:            data.lastName,
+              logoUrl:             data.logoUrl,
+              tenantStatusCode:    data.tenantStatusCode,
+              emailVerified:       data.emailVerified,
+              onboardingCompleted: data.onboardingCompleted,
+            })
+          }
+
           processQueue(null, newToken)
           originalRequest.headers.Authorization = `Bearer ${newToken}`
           return client(originalRequest)

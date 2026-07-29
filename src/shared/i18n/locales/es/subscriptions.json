@@ -1,0 +1,339 @@
+{
+  "view": {
+    "title": "Mis Suscripciones",
+    "subtitle": "Administra tus soluciones de software activas, licencias y niveles de facturación en todo el ecosistema DreamSoft.",
+    "addButton": "Agregar Nueva Suscripción",
+
+    "activeSolutionsHeading": "Soluciones Activas",
+
+    "empty": {
+      "title": "No se encontraron suscripciones activas",
+      "description": "Aún no has activado ninguna solución. Explora nuestro catálogo para encontrar las herramientas adecuadas para tu negocio.",
+      "exploreButton": "Explorar Soluciones",
+      "pricingButton": "Ver Precios"
+    },
+
+    "card": {
+      "planLabel": "Nombre del Plan",
+      "costLabel": "Costo",
+      "statusLabel": "Estado",
+      "subdomainLabel": "Subdominio",
+      "perCycleSuffix": "/ {{cycle}}",
+      "startedLabel": "Iniciado el {{date}}",
+      "endsLabel": "Finaliza el {{date}}",
+      "trialEndsLabel": "La prueba finaliza el {{date}}",
+      "viewInvoices": "Ver Facturas",
+      "managePlan": "Administrar Plan",
+      "completePayment": "Completar Pago",
+      "retryPayment": "Reintentar Pago",
+      "retryRedirecting": "Redirigiendo…",
+      "retryError": "No pudimos reiniciar el pago. Por favor, intenta de nuevo."
+    },
+
+    "checkoutReturn": {
+      "activatingTitle": "¡Pago recibido!",
+      "activatingMessage": "Estamos activando tu suscripción — esto normalmente toma solo unos segundos.",
+      "successTitle": "¡Suscripción activada!",
+      "successMessage": "Tu nueva solución está lista para usar.",
+      "delayedTitle": "Pago recibido",
+      "delayedMessage": "La activación está tardando un poco más de lo habitual. Se completará automáticamente — puedes actualizar la página en un momento.",
+      "dismiss": "Descartar"
+    },
+
+    "loading": "Cargando tus suscripciones...",
+    "errorTitle": "Algo salió mal",
+    "errorMessage": "No pudimos cargar tus suscripciones. Por favor, intenta de nuevo.",
+    "retry": "Reintentar"
+  },
+
+  "newSubscription": {
+    "loading": "Cargando planes disponibles...",
+    "errorTitle": "Algo salió mal",
+    "errorMessage": "No pudimos cargar los planes disponibles. Por favor, intenta de nuevo.",
+    "retry": "Reintentar",
+
+    "stepSelect": "Seleccionar Plan",
+    "stepReview": "Revisar y Pagar",
+
+    "backLink": "Volver a Suscripciones",
+    "title": "Agregar Nueva Suscripción",
+    "subtitle": "Elige una solución y un plan para agregar a tu cuenta",
+
+    "solutionsLabel": "Soluciones Disponibles",
+
+    "mostPopular": "Más Popular",
+    "perCycle": "/{{cycle}}",
+    "trialBadge": "{{days}}d de Prueba Gratis",
+    "unlimited": "Ilimitado",
+    "notAvailableForCycle": "No disponible para este ciclo de facturación",
+    "unavailable": "No disponible",
+
+    "selectPlan": "Seleccionar Plan",
+    "selected": "Seleccionado",
+    "currentPlan": "Plan Actual",
+    "switchPlan": "Cambiar Plan",
+    "learnMore": "Más información",
+
+    "noSolutionsTitle": "No hay soluciones disponibles",
+    "noSolutionsDescription": "No hay soluciones disponibles para suscribirse en este momento. Por favor, vuelve más tarde.",
+
+    "currentSelectionLabel": "Selección Actual",
+    "selectionSummary": "Seleccionaste: {{plan}}",
+    "totalBilledTodayLabel": "Total a Facturar Hoy",
+    "dueTodayLabel": "A Pagar Hoy",
+    "thenBilledLabel": "Luego se facturará {{amount}} {{cycle}}, a partir del {{date}}",
+    "billedCycleLabel": "Facturado {{cycle}}",
+    "goToCheckout": "Ir a Pagar"
+  },
+
+  "checkoutReview": {
+    "loading": "Cargando los detalles de tu suscripción...",
+    "errorTitle": "Algo salió mal",
+    "errorMessage": "No pudimos cargar los detalles de tu suscripción. Por favor, intenta de nuevo.",
+    "retry": "Reintentar",
+
+    "stepSelect": "Seleccionar Plan",
+    "stepReview": "Revisar y Pagar",
+
+    "backLink": "Atrás, cambiar plan",
+    "title": "Revisa tu Suscripción",
+    "subtitle": "Confirma los detalles a continuación antes de continuar con el pago",
+
+    "planLabel": "Plan",
+    "billingCycleLabel": "Ciclo de facturación",
+    "priceLabel": "Precio",
+
+    "freeTrialLabel": "Prueba gratis",
+    "trialDetail": "{{days}} días — primer cobro el {{date}}",
+
+    "dueTodayLabel": "A pagar hoy",
+
+    "whatsIncluded": "Qué incluye este plan",
+
+    "continueToPayment": "Continuar al Pago",
+    "submitting": "Redirigiendo a pago seguro…",
+    "submitError": "Algo salió mal al crear tu suscripción. Por favor, intenta de nuevo.",
+    "cancel": "Cancelar",
+
+    "secureCheckout": "Pago seguro",
+    "poweredByStripe": "Con la tecnología de Stripe",
+    "footnote": "Puedes cancelar en cualquier momento desde la configuración de tu cuenta. Sin cargos ocultos. La suscripción se renueva automáticamente al finalizar el período de prueba.",
+
+    "cancelledNotice": "El pago fue cancelado. Tu plan sigue seleccionado — puedes continuar al pago cuando estés listo.",
+    "cancelledDismiss": "Descartar"
+  },
+
+  "manage": {
+    "loading": "Cargando tu suscripción...",
+    "errorTitle": "Algo salió mal",
+    "errorMessage": "No pudimos cargar esta suscripción. Por favor, intenta de nuevo.",
+    "retry": "Reintentar",
+
+    "backLink": "Volver a Mis Suscripciones",
+
+    "pendingCancellation": "Tu suscripción está programada para finalizar el {{date}} — mantendrás acceso completo hasta entonces.",
+    "keepSubscription": "Mantener mi suscripción",
+    "resuming": "Restaurando…",
+    "resumeError": "No pudimos restaurar tu suscripción. Por favor, intenta de nuevo.",
+
+    "detailsTitle": "Detalles de la Suscripción",
+    "planLabel": "Plan",
+    "priceLabel": "Precio",
+    "statusLabel": "Estado",
+    "subdomainLabel": "Subdominio",
+    "memberSinceLabel": "Miembro Desde",
+    "trialEndsLabel": "La Prueba Gratis Finaliza",
+    "endsLabel": "Próxima Fecha de Facturación",
+
+    "updatePlanTitle": "Actualizar Plan",
+    "updatePlanDescription": "Mejora, reduce o cambia tu ciclo de facturación. Verás exactamente lo que se te cobrará antes de confirmar.",
+    "changePlanButton": "Cambiar Plan",
+    "changePlanDisabledStatus": "Solo las suscripciones activas o en prueba pueden cambiar de plan.",
+    "changePlanDisabledPendingCancellation": "Usa \"Mantener mi suscripción\" arriba antes de cambiar de plan.",
+
+    "cancelTitle": "Cancelar Suscripción",
+    "cancelDescription": "Si cancelas al final de tu período de facturación, mantendrás acceso completo hasta el {{date}}.",
+    "cancelDescriptionTrial": "Si cancelas al final de tu prueba, mantendrás acceso completo hasta el {{date}}.",
+    "cancelAlreadyScheduled": "Ya hay una cancelación programada para el {{date}}. Usa \"Mantener mi suscripción\" arriba si cambiaste de opinión.",
+    "cancelAlreadyScheduledTooltip": "Ya hay una cancelación programada",
+    "cancelButton": "Cancelar Suscripción",
+    "cancelButtonScheduled": "Cancelación Programada",
+
+    "cancelModal": {
+      "title": "¿Cancelar tu suscripción?",
+      "subtitle": "Lamentamos que te vayas. Elige cómo deseas cancelar.",
+
+      "periodEndLabel": "Cancelar al final del período de facturación",
+      "periodEndDescription": "Recomendado. Mantén acceso completo hasta el {{date}}. Sin cargos adicionales.",
+
+      "immediateLabel": "Cancelar inmediatamente",
+      "immediateDescription": "El acceso termina de inmediato. No se emite reembolso por el período restante. Esto no se puede deshacer.",
+
+      "surveyHeading": "Ayúdanos a mejorar (opcional)",
+      "reasonLabel": "Motivo de la cancelación",
+      "reasonPlaceholder": "Selecciona un motivo...",
+      "reasons": {
+        "too_expensive": "Demasiado costoso",
+        "missing_features": "Faltan funciones",
+        "switching_provider": "Cambiando a otro proveedor",
+        "no_longer_needed": "Ya no lo necesito",
+        "other": "Otro"
+      },
+      "feedbackLabel": "¿Algo más que deberíamos saber?",
+      "feedbackPlaceholder": "Cuéntanos cómo podemos mejorar...",
+
+      "keepButton": "Mantener Suscripción",
+      "confirmPeriodEnd": "Confirmar — acceso hasta el {{date}}",
+      "confirmImmediate": "Cancelar inmediatamente",
+      "submitting": "Cancelando…",
+      "error": "Algo salió mal al cancelar tu suscripción. Por favor, intenta de nuevo."
+    }
+  },
+
+  "changePlanReview": {
+    "loading": "Cargando los detalles del cambio de plan...",
+    "errorTitle": "Algo salió mal",
+    "errorMessage": "No pudimos cargar los detalles del cambio de plan. Por favor, intenta de nuevo.",
+    "retry": "Reintentar",
+
+    "stepSelect": "Seleccionar Plan",
+    "stepReview": "Revisar Cambio",
+
+    "backLink": "Atrás, elegir otro plan",
+    "title": "Confirma tu Cambio de Plan",
+    "subtitle": "Revisa los cambios a continuación antes de confirmar.",
+
+    "currentLabel": "Actual",
+    "newLabel": "Nuevo",
+
+    "timingHeading": "¿Cuándo debe aplicarse este cambio?",
+    "chargeNowLabel": "Cobrar la diferencia ahora",
+    "chargeNowDescription": "Acceso instantáneo a todas las nuevas funciones",
+    "nextCycleLabel": "Aplicar en la próxima fecha de facturación",
+    "nextCycleDescription": "Los cambios se aplicarán el {{date}}",
+
+    "creditLine": "Crédito por tiempo no utilizado en {{plan}}",
+    "chargeLine": "Cargo prorrateado por {{plan}}",
+    "dueTodayLabel": "Total a Pagar Hoy",
+    "thenLabel": "Luego {{amount}} a partir del {{date}}",
+
+    "trialPreserved": "Tu plan se actualizará de inmediato. Ningún período de prueba aplica a los cambios de plan — tus días de prueba restantes se conservan y tu primer cobro será el {{date}}.",
+
+    "confirmButton": "Confirmar Cambio de Plan",
+    "submitting": "Aplicando tu cambio de plan…",
+    "submitError": "Algo salió mal al cambiar tu plan. Por favor, intenta de nuevo.",
+    "cancel": "Cancelar",
+
+    "secure": "Pago seguro",
+    "poweredByStripe": "Con la tecnología de Stripe"
+  },
+
+  "invoices": {
+    "title": "Facturas",
+    "subtitle": "Un registro completo de cada factura emitida a tu cuenta",
+    "solutionFilterAll": "Todas las Soluciones",
+
+    "stats": {
+      "totalInvoices": "Total de Facturas",
+      "totalPaid": "Total Pagado",
+      "outstanding": "Pendiente",
+      "outstandingCount_one": "{{count}} Sin Pagar",
+      "outstandingCount_other": "{{count}} Sin Pagar"
+    },
+
+    "filters": {
+      "all": "Todas",
+      "paid": "Pagada",
+      "unpaid": "Sin Pagar",
+      "failed": "Fallida",
+      "refunded": "Reembolsada",
+      "searchPlaceholder": "Buscar por número de factura..."
+    },
+
+    "table": {
+      "planSolution": "Plan y Solución",
+      "invoiceNumber": "Factura #",
+      "amount": "Monto",
+      "status": "Estado",
+      "date": "Fecha",
+      "attemptsCount_one": "{{count}} intento",
+      "attemptsCount_other": "{{count}} intentos",
+      "paidOn": "Pagada el {{date}}",
+      "dueOn": "Vence el {{date}}",
+      "viewAction": "Ver",
+      "downloadAction": "Descargar PDF"
+    },
+
+    "attemptHistory": {
+      "heading": "Historial de Intentos de Pago",
+      "date": "Fecha",
+      "amount": "Monto",
+      "status": "Estado",
+      "failureReason": "Motivo del Fallo"
+    },
+
+    "status": {
+      "paid": "Pagada",
+      "unpaid": "Sin Pagar",
+      "failed": "Fallida",
+      "refunded": "Reembolsada"
+    },
+
+    "emptyTrue": {
+      "title": "Aún no tienes facturas",
+      "description": "Cuando se complete tu primer ciclo de facturación, tus facturas aparecerán aquí."
+    },
+    "emptyFiltered": {
+      "title": "No se encontraron facturas",
+      "description": "No encontramos facturas que coincidan con tu búsqueda o filtros actuales.",
+      "clearFilters": "Limpiar todos los filtros"
+    },
+
+    "loading": "Cargando tus facturas...",
+    "errorTitle": "Algo salió mal",
+    "errorMessage": "No pudimos cargar tus facturas. Por favor, intenta de nuevo.",
+    "retry": "Reintentar"
+  },
+
+  "payments": {
+    "title": "Historial de Pagos",
+    "subtitle": "Cada intento de pago en tus suscripciones, exitosos y fallidos",
+    "solutionFilterAll": "Todas las Soluciones",
+
+    "stats": {
+      "totalPaid": "Total Pagado",
+      "failedAttempts": "Intentos Fallidos",
+      "successRate": "Tasa de Éxito"
+    },
+
+    "filters": {
+      "all": "Todos",
+      "successful": "Exitosos",
+      "failed": "Fallidos"
+    },
+
+    "table": {
+      "date": "Fecha",
+      "planSolution": "Plan / Solución",
+      "invoice": "Factura",
+      "amount": "Monto",
+      "status": "Estado",
+      "reference": "Referencia"
+    },
+
+    "status": {
+      "paid": "Pagado",
+      "failed": "Fallido"
+    },
+
+    "empty": {
+      "title": "Aún no tienes historial de pagos",
+      "description": "Cuando proceses tu primer pago, los registros aparecerán aquí."
+    },
+
+    "loading": "Cargando tu historial de pagos...",
+    "errorTitle": "Algo salió mal",
+    "errorMessage": "No pudimos cargar tu historial de pagos. Por favor, intenta de nuevo.",
+    "retry": "Reintentar"
+  }
+}

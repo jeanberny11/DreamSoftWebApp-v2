@@ -1,0 +1,339 @@
+{
+  "view": {
+    "title": "My Subscriptions",
+    "subtitle": "Manage your active software solutions, licenses, and billing tiers across the DreamSoft ecosystem.",
+    "addButton": "Add New Subscription",
+
+    "activeSolutionsHeading": "Active Solutions",
+
+    "empty": {
+      "title": "No active subscriptions found",
+      "description": "You haven't activated any solutions yet. Explore our catalog to find the right tools for your business.",
+      "exploreButton": "Explore Solutions",
+      "pricingButton": "View Pricing"
+    },
+
+    "card": {
+      "planLabel": "Plan Name",
+      "costLabel": "Cost",
+      "statusLabel": "Status",
+      "subdomainLabel": "Subdomain",
+      "perCycleSuffix": "/ {{cycle}}",
+      "startedLabel": "Started {{date}}",
+      "endsLabel": "Ends {{date}}",
+      "trialEndsLabel": "Trial ends {{date}}",
+      "viewInvoices": "View Invoices",
+      "managePlan": "Manage Plan",
+      "completePayment": "Complete Payment",
+      "retryPayment": "Retry Payment",
+      "retryRedirecting": "Redirecting…",
+      "retryError": "We couldn't restart the payment. Please try again."
+    },
+
+    "checkoutReturn": {
+      "activatingTitle": "Payment received!",
+      "activatingMessage": "We're activating your subscription — this usually takes just a few seconds.",
+      "successTitle": "Subscription activated!",
+      "successMessage": "Your new solution is ready to use.",
+      "delayedTitle": "Payment received",
+      "delayedMessage": "Activation is taking a little longer than usual. It will complete automatically — feel free to refresh in a moment.",
+      "dismiss": "Dismiss"
+    },
+
+    "loading": "Loading your subscriptions...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't load your subscriptions. Please try again.",
+    "retry": "Retry"
+  },
+
+  "newSubscription": {
+    "loading": "Loading available plans...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't load the available plans. Please try again.",
+    "retry": "Retry",
+
+    "stepSelect": "Select Plan",
+    "stepReview": "Review & Checkout",
+
+    "backLink": "Back to Subscriptions",
+    "title": "Add New Subscription",
+    "subtitle": "Choose a solution and plan to add to your account",
+
+    "solutionsLabel": "Available Solutions",
+
+    "mostPopular": "Most Popular",
+    "perCycle": "/{{cycle}}",
+    "trialBadge": "{{days}}d Free Trial",
+    "unlimited": "Unlimited",
+    "notAvailableForCycle": "Not available for this billing cycle",
+    "unavailable": "Unavailable",
+
+    "selectPlan": "Select Plan",
+    "selected": "Selected",
+    "currentPlan": "Current Plan",
+    "switchPlan": "Switch Plan",
+    "learnMore": "Learn more",
+
+    "noSolutionsTitle": "No solutions available",
+    "noSolutionsDescription": "There are no solutions available to subscribe to right now. Please check back later.",
+
+    "currentSelectionLabel": "Current Selection",
+    "selectionSummary": "You selected: {{plan}}",
+    "totalBilledTodayLabel": "Total Billed Today",
+    "dueTodayLabel": "Due Today",
+    "thenBilledLabel": "Then {{amount}} billed {{cycle}}, starting {{date}}",
+    "billedCycleLabel": "Billed {{cycle}}",
+    "goToCheckout": "Go to Checkout"
+  },
+
+  "checkoutReview": {
+    "loading": "Loading your subscription details...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't load your subscription details. Please try again.",
+    "retry": "Retry",
+
+    "stepSelect": "Select Plan",
+    "stepReview": "Review & Checkout",
+
+    "backLink": "Back, change plan",
+    "title": "Review Your Subscription",
+    "subtitle": "Confirm the details below before continuing to payment",
+
+    "planLabel": "Plan",
+    "billingCycleLabel": "Billing cycle",
+    "priceLabel": "Price",
+
+    "freeTrialLabel": "Free trial",
+    "trialDetail": "{{days}} days — first charge on {{date}}",
+
+    "dueTodayLabel": "Due today",
+
+    "whatsIncluded": "What's included in this plan",
+
+    "continueToPayment": "Continue to Payment",
+    "submitting": "Redirecting to secure payment…",
+    "submitError": "Something went wrong creating your subscription. Please try again.",
+    "cancel": "Cancel",
+
+    "secureCheckout": "Secure checkout",
+    "poweredByStripe": "Powered by Stripe",
+    "footnote": "You can cancel anytime from your account settings. No hidden fees. Subscription automatically renews at the end of the trial period.",
+
+    "cancelledNotice": "Checkout was cancelled. Your plan is still selected — you can continue to payment whenever you're ready.",
+    "cancelledDismiss": "Dismiss"
+  },
+
+  "manage": {
+    "loading": "Loading your subscription...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't load this subscription. Please try again.",
+    "retry": "Retry",
+
+    "backLink": "Back to My Subscriptions",
+
+    "pendingCancellation": "Your subscription is scheduled to end on {{date}} — you'll keep full access until then.",
+    "keepSubscription": "Keep my subscription",
+    "resuming": "Restoring…",
+    "resumeError": "We couldn't restore your subscription. Please try again.",
+
+    "detailsTitle": "Subscription Details",
+    "planLabel": "Plan",
+    "priceLabel": "Price",
+    "statusLabel": "Status",
+    "subdomainLabel": "Subdomain",
+    "memberSinceLabel": "Member Since",
+    "trialEndsLabel": "Free Trial Ends",
+    "endsLabel": "Next Billing Date",
+
+    "updatePlanTitle": "Update Plan",
+    "updatePlanDescription": "Upgrade, downgrade, or switch your billing cycle. You'll see exactly what you'll be charged before confirming.",
+    "changePlanButton": "Change Plan",
+    "changePlanDisabledStatus": "Only active or trial subscriptions can change plans.",
+    "changePlanDisabledPendingCancellation": "Use \"Keep my subscription\" above before changing plans.",
+
+    "cancelTitle": "Cancel Subscription",
+    "cancelDescription": "If you cancel at the end of your billing period, you keep full access until {{date}}.",
+    "cancelDescriptionTrial": "If you cancel at the end of your trial, you keep full access until {{date}}.",
+    "cancelAlreadyScheduled": "A cancellation is already scheduled for {{date}}. Use \"Keep my subscription\" above if you changed your mind.",
+    "cancelAlreadyScheduledTooltip": "A cancellation is already scheduled",
+    "cancelButton": "Cancel Subscription",
+    "cancelButtonScheduled": "Cancellation Scheduled",
+
+    "cancelModal": {
+      "title": "Cancel your subscription?",
+      "subtitle": "We're sorry to see you go. Choose how you'd like to cancel.",
+
+      "periodEndLabel": "Cancel at end of billing period",
+      "periodEndDescription": "Recommended. Keep full access until {{date}}. No further charges.",
+
+      "immediateLabel": "Cancel immediately",
+      "immediateDescription": "Access ends right away. No refund is issued for the remaining period. This cannot be undone.",
+
+      "surveyHeading": "Help us improve (optional)",
+      "reasonLabel": "Reason for cancelling",
+      "reasonPlaceholder": "Select a reason...",
+      "reasons": {
+        "too_expensive": "Too expensive",
+        "missing_features": "Missing features",
+        "switching_provider": "Switching to another provider",
+        "no_longer_needed": "No longer needed",
+        "other": "Other"
+      },
+      "feedbackLabel": "Anything else we should know?",
+      "feedbackPlaceholder": "Tell us how we can improve...",
+
+      "keepButton": "Keep Subscription",
+      "confirmPeriodEnd": "Confirm — access until {{date}}",
+      "confirmImmediate": "Cancel immediately",
+      "submitting": "Cancelling…",
+      "error": "Something went wrong cancelling your subscription. Please try again."
+    }
+  },
+
+  "changePlanReview": {
+    "loading": "Loading plan change details...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't load your plan change details. Please try again.",
+    "retry": "Retry",
+
+    "stepSelect": "Select Plan",
+    "stepReview": "Review Change",
+
+    "backLink": "Back, choose a different plan",
+    "title": "Confirm Your Plan Change",
+    "subtitle": "Review the changes below before confirming.",
+
+    "currentLabel": "Current",
+    "newLabel": "New",
+
+    "timingHeading": "When should this take effect?",
+    "chargeNowLabel": "Charge the difference now",
+    "chargeNowDescription": "Instant access to all new features",
+    "nextCycleLabel": "Apply at next billing date",
+    "nextCycleDescription": "Changes will take effect on {{date}}",
+
+    "creditLine": "Credit for unused time on {{plan}}",
+    "chargeLine": "Prorated charge for {{plan}}",
+    "dueTodayLabel": "Total Due Today",
+    "thenLabel": "Then {{amount}} starting {{date}}",
+
+    "trialPreserved": "Your plan will update immediately. No trial period applies to plan changes — your remaining trial days are preserved and your first charge will be on {{date}}.",
+
+    "confirmButton": "Confirm Plan Change",
+    "submitting": "Applying your plan change…",
+    "submitError": "Something went wrong changing your plan. Please try again.",
+    "cancel": "Cancel",
+
+    "secure": "Secure checkout",
+    "poweredByStripe": "Powered by Stripe"
+  },
+
+  "invoices": {
+    "title": "Invoices",
+    "subtitle": "A complete record of every invoice issued to your account",
+    "solutionFilterAll": "All Solutions",
+
+    "stats": {
+      "totalInvoices": "Total Invoices",
+      "totalPaid": "Total Paid",
+      "outstanding": "Outstanding",
+      "outstandingCount_one": "{{count}} Unpaid",
+      "outstandingCount_other": "{{count}} Unpaid"
+    },
+
+    "filters": {
+      "all": "All",
+      "paid": "Paid",
+      "unpaid": "Unpaid",
+      "failed": "Failed",
+      "refunded": "Refunded",
+      "searchPlaceholder": "Search by invoice number..."
+    },
+
+    "table": {
+      "planSolution": "Plan & Solution",
+      "invoiceNumber": "Invoice #",
+      "amount": "Amount",
+      "status": "Status",
+      "date": "Date",
+      "attemptsCount_one": "{{count}} attempt",
+      "attemptsCount_other": "{{count}} attempts",
+      "paidOn": "Paid on {{date}}",
+      "dueOn": "Due {{date}}",
+      "viewAction": "View",
+      "downloadAction": "Download PDF"
+    },
+
+    "attemptHistory": {
+      "heading": "Payment Attempt History",
+      "date": "Date",
+      "amount": "Amount",
+      "status": "Status",
+      "failureReason": "Failure Reason"
+    },
+
+    "status": {
+      "paid": "Paid",
+      "unpaid": "Unpaid",
+      "failed": "Failed",
+      "refunded": "Refunded"
+    },
+
+    "emptyTrue": {
+      "title": "No invoices yet",
+      "description": "Once your first billing cycle completes, your invoices will appear here."
+    },
+    "emptyFiltered": {
+      "title": "No invoices found",
+      "description": "We couldn't find any invoices matching your current search or filter criteria.",
+      "clearFilters": "Clear all filters"
+    },
+
+    "loading": "Loading your invoices...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't load your invoices. Please try again.",
+    "retry": "Retry"
+  },
+
+  "payments": {
+    "title": "Payments History",
+    "subtitle": "Every payment attempt across your subscriptions, successful and failed",
+    "solutionFilterAll": "All Solutions",
+
+    "stats": {
+      "totalPaid": "Total Paid",
+      "failedAttempts": "Failed Attempts",
+      "successRate": "Success Rate"
+    },
+
+    "filters": {
+      "all": "All",
+      "successful": "Successful",
+      "failed": "Failed"
+    },
+
+    "table": {
+      "date": "Date",
+      "planSolution": "Plan / Solution",
+      "invoice": "Invoice",
+      "amount": "Amount",
+      "status": "Status",
+      "reference": "Reference"
+    },
+
+    "status": {
+      "paid": "Paid",
+      "failed": "Failed"
+    },
+
+    "empty": {
+      "title": "No payment history yet",
+      "description": "Once you process your first payment, the records will appear here."
+    },
+
+    "loading": "Loading your payment history...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "We couldn't load your payment history. Please try again.",
+    "retry": "Retry"
+  }
+}

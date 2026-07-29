@@ -1,0 +1,18 @@
+// tenantClient.ts — Axios instance for the LandingApp tenant auth context.
+// Handles: tenant owner login, onboarding, subscription management.
+// Token slot : 'tenant'
+// Refresh    : POST /api/v1/landing/tenant-auth/refresh
+// On expiry  : clears tenant session, redirects to /login
+
+import { createApiClient, createTenantRefreshClient } from '@/shared/api/createApiClient'
+import { useTenantAuthStore } from '../tenant_auth.store'
+
+export const tenantClient = createApiClient({
+  context:         'tenant',
+  refreshEndpoint: '/api/v1/landing/tenant-auth/refresh',
+  loginPath:       '/login',
+  clearAuth:       () => useTenantAuthStore.getState().clearAuth(),
+})
+
+
+export const tenantRefreshClient = createTenantRefreshClient()

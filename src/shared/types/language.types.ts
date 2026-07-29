@@ -20,7 +20,6 @@ export type I18nNamespace =
   | 'auth'
   | 'validation'
   | 'landing'
-  | 'dashboard'
 
 /** Default fallback language — used when API is unavailable or key is missing */
 export const FALLBACK_LANGUAGE: Language = {

@@ -8,7 +8,10 @@
     "features": "Características",
     "pricing": "Precios",
     "signIn": "Iniciar sesión",
-    "getStarted": "Comenzar gratis"
+    "getStarted": "Comenzar gratis",
+    "manageAccount": "Gestionar cuenta",
+    "addAccount": "Añadir otra cuenta",
+    "signOut": "Cerrar sesión"
   },
   "actions": {
     "save": "Guardar",

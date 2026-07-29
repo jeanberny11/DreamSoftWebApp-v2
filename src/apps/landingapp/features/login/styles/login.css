@@ -1,0 +1,451 @@
+@import "tailwindcss" reference;
+
+@layer components {
+
+  /* ===================== PAGE SHELL ===================== */
+
+  /* Matches Stitch: bg-surface (#f4fbf8) + radial-gradient decorators */
+  .login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: var(--color-primary-50);
+    background-image:
+      radial-gradient(circle at 0% 0%,   color-mix(in srgb, var(--color-primary-500) 5%, transparent) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--color-accent-500)  5%, transparent) 0%, transparent 50%);
+  }
+
+  /* ===================== BRAND ROW ===================== */
+
+  /* Matches Stitch: flex flex-row items-center justify-center gap-3 mb-8 */
+  .login-brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Matches Stitch: w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary shadow-sm */
+  .login-brand-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--color-primary-500);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+  }
+
+  /* Matches Stitch: font-h1 text-h1 text-primary tracking-tight */
+  .login-brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    color: var(--color-primary-700);
+    letter-spacing: -0.025em;
+  }
+
+  /* ===================== BACK LINK ===================== */
+
+  /* Matches Stitch: w-full max-w-md mb-4 */
+  .login-back-wrap {
+    width: 100%;
+    max-width: 28rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Matches Stitch: inline-flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors group */
+  .login-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .login-back-link:hover {
+    color: var(--color-primary-600);
+  }
+
+  .login-back-link .pi {
+    font-size: 1.125rem;
+    transition: transform 0.15s;
+  }
+
+  .login-back-link:hover .pi {
+    transform: translateX(-2px);
+  }
+
+  /* ===================== CARD ===================== */
+
+  /* Matches Stitch: login-card bg-surface-container-lowest border border-outline-variant rounded-xl p-8 */
+  .login-card {
+    width: 100%;
+    max-width: 28rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.05),
+      0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    animation: login-card-enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes login-card-enter {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+
+  /* ===================== CARD HEADER ===================== */
+
+  /* Matches Stitch: mb-6 */
+  .login-card-header {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Matches Stitch: font-h2 text-h2 text-on-surface */
+  .login-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+    color: var(--color-text-primary);
+  }
+
+  /* Matches Stitch: font-body text-body text-on-surface-variant mt-1 */
+  .login-card-subtitle {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.25rem;
+  }
+
+  /* ===================== FORM LAYOUT ===================== */
+
+  /* Matches Stitch: space-y-stack-spacing (1.5rem) */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .login-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  /* Matches Stitch: font-label text-label text-on-surface-variant */
+  .login-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    color: var(--color-text-secondary);
+  }
+
+  .login-error-msg {
+    font-size: 0.75rem;
+    color: var(--color-error-500);
+    margin-top: 0.25rem;
+  }
+
+  /* ===================== INPUT ICON WRAPPER ===================== */
+
+  /* Matches Stitch: relative div wrapping icon + input */
+  .login-input-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Matches Stitch: absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px] */
+  .login-input-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    font-size: 1rem;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ===================== PRIMEREACT INPUT OVERRIDES ===================== */
+
+  /* Matches Stitch: w-full pl-10 pr-4 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary-container */
+  .login-field .p-inputtext {
+    width: 100%;
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem 0.625rem 2.5rem;
+    border: 1px solid var(--color-border-medium);
+    border-radius: 0.5rem;
+    color: var(--color-text-primary);
+    background-color: var(--card-bg);
+    box-shadow: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .login-field .p-inputtext::placeholder {
+    color: var(--color-text-disabled);
+  }
+
+  .login-field .p-inputtext:enabled:hover {
+    border-color: var(--color-primary-400);
+  }
+
+  .login-field .p-inputtext:enabled:focus {
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+    outline: none;
+  }
+
+  .login-field .p-inputtext.p-invalid {
+    border-color: var(--color-error-500);
+  }
+
+  .login-field .p-inputtext.p-invalid:enabled:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+  }
+
+  .login-field .p-password {
+    width: 100%;
+    display: flex;
+  }
+
+  .login-field .p-password .p-icon-field {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .login-field .p-password .p-inputtext {
+    width: 100%;
+    padding-left: 2.5rem;
+  }
+
+  /* ===================== PASSWORD ROW ===================== */
+
+  .login-password-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Matches Stitch: font-caption text-caption text-primary hover:underline */
+  .login-forgot-link {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-primary-600);
+    text-decoration: none;
+  }
+
+  .login-forgot-link:hover {
+    text-decoration: underline;
+  }
+
+  /* ===================== REMEMBER ME ===================== */
+
+  /* Matches Stitch: flex items-center */
+  .login-remember-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Matches Stitch: font-caption text-caption text-on-surface-variant */
+  .login-remember-label {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+  }
+
+  /* ===================== API ERROR BANNER ===================== */
+
+  .login-api-error {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-error-50);
+    border: 1px solid var(--color-error-200);
+    color: var(--color-error-700);
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+
+  /* ===================== PRIMEREACT BUTTON OVERRIDE ===================== */
+
+  /* Matches Stitch: w-full bg-primary-container hover:bg-primary text-on-primary font-h3 py-3 rounded-lg shadow-sm active:scale-[0.98] */
+  .login-submit.p-button {
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+  }
+
+  .login-submit.p-button:not(.p-disabled):hover {
+    background-color: var(--btn-primary-bg-hover);
+    border-color: var(--btn-primary-bg-hover);
+  }
+
+  .login-submit.p-button:not(.p-disabled):active {
+    transform: scale(0.98);
+  }
+
+  .login-submit.p-button.p-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* ===================== DIVIDER ===================== */
+
+  /* Matches Stitch: relative my-8 + absolute inset-0 flex items-center border-t + relative flex justify-center */
+  .login-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .login-divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-border-light);
+  }
+
+  /* Matches Stitch: bg-surface-container-lowest px-4 text-on-surface-variant font-caption text-caption */
+  .login-divider-text {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--color-text-tertiary);
+    white-space: nowrap;
+  }
+
+  /* ===================== SOCIAL BUTTONS ===================== */
+
+  /* Matches Stitch: grid grid-cols-2 gap-4 */
+  .login-social-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* Matches Stitch: flex items-center justify-center gap-2 py-2.5 border border-outline-variant rounded-lg hover:bg-surface-container-low active:scale-95 */
+  .login-social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--color-border-light);
+    border-radius: 0.5rem;
+    background-color: var(--card-bg);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s, transform 0.1s;
+  }
+
+  .login-social-btn:hover {
+    background-color: var(--color-bg-hover);
+  }
+
+  .login-social-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* ===================== FOOTER LINK ===================== */
+
+  /* Matches Stitch: mt-8 text-center font-body text-body text-on-surface-variant */
+  .login-footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .login-footer a {
+    color: var(--color-primary-700);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .login-footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* ===================== PAGE FOOTER ===================== */
+
+  /* Matches Stitch: py-6 px-container-padding flex flex-col md:flex-row justify-center items-center gap-4 */
+  .login-page-footer {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .login-page-footer { flex-direction: row; justify-content: center; }
+  }
+
+  .login-page-footer > span {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+  }
+
+  .login-page-footer-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .login-page-footer-links a {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .login-page-footer-links a:hover {
+    color: var(--color-primary-600);
+  }
+
+  /* ===================== SUCCESS STATE ===================== */
+
+  .login-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    color: var(--color-success-500);
+    text-align: center;
+  }
+
+  .login-success p {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+}

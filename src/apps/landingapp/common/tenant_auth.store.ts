@@ -8,15 +8,21 @@ import { create } from 'zustand'
 // It is used as the setAuth parameter so the store is decoupled from any
 // specific API response type.
 export interface TenantSession {
-  tenantId:     number
-  email:        string
-  tenantStatus: string
+  tenantId:            number
+  email:               string
+  firstName:           string
+  lastName:            string
+  logoUrl:             string
+  tenantStatusCode:    string   // raw status code — used for guard/routing decisions
+  emailVerified:       boolean  // drives EmailVerifiedGuard + profile UI indicator
+  onboardingCompleted: boolean  // drives ProfileCompleteGuard + onboarding UI
 }
 
 interface TenantAuthStore {
   session:         TenantSession | null
   isAuthenticated: boolean
   setAuth:         (data: TenantSession) => void
+  patchSession:    (patch: Partial<TenantSession>) => void
   clearAuth:       () => void
 }
 
@@ -27,11 +33,22 @@ export const useTenantAuthStore = create<TenantAuthStore>((set) => ({
   setAuth: (data) => set({
     isAuthenticated: true,
     session: {
-      tenantId:     data.tenantId,
-      email:        data.email,
-      tenantStatus: data.tenantStatus,
+      tenantId:            data.tenantId,
+      email:               data.email,
+      firstName:           data.firstName,
+      lastName:            data.lastName,
+      logoUrl:             data.logoUrl,
+      tenantStatusCode:    data.tenantStatusCode,
+      emailVerified:       data.emailVerified,
+      onboardingCompleted: data.onboardingCompleted,
     },
   }),
+
+  // Surgical partial update — used after verify-email or complete-profile
+  // to reflect the new status without re-fetching the full session.
+  patchSession: (patch) => set((state) => ({
+    session: state.session ? { ...state.session, ...patch } : null,
+  })),
 
   clearAuth: () => set({
     session:         null,

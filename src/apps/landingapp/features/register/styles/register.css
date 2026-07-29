@@ -1,0 +1,366 @@
+@import "tailwindcss" reference;
+
+@layer components {
+
+  /* ===================== PAGE SHELL ===================== */
+
+  /* Matches Stitch: body radial-gradient(circle at center, #f4fbf8 0%, #e2f2ed 100%) */
+  .reg-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: radial-gradient(
+      circle at center,
+      var(--color-primary-50)  0%,
+      var(--color-primary-100) 100%
+    );
+  }
+
+  @media (min-width: 768px) {
+    .reg-page { padding: 2rem; }
+  }
+
+  /* ===================== OUTER CONTAINER ===================== */
+
+  /* Matches Stitch: auth-card max-width:540px space-y-6 */
+  .reg-container {
+    width: 100%;
+    max-width: 34rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* ===================== BACK LINK ===================== */
+
+  /* Matches Stitch: text-slate-500 hover:text-slate-700 text-sm flex items-center gap-2 */
+  .reg-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .reg-back-link:hover {
+    color: var(--color-text-primary);
+  }
+
+  .reg-back-link .pi {
+    font-size: 1rem;
+    transition: transform 0.15s;
+  }
+
+  .reg-back-link:hover .pi {
+    transform: translateX(-2px);
+  }
+
+  /* ===================== BRAND ROW ===================== */
+
+  /* Matches Stitch: flex justify-center items-center gap-3 py-2 */
+  .reg-brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  /* Matches Stitch: bg-primary p-2 rounded-lg text-white */
+  .reg-brand-icon {
+    background-color: var(--color-primary-500);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  /* Matches Stitch: text-2xl font-bold text-slate-800 */
+  .reg-brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  /* ===================== CARD ===================== */
+
+  /* Matches Stitch: bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-12 */
+  .reg-card {
+    width: 100%;
+    background-color: var(--card-bg);
+    border: 1px solid var(--color-border-light);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.05),
+      0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    animation: reg-card-enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @media (min-width: 768px) {
+    .reg-card { padding: 3rem; }
+  }
+
+  @keyframes reg-card-enter {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+
+  /* ===================== CARD HEADER ===================== */
+
+  /* Matches Stitch: mb-8 */
+  .reg-card-header {
+    margin-bottom: 2rem;
+  }
+
+  /* Matches Stitch: text-2xl font-bold text-slate-900 mb-2 */
+  .reg-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Matches Stitch: text-slate-500 text-sm */
+  .reg-card-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+  }
+
+  /* ===================== FORM LAYOUT ===================== */
+
+  /* Matches Stitch: space-y-5 (1.25rem) */
+  .reg-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  /* Matches Stitch: grid grid-cols-1 md:grid-cols-2 gap-4 */
+  .reg-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .reg-row { grid-template-columns: 1fr 1fr; }
+  }
+
+  .reg-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  /* Matches Stitch: block text-sm font-medium text-slate-700 */
+  .reg-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .reg-error-msg {
+    font-size: 0.75rem;
+    color: var(--color-error-500);
+    margin-top: 0.25rem;
+  }
+
+  /* ===================== PRIMEREACT INPUT OVERRIDES ===================== */
+
+  /* Matches Stitch: px-4 py-2.5 rounded-custom border border-slate-300 focus:ring-primary */
+  .reg-field .p-inputtext {
+    width: 100%;
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--color-border-medium);
+    border-radius: 0.5rem;
+    color: var(--color-text-primary);
+    background-color: var(--card-bg);
+    box-shadow: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .reg-field .p-inputtext::placeholder {
+    color: var(--color-text-disabled);
+  }
+
+  .reg-field .p-inputtext:enabled:hover {
+    border-color: var(--color-primary-400);
+  }
+
+  .reg-field .p-inputtext:enabled:focus {
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+    outline: none;
+  }
+
+  .reg-field .p-inputtext.p-invalid {
+    border-color: var(--color-error-500);
+  }
+
+  .reg-field .p-inputtext.p-invalid:enabled:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+  }
+
+  .reg-field .p-password {
+    width: 100%;
+    display: flex;
+  }
+
+  .reg-field .p-password .p-icon-field {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .reg-field .p-password .p-inputtext {
+    width: 100%;
+  }
+
+  /* ===================== TERMS ROW ===================== */
+
+  /* Matches Stitch: flex items-start gap-3 py-2 */
+  .reg-terms-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+  }
+
+  /* Matches Stitch: text-sm text-slate-600 */
+  .reg-terms-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Matches Stitch: text-primary hover:underline font-medium */
+  .reg-terms-link {
+    color: var(--color-primary-600);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .reg-terms-link:hover {
+    text-decoration: underline;
+  }
+
+  /* ===================== API ERROR BANNER ===================== */
+
+  .reg-api-error {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-error-50);
+    border: 1px solid var(--color-error-200);
+    color: var(--color-error-700);
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+
+  /* ===================== PRIMEREACT BUTTON OVERRIDE ===================== */
+
+  /* Matches Stitch: w-full bg-primary hover:bg-teal-600 text-white font-semibold py-3 rounded-custom active:scale-[0.98] shadow-md */
+  .reg-submit.p-button {
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+  }
+
+  .reg-submit.p-button:not(.p-disabled):hover {
+    background-color: var(--btn-primary-bg-hover);
+    border-color: var(--btn-primary-bg-hover);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  }
+
+  .reg-submit.p-button:not(.p-disabled):active {
+    transform: scale(0.98);
+  }
+
+  .reg-submit.p-button.p-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* ===================== CARD FOOTER ===================== */
+
+  /* Matches Stitch: mt-8 pt-6 border-t border-slate-100 text-center */
+  .reg-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border-light);
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Matches Stitch: text-primary font-semibold hover:underline */
+  .reg-footer a {
+    color: var(--color-primary-600);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .reg-footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* ===================== SUCCESS STATE ===================== */
+
+  .reg-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .reg-success-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: var(--color-success-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-success-600);
+  }
+
+  .reg-success-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .reg-success-message {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    max-width: 340px;
+    line-height: 1.6;
+  }
+
+  .reg-success-email {
+    font-weight: 600;
+    color: var(--color-primary-600);
+  }
+
+}

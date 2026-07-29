@@ -1,27 +1,51 @@
 {
-  "title": "Panel",
-  "welcome": "¡Bienvenido de vuelta, {{name}}!",
-  "selectModule": "Selecciona un módulo",
-  "selectModuleDescription": "Elige un módulo para comenzar.",
-  "sidebar": {
-    "collapse": "Contraer barra lateral",
-    "expand": "Expandir barra lateral"
+  "dashboard": {
+    "welcome": {
+      "title": "¡Bienvenido a DreamSoft, {{name}}!",
+      "subtitle": "Comencemos a impulsar tu negocio. Completa tu configuración para desbloquear todas las funciones."
+    }
   },
-  "topbar": {
-    "toggleSidebar": "Alternar barra lateral"
-  },
-  "errors": {
-    "loadModulesFailed": "Error al cargar los módulos. Por favor intenta de nuevo.",
-    "noModulesAvailable": "No hay módulos disponibles para tu cuenta."
-  },
-  "pages": {
-    "notFound": {
-      "title": "Página no encontrada",
-      "subtitle": "La página que buscas no existe o ha sido movida."
+  "onboardingChecklist": {
+    "title": "Completa la configuración de tu cuenta",
+    "subtitle": "¿Listo para escalar? Completa estos últimos pasos para desbloquear todo el potencial.",
+    "stepsRemaining": "{{count}} Pasos Pendientes",
+    "allCompleted": "Todos los pasos completados",
+    "error": {
+      "retry": "Reintentar"
     },
-    "forbidden": {
-      "title": "Acceso denegado",
-      "subtitle": "No tienes permiso para ver esta página."
+    "steps": {
+      "email": {
+        "title": "Verifica tu dirección de correo",
+        "description": "Verifica tu correo para confirmar tu identidad y recibir tus facturas y recibos.",
+        "descriptionDone": "Tu correo ha sido verificado correctamente.",
+        "statusPending": "Pendiente",
+        "statusDone": "Verificado",
+        "verifyAction": "Verificar Correo"
+      },
+      "profile": {
+        "title": "Completa el onboarding",
+        "description": "¡Ya casi terminas! Agrega los datos de tu negocio y logo para completar tu perfil.",
+        "descriptionDone": "Tu perfil de negocio está completamente configurado.",
+        "descriptionLocked": "Verifica tu correo electrónico primero para desbloquear este paso.",
+        "statusPending": "Incompleto",
+        "statusDone": "Completado",
+        "statusLocked": "Bloqueado",
+        "setupAction": "Configurar Perfil",
+        "editAction": "Editar Perfil",
+        "lockedAction": "Bloqueado"
+      },
+      "subscription": {
+        "title": "Activar suscripción",
+        "description": "Elige una solución y activa tu suscripción para desbloquear todo el potencial de la plataforma.",
+        "descriptionDone": "Tienes suscripciones activas.",
+        "descriptionLocked": "Completa tu perfil de negocio primero para activar una suscripción.",
+        "statusNoPlan": "Sin plan activo",
+        "statusDone": "{{count}} Planes Activos",
+        "statusLocked": "Bloqueado",
+        "choosePlanAction": "Elegir un plan",
+        "manageAction": "Gestionar Planes",
+        "lockedAction": "Bloqueado"
+      }
     }
   }
 }

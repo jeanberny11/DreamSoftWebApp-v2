@@ -5,7 +5,7 @@
  * - Static EN and ES locale files bundled with the app
  * - Default language: 'es' (overridden at runtime by language.store on boot)
  * - Fallback language: always 'es'
- * - Namespaces: common, auth, validation, landing, dashboard
+ * - Namespaces: common, auth, validation, landing
  *
  * The actual startup language is set dynamically by language.store
  * after fetching supported languages from the API.
@@ -20,6 +20,8 @@ import enAuth       from './locales/en/auth.json'
 import enValidation from './locales/en/validation.json'
 import enLanding    from './locales/en/landing.json'
 import enDashboard  from './locales/en/dashboard.json'
+import enProfile    from './locales/en/profile.json'
+import enSubscriptions from './locales/en/subscriptions.json'
 
 // ── Spanish translations ────────────────────────────────────────────────────
 import esCommon     from './locales/es/common.json'
@@ -27,6 +29,8 @@ import esAuth       from './locales/es/auth.json'
 import esValidation from './locales/es/validation.json'
 import esLanding    from './locales/es/landing.json'
 import esDashboard  from './locales/es/dashboard.json'
+import esProfile    from './locales/es/profile.json'
+import esSubscriptions from './locales/es/subscriptions.json'
 
 export const resources = {
   en: {
@@ -35,6 +39,8 @@ export const resources = {
     validation: enValidation,
     landing:    enLanding,
     dashboard:  enDashboard,
+    profile:    enProfile,
+    subscriptions: enSubscriptions,
   },
   es: {
     common:     esCommon,
@@ -42,6 +48,8 @@ export const resources = {
     validation: esValidation,
     landing:    esLanding,
     dashboard:  esDashboard,
+    profile:    esProfile,
+    subscriptions: esSubscriptions,
   },
 } as const
 
@@ -58,7 +66,7 @@ i18n
     fallbackLng: 'es',
 
     defaultNS: 'common',
-    ns: ['common', 'auth', 'validation', 'landing', 'dashboard'],
+    ns: ['common', 'auth', 'validation', 'landing', 'dashboard', 'profile', 'subscriptions'],
 
     interpolation: {
       escapeValue: false, // React already escapes values

@@ -1,4 +1,4 @@
-// AuthGuard — redirects unauthenticated tenant users to /login
+﻿// AuthGuard — redirects unauthenticated tenant users to /login
 
 import { Navigate, Outlet } from 'react-router-dom'
 import { useTenantAuthStore } from '@/apps/landingapp/common/tenant_auth.store'

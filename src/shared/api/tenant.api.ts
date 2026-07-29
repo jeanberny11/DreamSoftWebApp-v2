@@ -1,6 +1,6 @@
-// tenant.api.ts — Tenant app API calls (subscription management)
+﻿// tenant.api.ts â€” Tenant app API calls (subscription management)
 
-import { tenantClient } from '@/apps/landingapp/common/tenantClient'
+import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 
 export interface CreateSubscriptionRequest {
   planId:          string

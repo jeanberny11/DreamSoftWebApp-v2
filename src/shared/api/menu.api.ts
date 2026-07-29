@@ -1,6 +1,6 @@
-// menu.api.ts — Fetches the role-based menu/permissions for the authenticated user
+﻿// menu.api.ts â€” Fetches the role-based menu/permissions for the authenticated user
 
-import { tenantClient } from '@/apps/landingapp/common/tenantClient'
+import { tenantClient } from '@/apps/landingapp/common/api/tenantClient'
 import type { MenuItem } from '@/shared/types/menu.types'
 
 export const menuApi = {

@@ -1,6 +1,6 @@
 // useApi — thin wrapper around Axios calls with loading/error state
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import type { AxiosError } from 'axios'
 import type { ApplicationApiError } from '../types/api.types'
 
@@ -18,12 +18,15 @@ export function useApi<T>(
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  const fnRef = useRef(fn)
+  useEffect(() => { fnRef.current = fn }, [fn])
+
   const execute = useCallback(
     async (...args: unknown[]): Promise<T | null> => {
       setIsLoading(true)
       setError(null)
       try {
-        const response = await fn(...args)
+        const response = await fnRef.current(...args)
         setData(response.data)
         return response.data
       } catch (err) {
@@ -35,7 +38,7 @@ export function useApi<T>(
         setIsLoading(false)
       }
     },
-    [fn]
+    []
   )
 
   return { data, isLoading, error, execute }

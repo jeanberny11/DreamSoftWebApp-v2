@@ -177,4 +177,110 @@
   --navbar-bg: #ffffff;
   --navbar-text: var(--color-text-primary);
   --navbar-border: var(--color-border-light);
+
+  /* Features Catalog */
+  --fc-page-bg: #f4fbf8;
+  --fc-surface-lowest: #ffffff;
+  --fc-surface-low: #eff5f2;
+  --fc-surface: #e9efec;
+  --fc-text: #161d1b;
+  --fc-text-muted: #3c4947;
+  --fc-border: #bbcac6;
+  --fc-border-faint: rgba(187, 202, 198, 0.3);
+  --fc-icon: var(--color-primary-500);
+  --fc-icon-bg: rgba(20, 184, 166, 0.2);
+  --fc-primary-card-bg: var(--color-primary-500);
+  --fc-primary-card-text: #00423b;
+  --fc-cta-bg: #2b3230;
+  --fc-cta-text: #ecf2ef;
+  --fc-cta-orb: rgba(20, 184, 166, 0.1);
+  --fc-cta-btn-sec-bg: rgba(255, 255, 255, 0.05);
+  --fc-cta-btn-sec-hover: rgba(255, 255, 255, 0.1);
+  --fc-cta-btn-sec-border: rgba(255, 255, 255, 0.2);
+  --fc-glass-bg: rgba(255, 255, 255, 0.1);
+  --fc-glass-bg-hover: rgba(255, 255, 255, 0.2);
+  --fc-glass-border: rgba(255, 255, 255, 0.2);
+  --fc-success-badge-bg: rgba(34, 197, 94, 0.1);
+  --fc-primary-badge-bg: rgba(20, 184, 166, 0.1);
+  --fc-error-text-muted: rgba(239, 68, 68, 0.8);
+  --fc-card-hover-shadow: rgba(0, 0, 0, 0.04);
+  --fc-cta-shadow: rgba(0, 0, 0, 0.25);
+
+  /* Tenant Control Panel */
+  --tcp-active-bg: rgba(255, 255, 255, 0.75);
+  --tcp-border-color: rgba(20, 184, 166, 0.15);
+  --tcp-hover-color: rgba(20, 184, 166, 0.08);
+  --tcp-logout-hover-bg: rgba(239, 68, 68, 0.1);
+
+  /* Tenant Control Panel — Profile View */
+  --tcp-profile-hero-gradient: linear-gradient(
+    to right,
+    rgba(20, 184, 166, 0.2),
+    rgba(20, 184, 166, 0.05),
+    rgba(20, 184, 166, 0.2)
+  );
+  --tcp-profile-avatar-size: 120px;
+  --tcp-profile-avatar-bg: var(--color-primary-500);
+  --tcp-profile-status-badge-bg: rgba(20, 184, 166, 0.1);
+  --tcp-profile-status-badge-text: var(--color-primary-700);
+  --tcp-profile-status-badge-border: rgba(20, 184, 166, 0.2);
+  --tcp-profile-status-inactive-bg: var(--color-gray-100);
+  --tcp-profile-status-inactive-text: var(--color-gray-500);
+  --tcp-profile-status-inactive-border: var(--color-gray-200);
+  --tcp-profile-success-badge-bg: rgba(34, 197, 94, 0.1);
+  --tcp-profile-success-badge-text: var(--color-success-600);
+  --tcp-profile-success-badge-border: rgba(34, 197, 94, 0.2);
+  --tcp-profile-card-header-bg: rgba(249, 250, 251, 0.5);
+  --tcp-profile-icon-bg: rgba(20, 184, 166, 0.1);
+  --tcp-profile-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --tcp-profile-shadow-info-card: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  /* Tenant Control Panel — Subscriptions */
+  --tcp-subs-icon-bg: rgba(20, 184, 166, 0.1);
+  --tcp-subs-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --tcp-subs-card-shadow-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --tcp-subs-divider: var(--color-gray-100);
+  --tcp-subs-code-badge-bg: var(--color-gray-100);
+  --tcp-subs-code-badge-text: var(--color-text-secondary);
+  --tcp-subs-notes-bg: var(--color-bg-secondary);
+  --tcp-subs-notes-border: rgba(0, 0, 0, 0.04);
+
+  --tcp-subs-badge-success-bg: rgba(34, 197, 94, 0.1);
+  --tcp-subs-badge-success-text: var(--color-success-600);
+  --tcp-subs-badge-info-bg: rgba(59, 130, 246, 0.1);
+  --tcp-subs-badge-info-text: var(--color-info-600);
+  --tcp-subs-badge-warning-bg: rgba(245, 158, 11, 0.1);
+  --tcp-subs-badge-warning-text: var(--color-warning-700);
+  --tcp-subs-badge-error-bg: rgba(239, 68, 68, 0.1);
+  --tcp-subs-badge-error-text: var(--color-error-600);
+  --tcp-subs-badge-neutral-bg: var(--color-gray-100);
+  --tcp-subs-badge-neutral-text: var(--color-gray-500);
+
+  --tcp-subs-danger-hover-bg: rgba(239, 68, 68, 0.05);
+
+  --tcp-subs-empty-icon-bg: var(--color-bg-tertiary);
+
+  /* Onboarding Checklist */
+  --oc-surface: #f4fbf8;
+  --oc-surface-low: #eff5f2;
+  --oc-surface-high: #e3eae7;
+  --oc-border: #bbcac6;
+  --oc-text-primary: #161d1b;
+  --oc-text-muted: #3c4947;
+  --oc-status-badge-bg: var(--color-primary-500);
+  --oc-status-badge-text: #00423b;
+  --oc-header-icon-bg: rgba(20, 184, 166, 0.1);
+  --oc-btn-primary-bg: #006b5f;
+  --oc-btn-primary-hover: #005048;
+  --oc-btn-secondary-bg: #006c49;
+  --oc-btn-secondary-hover: #00714d;
+  --oc-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.02);
+  --oc-step-hover-shadow: 0 10px 15px -3px rgba(0, 107, 95, 0.05);
+  --oc-featured-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --oc-badge-warning-bg: rgba(245, 158, 11, 0.1);
+  --oc-badge-error-bg: rgba(239, 68, 68, 0.1);
+  --oc-badge-success-bg: rgba(34, 197, 94, 0.1);
+  --oc-badge-locked-bg: rgba(107, 114, 128, 0.12);
+  --oc-badge-locked-text: var(--color-gray-500);
+  --oc-item-done-bg: rgba(20, 184, 166, 0.05);
 }

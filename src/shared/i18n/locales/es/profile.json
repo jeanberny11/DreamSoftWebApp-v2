@@ -1,0 +1,107 @@
+{
+  "view": {
+    "title": "Mi Perfil",
+    "editButton": "Editar Perfil",
+    "memberSince": "Miembro Desde",
+    "lastUpdate": "Última Actualización del Perfil",
+    "onboardingComplete": "Incorporación Completa",
+    "sections": {
+      "business": "Negocio",
+      "location": "Ubicación"
+    },
+    "fields": {
+      "company": "Empresa",
+      "phone": "Teléfono",
+      "website": "Sitio Web"
+    },
+    "empty": "No proporcionado",
+    "loading": "Cargando tu perfil...",
+    "errorTitle": "Algo salió mal",
+    "errorMessage": "No pudimos cargar tu perfil. Inténtalo de nuevo.",
+    "retry": "Reintentar"
+  },
+  "edit": {
+    "backToProfile": "Volver al Perfil",
+    "title": "Editar Perfil",
+    "cancel": "Cancelar",
+    "save": "Guardar Cambios",
+    "saving": "Actualizando...",
+
+    "sections": {
+      "personal": "Información Personal",
+      "company": "Información de la Empresa",
+      "address": "Dirección",
+      "preferences": "Preferencias"
+    },
+
+    "fields": {
+      "firstName": "Nombre",
+      "firstNamePlaceholder": "Ingresa el nombre",
+      "lastName": "Apellido",
+      "lastNamePlaceholder": "Ingresa el apellido",
+
+      "companyName": "Nombre de la Empresa",
+      "companyNamePlaceholder": "Ingresa el nombre de la empresa",
+      "phone": "Teléfono",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "website": "Sitio Web",
+      "websitePlaceholder": "https://tuempresa.com",
+
+      "addressLine1": "Dirección Línea 1",
+      "addressLine1Placeholder": "Dirección",
+      "addressLine2": "Dirección Línea 2",
+      "addressLine2Placeholder": "Apartamento, suite, unidad, etc.",
+      "country": "País",
+      "countryPlaceholder": "Selecciona un país",
+      "province": "Provincia",
+      "provincePlaceholder": "Selecciona una provincia",
+      "provinceLockedHint": "Selecciona primero un país",
+      "municipality": "Municipio",
+      "municipalityPlaceholder": "Selecciona un municipio",
+      "municipalityLockedHint": "Selecciona primero una provincia",
+      "postalCode": "Código Postal",
+      "postalCodePlaceholder": "Código postal",
+
+      "language": "Idioma",
+      "languagePlaceholder": "Selecciona un idioma"
+    },
+
+    "errors": {
+      "profileLoadFailed": "No se pudo cargar tu perfil. Inténtalo de nuevo.",
+      "countryLoadFailed": "No se pudieron cargar los países. Inténtalo de nuevo.",
+      "provinceLoadFailed": "No se pudieron cargar las provincias. Inténtalo de nuevo.",
+      "municipalityLoadFailed": "No se pudieron cargar los municipios. Inténtalo de nuevo.",
+      "generic": "Ocurrió un error. Inténtalo de nuevo.",
+      "networkError": "Error de red. Verifica tu conexión.",
+
+      "firstNameRequired": "El nombre es obligatorio.",
+      "firstNameLength": "El nombre debe tener entre 2 y 100 caracteres.",
+      "firstNameInvalid": "El nombre contiene caracteres no válidos.",
+
+      "lastNameRequired": "El apellido es obligatorio.",
+      "lastNameLength": "El apellido debe tener entre 2 y 100 caracteres.",
+      "lastNameInvalid": "El apellido contiene caracteres no válidos.",
+
+      "companyNameRequired": "El nombre de la empresa es obligatorio.",
+      "companyNameLength": "El nombre de la empresa debe tener entre 2 y 255 caracteres.",
+      "companyNameInvalid": "El nombre de la empresa contiene caracteres no válidos.",
+
+      "phoneRequired": "El teléfono es obligatorio.",
+      "phoneInvalid": "Ingresa un número de teléfono válido.",
+
+      "websiteLength": "El sitio web debe tener 255 caracteres o menos.",
+
+      "addressLine1Required": "La dirección es obligatoria.",
+      "addressLine1Length": "La dirección debe tener 255 caracteres o menos.",
+      "addressLine2Length": "La dirección línea 2 debe tener 255 caracteres o menos.",
+
+      "countryRequired": "Selecciona un país.",
+      "provinceRequired": "Selecciona una provincia.",
+      "municipalityRequired": "Selecciona un municipio.",
+
+      "postalCodeLength": "El código postal debe tener 20 caracteres o menos.",
+
+      "languageRequired": "Selecciona un idioma."
+    }
+  }
+}

@@ -1,0 +1,364 @@
+@import "tailwindcss" reference;
+
+@layer components {
+
+  /* ===================== PAGE SHELL ===================== */
+
+  .verify-email-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: var(--color-primary-50);
+    background-image:
+      radial-gradient(circle at 0% 0%,   color-mix(in srgb, var(--color-primary-500) 5%, transparent) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--color-accent-500)  5%, transparent) 0%, transparent 50%);
+    position: relative;
+  }
+
+  /* ===================== BACK LINK ===================== */
+
+  .verify-email-back-link {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .verify-email-back-link:hover {
+    color: var(--color-primary-600);
+  }
+
+  .verify-email-back-link .material-icon {
+    font-size: 1.125rem;
+  }
+
+  /* ===================== MAIN CONTENT BLOCK ===================== */
+
+  .verify-email-main {
+    width: 100%;
+    max-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* ===================== STEP INDICATOR ===================== */
+
+  .verify-email-step {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1rem;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+
+  /* ===================== ICON WITH RIPPLE ===================== */
+
+  .verify-email-icon-wrap {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .verify-email-icon-ripple {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background-color: color-mix(in srgb, var(--color-primary-500) 20%, transparent);
+    animation: ve-ripple 2s infinite ease-out;
+  }
+
+  @keyframes ve-ripple {
+    0%   { transform: scale(0.8); opacity: 0.5; }
+    100% { transform: scale(1.5); opacity: 0;   }
+  }
+
+  .verify-email-icon-circle {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--color-primary-100);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-700);
+    font-size: 2.25rem;
+  }
+
+  .verify-email-icon-circle.is-success {
+    background-color: var(--color-success-100);
+    color: var(--color-success-600);
+  }
+
+  /* ===================== HEADING & SUBTITLE ===================== */
+
+  .verify-email-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .verify-email-subtitle {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+  }
+
+  .verify-email-subtitle-email {
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  /* ===================== OTP INPUT ROW ===================== */
+
+  .verify-email-otp-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 480px) {
+    .verify-email-otp-row { gap: 1rem; }
+  }
+
+  .verify-email-otp-input {
+    width: 3.5rem;
+    height: 4rem;
+    flex-shrink: 0;
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-medium);
+    border-radius: 0.75rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    color: var(--color-text-primary);
+    transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+    outline: none;
+    caret-color: var(--color-primary-500);
+  }
+
+  .verify-email-otp-input:focus {
+    border-color: var(--color-primary-500);
+    background-color: var(--color-bg-primary);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary-500) 25%, transparent);
+  }
+
+  .verify-email-otp-input.is-error {
+    border-color: var(--color-error-500);
+    color: var(--color-error-600);
+    background-color: var(--color-error-50);
+  }
+
+  .verify-email-otp-input.is-success {
+    border-color: var(--color-success-500);
+    color: var(--color-success-600);
+    background-color: var(--color-success-50);
+  }
+
+  .verify-email-otp-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* ===================== FEEDBACK MESSAGE ===================== */
+
+  .verify-email-feedback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  .verify-email-feedback.is-error {
+    color: var(--color-error-600);
+  }
+
+  .verify-email-feedback.is-success {
+    color: var(--color-success-600);
+  }
+
+  .verify-email-feedback .material-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ===================== TIMER ROW ===================== */
+
+  .verify-email-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--color-text-tertiary);
+    margin-bottom: 1.5rem;
+  }
+
+  .verify-email-timer .material-icon {
+    font-size: 1rem;
+  }
+
+  .verify-email-timer-value {
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .verify-email-timer-value.is-warning {
+    color: var(--color-warning-600);
+  }
+
+  .verify-email-timer-value.is-expired {
+    color: var(--color-error-500);
+  }
+
+  /* ===================== VERIFY BUTTON ===================== */
+
+  .verify-email-btn {
+    width: 100%;
+    height: 3.5rem;
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s, opacity 0.2s;
+    margin-bottom: 1.5rem;
+  }
+
+  .verify-email-btn:not(:disabled):hover {
+    background-color: var(--btn-primary-bg-hover);
+  }
+
+  .verify-email-btn:not(:disabled):active {
+    transform: scale(0.98);
+  }
+
+  .verify-email-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .verify-email-btn.is-success {
+    background-color: var(--color-success-500);
+  }
+
+  /* ===================== SPINNER ===================== */
+
+  .verify-email-spinner {
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 2px solid color-mix(in srgb, var(--btn-primary-text) 30%, transparent);
+    border-top-color: var(--btn-primary-text);
+    border-radius: 9999px;
+    animation: ve-spin 0.8s linear infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes ve-spin {
+    from { transform: rotate(0deg);   }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* ===================== RESEND SECTION ===================== */
+
+  .verify-email-resend {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--color-text-tertiary);
+  }
+
+  .verify-email-resend-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+
+  .verify-email-resend-btn:not(:disabled) {
+    color: var(--color-primary-600);
+  }
+
+  .verify-email-resend-btn:not(:disabled):hover {
+    text-decoration: underline;
+  }
+
+  .verify-email-resend-btn:disabled {
+    color: var(--color-text-tertiary);
+    cursor: not-allowed;
+  }
+
+  /* ===================== SEND ERROR BANNER ===================== */
+
+  .verify-email-send-error {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-error-50);
+    border: 1px solid var(--color-error-200);
+    color: var(--color-error-700);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .verify-email-send-error .material-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* ===================== NO ACTIVE CODE ===================== */
+
+  .verify-email-no-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .verify-email-no-code-text {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+
+}

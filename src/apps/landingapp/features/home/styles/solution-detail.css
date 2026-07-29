@@ -1,0 +1,482 @@
+@import "tailwindcss" reference;
+
+@layer components {
+
+  /* ── Section visibility animation ── */
+
+  .sd-section {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .sd-section--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Hero ── */
+  .sd-module-tag {
+    @apply mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider;
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-700);
+  }
+
+  .sd-module-tag-icon {
+    @apply h-5 w-5 rounded-full object-cover;
+  }
+
+  .sd-badge-icon {
+    @apply text-sm;
+    color: var(--color-primary-500);
+  }
+
+  /* ── Plans Section ── */
+
+  .sd-plans-section {
+    @apply py-24;
+    background-color: var(--color-bg-secondary);
+  }
+
+  .sd-plans-header {
+    @apply mb-12 flex flex-col items-center text-center;
+  }
+
+  .sd-plans-subtitle {
+    @apply mt-2 mb-8 text-base max-w-xl;
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Billing Toggle — segmented control ── */
+
+  .sd-billing-segment {
+    @apply inline-flex items-center p-1 rounded-xl;
+    background-color: var(--color-bg-tertiary);
+  }
+
+  .sd-segment-btn {
+    @apply px-6 py-2 rounded-lg text-sm font-medium cursor-pointer transition-all;
+    color: var(--color-text-secondary);
+  }
+
+  .sd-segment-btn:hover {
+    color: var(--color-primary-500);
+  }
+
+  .sd-segment-btn--active {
+    background-color: var(--color-bg-primary);
+    box-shadow: 0 1px 3px var(--color-shadow-md);
+    color: var(--color-primary-500);
+  }
+
+  .sd-billing-discount {
+    @apply ml-1 text-xs font-bold;
+    color: var(--color-success-600);
+  }
+
+  /* ── Plan Cards Grid ── */
+
+  .sd-plan-cards-grid {
+    @apply relative grid grid-cols-1 gap-8 pt-6 md:grid-cols-3 items-stretch mb-16;
+  }
+
+  .sd-plan-card {
+    @apply relative text-left p-8 rounded-2xl border border-gray-200 bg-white flex flex-col cursor-pointer transition-all outline-none shadow-sm hover:shadow-lg text-gray-900;
+  }
+
+  .sd-plan-card:hover {
+    border-color: var(--color-primary-500);
+  }
+
+  .sd-plan-card:focus-visible {
+    box-shadow: 0 0 0 3px var(--color-primary-200);
+  }
+
+  .sd-plan-card--active {
+    @apply text-white;
+    border-color: var(--color-primary-500);
+    background-color: var(--color-primary-500);
+  }
+
+  .sd-popular-badge {
+    @apply absolute -top-3.5 left-1/2 -translate-x-1/2;
+  }
+
+  .sd-popular-badge-label {
+    @apply inline-flex items-center gap-1.5 rounded-full px-4 py-1 text-xs font-bold text-white shadow;
+    background-color: var(--color-secondary-500);
+  }
+
+  .sd-plan-card-body {
+    @apply mb-0;
+  }
+
+  .sd-plan-name {
+    @apply text-lg font-bold;
+  }
+
+  .sd-plan-desc {
+    @apply mt-1 text-sm leading-relaxed text-gray-500;
+  }
+
+  .sd-plan-card--active .sd-plan-desc {
+    color: var(--color-primary-100);
+  }
+
+  .sd-plan-price-row {
+    @apply mt-6 flex items-end gap-1;
+  }
+
+  .sd-plan-price {
+    @apply text-5xl font-extrabold tracking-tight;
+  }
+
+  .sd-plan-price-cycle {
+    @apply mb-1.5 text-sm font-medium text-gray-400;
+  }
+
+  .sd-plan-card--active .sd-plan-price-cycle {
+    color: var(--color-primary-200);
+  }
+
+  .sd-plan-divider {
+    @apply my-6 h-px w-full bg-gray-100;
+  }
+
+  .sd-plan-card--active .sd-plan-divider {
+    background-color: var(--color-primary-400);
+  }
+
+  .sd-plan-limits {
+    @apply flex-1 space-y-3;
+  }
+
+  .sd-plan-limits-label {
+    @apply text-[10px] font-bold uppercase tracking-wider mb-2;
+    color: var(--color-primary-500);
+  }
+
+  .sd-plan-card--active .sd-plan-limits-label {
+    color: var(--color-primary-200);
+  }
+
+  .sd-plan-limit-list {
+    @apply space-y-3 list-none p-0 m-0;
+  }
+
+  .sd-plan-limit-item {
+    @apply flex items-center justify-between gap-2 text-sm;
+  }
+
+  .sd-plan-limit-left {
+    @apply flex items-center gap-2;
+  }
+
+  .sd-plan-limit-desc {
+    @apply text-gray-600 truncate;
+  }
+
+  .sd-plan-card--active .sd-plan-limit-desc {
+    color: var(--color-primary-100);
+  }
+
+  .sd-plan-limit-value {
+    @apply shrink-0 font-semibold tabular-nums text-gray-900;
+  }
+
+  .sd-plan-limit-value--unlimited {
+    color: var(--color-secondary-600);
+  }
+
+  .sd-plan-card--active .sd-plan-limit-value {
+    @apply text-white;
+  }
+
+  .sd-plan-card--active .sd-plan-limit-value--unlimited {
+    @apply text-white;
+  }
+
+  .sd-plan-limit-icon {
+    @apply text-xs shrink-0;
+    color: var(--color-primary-500);
+  }
+
+  .sd-plan-card--active .sd-plan-limit-icon {
+    color: var(--color-primary-200);
+  }
+
+  .sd-plan-cta-btn {
+    @apply mt-8 w-full rounded-xl px-4 py-3 text-center text-sm font-bold cursor-pointer transition-all text-white;
+    background-color: var(--color-primary-500);
+  }
+
+  .sd-plan-cta-btn:hover {
+    background-color: var(--color-primary-600);
+  }
+
+  .sd-plan-card--active .sd-plan-cta-btn {
+    @apply shadow-sm;
+    background-color: white;
+    color: var(--color-primary-600);
+  }
+
+  .sd-plan-card--active .sd-plan-cta-btn:hover {
+    background-color: var(--color-primary-50);
+  }
+
+  /* ── Feature Detail Section ── */
+
+  .sd-feature-detail-section {
+    @apply mx-auto;
+    max-width: 64rem;
+  }
+
+  .sd-feature-detail-header {
+    @apply text-center mb-8;
+  }
+
+  .sd-feature-detail-title {
+    @apply text-2xl font-semibold;
+    color: var(--color-text-primary);
+  }
+
+  .sd-feature-detail-subtitle {
+    @apply text-sm mt-1;
+    color: var(--color-text-secondary);
+  }
+
+  .sd-feature-detail-plan-name {
+    @apply font-bold;
+    color: var(--color-primary-500);
+  }
+
+  .sd-feature-detail-card {
+    @apply rounded-3xl border p-8 shadow-sm;
+    background-color: var(--color-bg-primary);
+    border-color: var(--color-border-light);
+  }
+
+  @media (min-width: 1024px) {
+    .sd-feature-detail-card {
+      padding: 3rem;
+    }
+  }
+
+  .sd-feature-columns {
+    @apply grid grid-cols-1 gap-12 md:grid-cols-3;
+  }
+
+  .sd-feature-col-header {
+    @apply mb-5 pl-3 border-l-4;
+    border-color: var(--color-primary-500);
+  }
+
+  .sd-feature-col-title {
+    @apply text-base font-bold uppercase tracking-wide;
+    color: var(--color-text-primary);
+  }
+
+  .sd-feature-col-list {
+    @apply space-y-3 list-none p-0 m-0;
+  }
+
+  .sd-feature-col-item {
+    @apply flex items-center gap-2;
+  }
+
+  .sd-feature-col-item--locked {
+    opacity: 0.4;
+  }
+
+  .sd-feature-col-check {
+    @apply text-sm shrink-0;
+    color: var(--color-success-500);
+  }
+
+  .sd-feature-col-lock {
+    @apply text-xs shrink-0;
+    color: var(--color-text-primary);
+  }
+
+  .sd-feature-col-option-icon {
+    @apply text-xs shrink-0;
+    color: var(--color-primary-400);
+  }
+
+  .sd-feature-col-text {
+    @apply text-sm leading-snug;
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Feature Detail Footer ── */
+
+  .sd-detail-footer {
+    @apply mt-12 pt-8 border-t flex flex-col gap-6 md:flex-row md:items-center md:justify-between;
+    border-color: var(--color-border-light);
+  }
+
+  .sd-detail-social {
+    @apply flex items-center gap-4;
+  }
+
+  .sd-mini-avatar-cluster {
+    @apply flex;
+  }
+
+  .sd-mini-avatar-cluster > * + * {
+    margin-left: -0.5rem;
+  }
+
+  .sd-mini-avatar {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold border-2;
+    border-color: var(--color-bg-primary);
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-700);
+  }
+
+  .sd-mini-avatar--2 {
+    background-color: var(--color-secondary-100);
+    color: var(--color-secondary-700);
+  }
+
+  .sd-mini-avatar--3 {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+  }
+
+  .sd-detail-footer-text {
+    @apply text-xs;
+    color: var(--color-text-secondary);
+  }
+
+  .sd-detail-cta-btn {
+    @apply inline-block whitespace-nowrap px-12 py-3 rounded-xl text-sm font-medium cursor-pointer transition-all text-center;
+    background-color: var(--color-primary-500);
+    color: var(--color-text-inverse);
+  }
+
+  .sd-detail-cta-btn:hover {
+    background-color: var(--color-primary-600);
+    box-shadow: 0 10px 15px -3px var(--color-shadow-md);
+  }
+
+  /* ── Dark CTA Section ── */
+
+  .sd-dark-cta-section {
+    @apply py-20;
+  }
+
+  .sd-dark-cta-inner {
+    @apply max-w-7xl mx-auto px-6;
+  }
+
+  .sd-dark-cta-card {
+    @apply rounded-[2rem] p-12 text-center relative overflow-hidden;
+    background-color: var(--color-gray-900);
+  }
+
+  @media (min-width: 1024px) {
+    .sd-dark-cta-card {
+      padding: 5rem;
+    }
+  }
+
+  .sd-dark-cta-glow {
+    @apply absolute top-0 right-0 w-96 h-96 pointer-events-none;
+    background-color: var(--color-primary-500);
+    opacity: 0.1;
+    filter: blur(100px);
+  }
+
+  .sd-dark-cta-content {
+    @apply relative z-10;
+  }
+
+  .sd-dark-cta-title {
+    @apply text-3xl font-bold mb-6;
+    color: var(--color-text-inverse);
+  }
+
+  @media (min-width: 1024px) {
+    .sd-dark-cta-title {
+      font-size: 3rem;
+      line-height: 1.1;
+    }
+  }
+
+  .sd-dark-cta-subtitle {
+    @apply text-lg mb-10 max-w-2xl mx-auto;
+    color: var(--color-gray-400);
+  }
+
+  .sd-dark-cta-btn {
+    @apply inline-block px-10 py-4 rounded-xl text-lg font-medium cursor-pointer transition-all;
+    background-color: var(--color-primary-500);
+    color: var(--color-text-inverse);
+  }
+
+  .sd-dark-cta-btn:hover {
+    background-color: var(--color-primary-600);
+  }
+
+  /* ── Skeleton Loaders ── */
+
+  .sd-skeleton-wrap {
+    @apply py-8;
+  }
+
+  .sd-skeleton {
+    @apply animate-pulse rounded-xl;
+    background-color: var(--color-border-light);
+  }
+
+  .sd-skeleton--hero {
+    @apply mx-auto mb-12 h-64 w-full max-w-3xl;
+  }
+
+  .sd-skeleton-row {
+    @apply mb-12 grid grid-cols-1 gap-6 md:grid-cols-3;
+  }
+
+  .sd-skeleton--card {
+    @apply h-48;
+  }
+
+  /* ── Error State ── */
+
+  .sd-error-wrap {
+    @apply flex min-h-96 items-center justify-center px-4 py-20;
+  }
+
+  .sd-error-card {
+    @apply flex max-w-md flex-col items-center gap-4 rounded-2xl border p-10 text-center shadow-sm;
+    border-color: var(--color-border-light);
+    background-color: var(--color-bg-primary);
+  }
+
+  .sd-error-icon {
+    @apply text-4xl;
+    color: var(--color-error-500);
+  }
+
+  .sd-error-title {
+    @apply text-xl font-semibold;
+    color: var(--color-text-primary);
+  }
+
+  .sd-error-message {
+    @apply text-sm leading-relaxed;
+    color: var(--color-text-secondary);
+  }
+
+  .sd-retry-btn {
+    @apply mt-2 cursor-pointer rounded-lg px-6 py-2.5 text-sm font-semibold transition-colors;
+    background-color: var(--color-primary-500);
+    color: var(--color-text-inverse);
+  }
+
+  .sd-retry-btn:hover {
+    background-color: var(--color-primary-600);
+  }
+
+}
