@@ -7,11 +7,9 @@
 // "View Invoices" / "Add New Subscription" remain inert for this pass —
 // navigation will be wired up in a later session.
 
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSubscriptionsStore } from "../stores/subscriptions.store";
 import { getFeatureIcon } from "@/apps/landingapp/features/home/utils/featureIconMap";
 import { formatCurrency, formatDate } from "@/shared/utils/formatters";
 import {
