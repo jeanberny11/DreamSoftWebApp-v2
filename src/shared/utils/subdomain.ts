@@ -1,6 +1,12 @@
 // Subdomain detection utilities
 
-const MAIN_DOMAINS = ['dreamsoft.com', 'www.dreamsoft.com', 'localhost']
+// Comma-separated via VITE_MAIN_DOMAINS, falls back to the hardcoded defaults.
+// Add your production domain(s) here via the Railway env var until every
+// deployment target is finalized.
+const MAIN_DOMAINS = (import.meta.env.VITE_MAIN_DOMAINS as string | undefined)
+  ?.split(',')
+  .map((d) => d.trim())
+  .filter(Boolean) ?? ['dreamsoft.com', 'www.dreamsoft.com', 'localhost']
 
 /**
  * Returns true if the current hostname is a tenant subdomain.

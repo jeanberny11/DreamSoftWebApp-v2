@@ -18,6 +18,9 @@ COPY . ./
 ARG VITE_API_BASE_URL
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 
+ARG VITE_MAIN_DOMAINS
+ENV VITE_MAIN_DOMAINS=$VITE_MAIN_DOMAINS
+
 RUN npm run build
 
 # ── Serve stage ─────────────────────────────────────────────────────────────
